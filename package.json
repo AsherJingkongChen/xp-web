@@ -1,8 +1,7 @@
 {
-  "name": "xp-web",
-  "description": "Web package of XP (Profile any file)",
+  "name": "xp-vue",
+  "description": "Vue package of XP (Any file previewer)",
   "version": "0.0.0",
-  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,7 +11,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write index.html *.ts src/"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "pinia": "^2.1.7",
@@ -35,6 +34,7 @@
     "jsdom": "^23.0.1",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
+    "sass": "^1.69.5",
     "typescript": "~5.2.0",
     "vite": "^5.0.5",
     "vitest": "^1.0.1",
