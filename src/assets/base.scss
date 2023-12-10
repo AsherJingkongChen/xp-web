@@ -1,45 +1,48 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:wght@400;500;700&display=swap');
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:wght@300;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Play:wght@700&display=swap');
 
 // SCSS constants
 
+$ColorBlack: hsl(0, 0%, 12%);
+$ColorDeepAmethyst: hsl(270, 10%, 60%);
+$ColorGreige: hsl(30, 10%, 60%);
+$ColorJapaneseViolet: hsl(300, 25%, 25%);
+$ColorLilac: hsl(280, 25%, 50%);
+$ColorLilacTint: hsl(280, 25%, 75%);
+$ColorLilacTone: hsl(280, 25%, 40%);
+$ColorLilacShade: hsl(280, 25%, 25%);
+$ColorTuscanRed: hsl(0, 25%, 50%);
+$ColorTuscanRedTint: hsl(0, 25%, 65%);
+$ColorTuscanRedTone: hsl(0, 25%, 40%);
+$ColorTuscanRedShade: hsl(0, 25%, 25%);
+$ColorLinearBrand: linear-gradient(
+  to bottom,
+  $ColorLilacTint 0%,
+  $ColorTuscanRed 75%,
+  $ColorTuscanRedTone 100%
+);
+$ColorLinearHeadingCool: linear-gradient(
+  to bottom,
+  $ColorLilacTint 0%,
+  $ColorLilac 75%,
+  $ColorJapaneseViolet 100%
+);
+$ColorLinearHeadingWarm: linear-gradient(
+  to bottom,
+  $ColorTuscanRedTint 0%,
+  $ColorTuscanRed 25%,
+  $ColorTuscanRedShade 100%
+);
+$ColorLinearBackground: linear-gradient(
+  to bottom,
+  $ColorTuscanRedShade 0%,
+  color.change($ColorTuscanRedShade, $alpha: 0) 50%,
+  color.change($ColorJapaneseViolet, $alpha: 0) 50%,
+  $ColorJapaneseViolet 100%
+);
+
 $LineHeight: 1.5;
-
-// color palette from <https://github.com/vuejs/theme>
-
-:root {
-  --color-white: #f8f8f8;
-  --color-white-soft: #f2f2f2;
-  --color-white-mute: #e8e8e8;
-  --color-white-candy: #c5b1ce;
-  --color-black: #222222;
-  --color-black-soft: #282828;
-  --color-black-mute: #323232;
-  --color-divider-a65: rgba(84, 84, 84, 0.65);
-  --color-divider-a48: rgba(84, 84, 84, 0.48);
-  --color-text-dark-blue: #888092;
-  --color-text-dark-warm: #928880;
-  --color-amethyst: #4f314e;
-  --color-bronze-soft: #9f6060;
-  --color-bronze-mute: #7f4d4d;
-  --color-candy-soft: #8b639c;
-  --color-candy-mute: #6b4c7f;
-  --color-chocolette: #4f3030;
-}
-
-// semantic color variables for this project
-
-:root {
-  --color-background: var(--color-black);
-  --color-background-soft: var(--color-black-soft);
-  --color-background-mute: var(--color-black-mute);
-
-  --color-border: var(--color-divider-a48);
-  --color-border-hover: var(--color-divider-a65);
-
-  --color-heading: var(--color-text-dark-warm);
-  --color-text: var(--color-text-dark-warm);
-}
 
 *,
 *::before,
@@ -50,10 +53,10 @@ $LineHeight: 1.5;
 }
 
 body {
-  color: var(--color-text);
-  background: var(--color-background);
+  background: $ColorBlack;
+  color: white;
   font-family:
-    'Open Sans',
+    'Noto Sans',
     Inter,
     -apple-system,
     BlinkMacSystemFont,
