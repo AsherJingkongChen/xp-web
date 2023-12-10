@@ -6,18 +6,28 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: HomeView,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      path: '/guide',
+      name: 'Guide',
+      component: HomeView,
+    },
+    {
+      path: '/info',
+      name: 'Info',
+      component: HomeView,
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  console.log(`router.beforeEach "${from.fullPath}" -> "${to.fullPath}"`);
+  let pageName = to.name?.toString();
+  pageName = pageName ? ` - ${pageName}` : '';
+  document.title = import.meta.env.VITE_APP_TITLE_PREFIX + pageName;
+  next();
 });
 
 export default router;

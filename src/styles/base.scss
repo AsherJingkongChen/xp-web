@@ -1,9 +1,10 @@
 @use 'sass:color';
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Play:wght@700&display=swap');
 
 // SCSS constants
 
+$BasePadding: 1em;
 $ColorBlack: hsl(0, 0%, 12%);
 $ColorDeepAmethyst: hsl(270, 10%, 60%);
 $ColorGreige: hsl(30, 10%, 60%);
@@ -16,9 +17,19 @@ $ColorTuscanRed: hsl(0, 25%, 50%);
 $ColorTuscanRedTint: hsl(0, 25%, 65%);
 $ColorTuscanRedTone: hsl(0, 25%, 40%);
 $ColorTuscanRedShade: hsl(0, 25%, 25%);
+$LineHeight: 1.5;
+
+// SCSS variables
+
+$ColorLinearBackground: linear-gradient(
+  to bottom,
+  $ColorTuscanRedShade 0%,
+  $ColorBlack 50%,
+  $ColorJapaneseViolet 100%
+);
 $ColorLinearBrand: linear-gradient(
   to bottom,
-  $ColorLilacTint 0%,
+  $ColorLilac 0%,
   $ColorTuscanRed 75%,
   $ColorTuscanRedTone 100%
 );
@@ -34,27 +45,27 @@ $ColorLinearHeadingWarm: linear-gradient(
   $ColorTuscanRed 25%,
   $ColorTuscanRedShade 100%
 );
-$ColorLinearBackground: linear-gradient(
-  to bottom,
-  $ColorTuscanRedShade 0%,
-  color.change($ColorTuscanRedShade, $alpha: 0) 50%,
-  color.change($ColorJapaneseViolet, $alpha: 0) 50%,
-  $ColorJapaneseViolet 100%
-);
-
-$LineHeight: 1.5;
+$ColorTextCool: $ColorDeepAmethyst;
+$ColorTextWarm: $ColorGreige;
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-weight: 500;
   margin: 0;
 }
-
+a {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: filter 0.2s linear;
+}
+a:hover {
+  filter: brightness(1.5);
+}
 body {
-  background: $ColorBlack;
-  color: white;
+  background: $ColorLinearBackground, $ColorBlack;
   font-family:
     'Noto Sans',
     Inter,
@@ -70,11 +81,10 @@ body {
     'Helvetica Neue',
     sans-serif;
   font-size: 16px;
+  height: 100vh;
+  height: 100svh;
   line-height: $LineHeight;
-  min-height: 100vh;
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  padding: $BasePadding;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
