@@ -12,20 +12,20 @@
   </header>
   <nav class="nav">
     <RouterLink
-      class="nav-option"
-      to="/info">
-      <div
-        class="icon info-icon"
-        alt="@"></div>
-      <div class="nav-name">Info</div>
-    </RouterLink>
-    <RouterLink
-      class="nav-option"
+      class="nav-option to-guide"
       to="/guide">
       <div
-        class="icon guide-icon"
+        class="icon"
         alt="@"></div>
       <div class="nav-name">Guide</div>
+    </RouterLink>
+    <RouterLink
+      class="nav-option to-info"
+      to="/info">
+      <div
+        class="icon"
+        alt="@"></div>
+      <div class="nav-name">Info</div>
     </RouterLink>
   </nav>
   <main class="main">
@@ -47,7 +47,7 @@ header.header {
   .brand {
     position: relative;
     width: min-content;
-    padding: $BaseSize;
+    padding: 1.25 * $BaseSize 1 * $BaseSize;
     display: flex;
     .icon {
       position: relative;
@@ -72,8 +72,9 @@ nav.nav {
     justify-content: space-between;
   }
   .nav-option {
+    cursor: pointer;
     position: relative;
-    padding: $BaseSize;
+    padding: 1.25 * $BaseSize 1 * $BaseSize;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -84,6 +85,18 @@ nav.nav {
     @media screen and (orientation: portrait) {
       color: $ColorTextWarm;
     }
+    &.to-guide .icon {
+      background-image: url('@/icons/guide-cool.svg');
+      @media screen and (orientation: portrait) {
+        background-image: url('@/icons/guide-warm.svg');
+      }
+    }
+    &.to-info .icon {
+      background-image: url('@/icons/info-cool.svg');
+      @media screen and (orientation: portrait) {
+        background-image: url('@/icons/info-warm.svg');
+      }
+    }
     .icon {
       position: relative;
       width: #{$LineHeight}em;
@@ -91,21 +104,6 @@ nav.nav {
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-
-      &.guide-icon {
-        background-image: url('@/icons/guide-cool.svg');
-      }
-      &.info-icon {
-        background-image: url('@/icons/info-cool.svg');
-      }
-      @media screen and (orientation: portrait) {
-        &.guide-icon {
-          background-image: url('@/icons/guide-warm.svg');
-        }
-        &.info-icon {
-          background-image: url('@/icons/info-warm.svg');
-        }
-      }
     }
   }
 }

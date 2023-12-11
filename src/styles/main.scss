@@ -7,10 +7,11 @@
   display: grid;
   grid-template: min-content auto min-content / min-content auto;
   grid-auto-flow: column;
+  align-items: center;
 }
 a,
 button {
-  transition: 0.25s linear;
+  transition: filter 0.25s linear;
   &:hover {
     filter: $FilterBright;
   }
@@ -20,11 +21,11 @@ body {
   background-image: $ColorLinearBackground;
   background-repeat: no-repeat;
   line-height: $LineHeight;
-  padding-inline: $BaseSize;
+  padding-inline: 1.5 * $BaseSize;
   @media screen and (orientation: landscape) {
-    padding-bottom: $BaseSize;    
+    padding-bottom: 1.5 * $BaseSize;    
   }
 }
 html {
-  font-size: calc(8px + 0.875vw);
+  font-size: calc(8px + 0.875vmax);
 }

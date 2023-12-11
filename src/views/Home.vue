@@ -35,7 +35,7 @@
     flex-direction: column;
     align-items: center;
     font-family: Play;
-    font-size: 3.5 * $BaseSize;
+    font-size: 3 * $BaseSize;
     font-weight: 700;
     text-align: center;
     user-select: none;
