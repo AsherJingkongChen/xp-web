@@ -12,18 +12,24 @@
 <style scoped lang="scss">
 @import '@/styles/base.scss';
 
-.info-heading {
+.info-view {
   position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: $ColorTextCool;
-  font-family: Play;
-  font-size: 3 * $BaseSize;
-  font-weight: 700;
-  text-align: center;
-  user-select: none;
+  justify-content: center;
+  .info-heading {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $ColorTextCool;
+    font-family: Play;
+    font-size: 3 * $BaseSize;
+    font-weight: 700;
+    user-select: none;
+  }
 }
 </style>
