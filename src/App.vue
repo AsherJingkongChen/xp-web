@@ -116,6 +116,6 @@ main.main {
   display: grid;
   place-items: center;
   overflow: scroll;
-  box-shadow: 0 0 0.5 * $BaseSize $ColorBorder;
+  box-shadow: 0 0 0.25 * $BaseSize $ColorBorder;
 }
 </style>
