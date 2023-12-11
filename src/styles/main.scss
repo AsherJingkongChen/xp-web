@@ -15,3 +15,16 @@ button {
     filter: brightness(1.5);
   }
 }
+body {
+  background-color: $ColorJapaneseVioletTone;
+  background-image: $ColorLinearBackground;
+  background-repeat: no-repeat;
+  line-height: $LineHeight;
+  padding-inline: $BaseSize;
+  @media screen and (orientation: landscape) {
+    padding-bottom: $BaseSize;    
+  }
+}
+html {
+  font-size: calc(8px + 0.88vw);
+}
