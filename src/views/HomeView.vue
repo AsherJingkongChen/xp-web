@@ -8,6 +8,7 @@
       <img
         class="icon"
         alt="Preview"
+        title="Click me to open your files"
         src="@/icons/preview.svg" />
     </button>
   </article>
@@ -26,7 +27,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: $BaseSize;
   .home-heading {
     position: relative;
     padding: $BaseSize;
@@ -44,10 +44,10 @@
     -webkit-text-fill-color: transparent;
   }
   button.preview {
-    cursor: pointer;
     position: relative;
     padding: $BaseSize;
     .icon {
+      cursor: url('@/icons/add-file.svg'), copy;
       position: relative;
       width: 4 * $BaseSize;
       height: 4 * $BaseSize;

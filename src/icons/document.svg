@@ -1,0 +1,6 @@
+<!-- https://www.svgrepo.com/collection/nimble-tiny-flat-icons -->
+<svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29 11V30C29 31 28 31 28 31H4C3 31 3 30 3 30V2C3 1 4 1 4 1H19V10C19 10 19 11 20 11H29Z" fill="#FFE6EA"/>
+<path d="M29 11H20C19 11 19 10 19 10V1C19 1 20 1 21 2L28 9C29 10 29 11 29 11Z" fill="#668077"/>
+<path d="M19 1C19 1 20 1 21 2L28 9C29 10 29 11 29 11V30C29 31 28 31 28 31H4C3 31 3 30 3 30V2C3 1 4 1 4 1H19ZM19 1V10C19 10 19 11 20 11H25M9 17H15M9 21H23M9 25H23" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -6,6 +6,7 @@
       <img
         class="icon"
         alt="XP Brand"
+        title="Go Home"
         src="@/icons/brand.svg"
         @contextmenu.prevent.stop />
     </RouterLink>
@@ -45,6 +46,7 @@ header.header {
   position: relative;
   width: min-content;
   .brand {
+    cursor: pointer;
     position: relative;
     width: min-content;
     padding: 1.25 * $BaseSize 1 * $BaseSize;
@@ -72,7 +74,6 @@ nav.nav {
     justify-content: space-between;
   }
   .nav-option {
-    cursor: pointer;
     position: relative;
     padding: 1.25 * $BaseSize 1 * $BaseSize;
     display: flex;
@@ -85,16 +86,22 @@ nav.nav {
     @media screen and (orientation: portrait) {
       color: $ColorTextWarm;
     }
-    &.to-guide .icon {
-      background-image: url('@/icons/guide-cool.svg');
-      @media screen and (orientation: portrait) {
-        background-image: url('@/icons/guide-warm.svg');
+    &.to-guide {
+      cursor: url('@/icons/document.svg'), context-menu;
+      .icon {
+        background-image: url('@/icons/guide-cool.svg');
+        @media screen and (orientation: portrait) {
+          background-image: url('@/icons/guide-warm.svg');
+        }
       }
     }
-    &.to-info .icon {
-      background-image: url('@/icons/info-cool.svg');
-      @media screen and (orientation: portrait) {
-        background-image: url('@/icons/info-warm.svg');
+    &.to-info {
+      cursor: url('@/icons/radar.svg'), help;
+      .icon {
+        background-image: url('@/icons/info-cool.svg');
+        @media screen and (orientation: portrait) {
+          background-image: url('@/icons/info-warm.svg');
+        }
       }
     }
     .icon {
@@ -113,6 +120,7 @@ main.main {
   width: 100%;
   height: 100%;
   border-radius: 0.5 * $BaseSize;
+  padding: $BaseSize;
   display: grid;
   place-items: center;
   overflow: scroll;
