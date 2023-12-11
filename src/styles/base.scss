@@ -4,11 +4,14 @@
 
 // SCSS constants
 
-$BasePadding: 1em;
+$BaseSize: 1rem;
 $ColorBlack: hsl(0, 0%, 12%);
 $ColorDeepAmethyst: hsl(270, 10%, 60%);
 $ColorGreige: hsl(30, 10%, 60%);
 $ColorJapaneseViolet: hsl(300, 25%, 25%);
+$ColorJapaneseVioletTint: hsl(300, 25%, 50%);
+$ColorJapaneseVioletTone: hsl(300, 25%, 20%);
+$ColorJapaneseVioletShade: hsl(300, 25%, 12%);
 $ColorLilac: hsl(280, 25%, 50%);
 $ColorLilacTint: hsl(280, 25%, 75%);
 $ColorLilacTone: hsl(280, 25%, 40%);
@@ -23,27 +26,27 @@ $LineHeight: 1.5;
 
 $ColorLinearBackground: linear-gradient(
   to bottom,
-  $ColorTuscanRedShade 0%,
-  $ColorBlack 50%,
-  $ColorJapaneseViolet 100%
+  $ColorTuscanRedShade,
+  $ColorBlack 75%,
+  $ColorJapaneseVioletTone
 );
 $ColorLinearBrand: linear-gradient(
   to bottom,
-  $ColorLilac 0%,
+  $ColorLilac,
   $ColorTuscanRed 75%,
-  $ColorTuscanRedTone 100%
+  $ColorTuscanRedTone
 );
 $ColorLinearHeadingCool: linear-gradient(
   to bottom,
-  $ColorLilacTint 0%,
+  $ColorLilacTint,
   $ColorLilac 75%,
-  $ColorJapaneseViolet 100%
+  $ColorJapaneseViolet
 );
 $ColorLinearHeadingWarm: linear-gradient(
   to bottom,
-  $ColorTuscanRedTint 0%,
+  $ColorTuscanRedTint,
   $ColorTuscanRed 25%,
-  $ColorTuscanRedShade 100%
+  $ColorTuscanRedShade
 );
 $ColorTextCool: $ColorDeepAmethyst;
 $ColorTextWarm: $ColorGreige;
@@ -60,7 +63,9 @@ a {
   text-decoration: unset;
 }
 body {
-  background: $ColorLinearBackground, $ColorBlack;
+  background-color: $ColorJapaneseVioletTone;
+  background-image: $ColorLinearBackground;
+  background-repeat: no-repeat;
   font-family:
     'Noto Sans',
     system-ui,
@@ -76,14 +81,39 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 16px;
   height: 100vh;
-  height: 100svh;
+  height: 100dvh;
   line-height: $LineHeight;
-  padding: $BasePadding;
+  padding: $BaseSize;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+html {
+  @media screen and (min-width: 320px) {
+    font-size: 12px;
+  }
+  @media screen and (min-width: 480px) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: 640px) {
+    font-size: 13px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: 16px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: 1536px) {
+    font-size: 22px;
+  }
+  @media screen and (min-width: 1920px) {
+    font-size: 26px;
+  }
 }
 button {
   color: unset;

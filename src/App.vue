@@ -57,12 +57,12 @@ header.header {
   .brand {
     position: relative;
     width: min-content;
-    padding: $BasePadding;
+    padding: $BaseSize;
     display: flex;
     .icon {
       position: relative;
-      width: 4em;
-      height: 2em;
+      width: 4 * $BaseSize;
+      height: 2 * $BaseSize;
     }
   }
 }
@@ -83,11 +83,11 @@ nav.nav {
   }
   .nav-option {
     position: relative;
-    padding: $BasePadding;
+    padding: $BaseSize;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: math.div($BasePadding, 2);
+    gap: math.div($BaseSize, 2);
     font-weight: 600;
 
     color: $ColorTextCool;
@@ -98,6 +98,9 @@ nav.nav {
       position: relative;
       width: #{$LineHeight}em;
       height: #{$LineHeight}em;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
 
       &.guide-icon {
         background-image: url('@/icons/guide-cool.svg');
@@ -118,12 +121,11 @@ nav.nav {
 }
 main.main {
   position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: $BaseSize;
 
   grid-area: 2 / 1 / 4 / 3;
   @media screen and (orientation: portrait) {
@@ -131,13 +133,14 @@ main.main {
   }
   .center-heading {
     position: relative;
-    padding: $BasePadding;
+    padding: $BaseSize;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: Play;
-    font-size: 2em;
+    font-size: 3.5 * $BaseSize;
     font-weight: 700;
+    text-align: center;
     background: $ColorLinearHeadingCool;
     background-clip: text;
     -webkit-background-clip: text;
@@ -146,14 +149,11 @@ main.main {
   button.preview {
     cursor: pointer;
     position: relative;
-    padding: 1em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    padding: $BaseSize;
     .icon {
       position: relative;
-      width: 4em;
-      height: 4em;
+      width: 4 * $BaseSize;
+      height: 4 * $BaseSize;
     }
   }
 }
