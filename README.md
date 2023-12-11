@@ -24,22 +24,22 @@ With XP, you can preview any file in your browser.
 npm install
 ```
 
-### Launch a Development Server with the Hot-Reload feature
+### Launch a Development Server with Hot-Reloading
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Run Interactive Tests with [Vitest](https://vitest.dev/)
 
 ```sh
-npm run build
+npm run dev:test
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### Format with [Prettier](https://prettier.io/)
 
 ```sh
-npm run test:unit
+npm run format
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
@@ -48,10 +48,16 @@ npm run test:unit
 npm run lint
 ```
 
-### Format with [Prettier](https://prettier.io/)
+### Run All Tests
 
 ```sh
-npm run format
+npm run test
+```
+
+### Compile and Bundle for Your Deployment
+
+```sh
+npm run build
 ```
 
 ### The Convenient Way to Do All of the Above

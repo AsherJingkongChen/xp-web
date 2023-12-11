@@ -13,7 +13,6 @@
   },
   "description": "Web package of XP (Any file previewer)",
   "devDependencies": {
-    "@antfu/ni": "^0.21.12",
     "@rushstack/eslint-patch": "^1.3.3",
     "@tsconfig/node18": "^18.2.2",
     "@types/jsdom": "^21.1.6",
@@ -26,6 +25,7 @@
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "gh-pages": "^6.1.0",
     "jsdom": "^23.0.1",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
@@ -42,14 +42,19 @@
     "url": "git+https://github.com/AsherJingkongChen/xp-web.git"
   },
   "scripts": {
-    "build": "run-p type-check \"build-only {@}\" --",
+    "build": "run-p lint type-check && run-p build-only build-only:gh-pages",
     "build-only": "vite build",
+    "build-only:gh-pages": "vite build --outDir dist-gh-pages --base /xp-web/",
+    "deploy": "run-s prepublish && run-p deploy:gh-pages",
+    "deploy:gh-pages": "gh-pages -d dist-gh-pages",
     "dev": "vite",
+    "dev:test": "vitest",
     "format": "prettier --write .",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "prepublish": "nr format && nr lint && nr build && nr test:unit",
+    "prepublish": "run-s format build test",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test": "run-p test:unit",
+    "test:unit": "vitest --run",
     "type-check": "vue-tsc --build --force"
   },
   "type": "module"
