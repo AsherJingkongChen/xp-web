@@ -10,9 +10,9 @@
 }
 a,
 button {
-  transition: filter 0.2s linear;
+  transition: 0.25s linear;
   &:hover {
-    filter: brightness(1.5);
+    filter: $FilterBright;
   }
 }
 body {
@@ -26,5 +26,5 @@ body {
   }
 }
 html {
-  font-size: calc(8px + 0.88vw);
+  font-size: calc(8px + 0.875vw);
 }

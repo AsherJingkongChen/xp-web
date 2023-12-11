@@ -38,6 +38,7 @@
     font-size: 3.5 * $BaseSize;
     font-weight: 700;
     text-align: center;
+    user-select: none;
     background: $ColorLinearHeadingCool;
     background-clip: text;
     -webkit-background-clip: text;

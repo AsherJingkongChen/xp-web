@@ -62,7 +62,7 @@ nav.nav {
   flex-direction: row;
   align-items: center;
   justify-self: right;
-  
+
   grid-area: 1 / 2 / 2 / 3;
   width: min-content;
   justify-content: right;
