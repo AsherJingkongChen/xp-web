@@ -1,6 +1,6 @@
 # xp-web (Web package of XP)
 
-[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages-build-deployment)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment)
+[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages/pages-build-deployment?label=Github%20Pages&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment)
 
 ## What is it for?
 
