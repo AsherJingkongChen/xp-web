@@ -40,7 +40,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <style scoped lang="scss">
 @use 'sass:math';
-@import '@/styles/base.scss';
+@import '@/styles/main.scss';
 
 header.header {
   position: relative;
@@ -68,7 +68,7 @@ nav.nav {
   grid-area: 1 / 2 / 2 / 3;
   width: min-content;
   justify-content: right;
-  @media screen and (orientation: portrait) {
+  @include mediaQueryPortrait {
     grid-area: 3 / 1 / 4 / 3;
     width: 100%;
     justify-content: space-between;
@@ -119,11 +119,11 @@ main.main {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 0.5 * $BaseSize;
+  border-radius: 0.4 * $BaseSize;
   padding: $BaseSize;
   display: grid;
   place-items: center;
   overflow: scroll;
-  box-shadow: 0 0 0.25 * $BaseSize $ColorBorder;
+  box-shadow: 0 0 0.2 * $BaseSize $ColorBorder;
 }
 </style>

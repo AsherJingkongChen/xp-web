@@ -1,5 +1,10 @@
 @import './base.scss';
 
+@mixin mediaQueryPortrait {
+  @media screen and ((orientation: portrait) and (max-width: 640px)) {
+    @content;
+  }
+}
 #app {
   position: relative;
   width: 100%;
@@ -22,8 +27,9 @@ body {
   background-repeat: no-repeat;
   line-height: $LineHeight;
   padding-inline: 1.5 * $BaseSize;
-  @media screen and (orientation: landscape) {
-    padding-bottom: 1.5 * $BaseSize;
+  padding-bottom: 1.5 * $BaseSize;
+  @include mediaQueryPortrait {
+    padding-bottom: 0;
   }
 }
 html {
