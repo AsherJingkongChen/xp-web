@@ -55,6 +55,7 @@
     font-family: Play;
     font-size: 3 * $BaseSize;
     font-weight: 700;
+    text-align: center;
     user-select: none;
   }
   .guide-content {
