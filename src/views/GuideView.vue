@@ -61,6 +61,7 @@
 <script setup lang="ts"></script>
 
 <style scoped lang="scss">
+@use 'sass:color'; // debug
 @import '@/styles/base.scss';
 
 .guide-view {
@@ -72,8 +73,10 @@
   align-items: center;
   justify-content: center;
   color: $ColorTextWarm;
+  background: color.change($ColorDeepAmethyst, $alpha: 0.2); // debug
   .guide-heading {
     position: relative;
+    padding-top: $BaseSize; // debug
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -83,8 +86,9 @@
     text-align: center;
     user-select: none;
   }
-  .guide-content {
+  .guide-content { // debug
     position: relative;
+    padding-bottom: $BaseSize;
     display: flex;
     flex-direction: column;
     align-items: center;
