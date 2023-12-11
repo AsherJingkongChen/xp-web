@@ -23,7 +23,7 @@ body {
   line-height: $LineHeight;
   padding-inline: 1.5 * $BaseSize;
   @media screen and (orientation: landscape) {
-    padding-bottom: 1.5 * $BaseSize;    
+    padding-bottom: 1.5 * $BaseSize;
   }
 }
 html {

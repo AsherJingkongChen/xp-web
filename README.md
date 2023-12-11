@@ -1,39 +1,36 @@
-# xp-web
+# xp-web (Web package of XP)
 
-This template should help get you started developing with Vue 3 in Vite.
+[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages-build-deployment)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment)
 
-## Recommended IDE Setup
+## What is it for?
+
+With XP, you can preview any file in your browser.
+
+## Try Our Demo
+
+[On GitHub Pages](https://asherjingkongchen.github.io/xp-web/)
+
+## Let's Setup the Project
+
+> This section is for contributors and developers only
+
+### Recommended IDE Setup for you
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+### Install Dependencies
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Launch a Development Server with the Hot-Reload feature
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Compile and Minify for Production
 
 ```sh
 npm run build
@@ -50,3 +47,17 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+
+### Format with [Prettier](https://prettier.io/)
+
+```sh
+npm run format
+```
+
+### The Convenient Way to Do All of the Above
+
+```sh
+npm run prepublish
+```
+
+**Note:** The command should always be run before a critical commit or a pull request.

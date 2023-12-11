@@ -13,6 +13,7 @@
   },
   "description": "Web package of XP (Any file previewer)",
   "devDependencies": {
+    "@antfu/ni": "^0.21.12",
     "@rushstack/eslint-patch": "^1.3.3",
     "@tsconfig/node18": "^18.2.2",
     "@types/jsdom": "^21.1.6",
@@ -46,7 +47,7 @@
     "dev": "vite",
     "format": "prettier --write .",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "prepublish": "run-p type-check \"build-only {@}\" -- && vitest",
+    "prepublish": "nr format && nr lint && nr build && nr test:unit",
     "preview": "vite preview",
     "test:unit": "vitest",
     "type-check": "vue-tsc --build --force"
