@@ -11,7 +11,7 @@ $ColorGreige: hsl(30, 10%, 60%);
 $ColorJapaneseViolet: hsl(300, 25%, 25%);
 $ColorJapaneseVioletTint: hsl(300, 25%, 50%);
 $ColorJapaneseVioletTone: hsl(300, 25%, 20%);
-$ColorJapaneseVioletShade: hsl(300, 25%, 12%);
+$ColorJapaneseVioletShade: hsl(300, 25%, 15%);
 $ColorLilac: hsl(280, 25%, 50%);
 $ColorLilacTint: hsl(280, 25%, 75%);
 $ColorLilacTone: hsl(280, 25%, 40%);
@@ -29,7 +29,7 @@ $ColorLinearBackground: linear-gradient(
   to bottom,
   $ColorTuscanRedShade,
   $ColorBlack 75%,
-  $ColorJapaneseVioletTone
+  $ColorJapaneseVioletShade
 );
 $ColorLinearBrand: linear-gradient(
   to bottom,

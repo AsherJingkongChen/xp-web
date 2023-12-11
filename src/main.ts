@@ -1,5 +1,6 @@
 import './styles/main.scss';
 
+import { ViteSSG } from 'vite-ssg';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 

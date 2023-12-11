@@ -32,6 +32,7 @@
     "sass": "^1.69.5",
     "typescript": "~5.2.0",
     "vite": "^5.0.5",
+    "vite-ssg": "^0.23.5",
     "vitest": "^1.0.1",
     "vue-tsc": "^1.8.25"
   },
@@ -43,7 +44,7 @@
   },
   "scripts": {
     "build": "run-p lint type-check && run-p build-only build-only:gh-pages",
-    "build-only": "vite build",
+    "build-only": "vite-ssg build",
     "build-only:gh-pages": "vite build --outDir dist-gh-pages --base /xp-web/",
     "deploy": "run-s prepublish && run-p deploy:gh-pages",
     "deploy:gh-pages": "gh-pages -d dist-gh-pages",

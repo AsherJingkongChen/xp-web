@@ -86,7 +86,8 @@
     text-align: center;
     user-select: none;
   }
-  .guide-content { // debug
+  .guide-content {
+    // debug
     position: relative;
     padding-bottom: $BaseSize;
     display: flex;
