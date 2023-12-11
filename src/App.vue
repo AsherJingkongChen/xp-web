@@ -52,15 +52,6 @@ import { onMounted } from 'vue';
 @import '@/styles/base.scss';
 
 header.header {
-  order: 1;
-}
-nav.nav {
-  order: 3;
-}
-main.main {
-  order: 2;
-}
-header.header {
   position: relative;
   width: min-content;
   .brand {
@@ -80,10 +71,13 @@ nav.nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-
+  justify-self: right;
+  
+  grid-area: 1 / 2 / 2 / 3;
   width: min-content;
   justify-content: right;
   @media screen and (orientation: portrait) {
+    grid-area: 3 / 1 / 4 / 3;
     width: 100%;
     justify-content: space-between;
   }
@@ -130,19 +124,24 @@ main.main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  grid-area: 2 / 1 / 4 / 3;
+  @media screen and (orientation: portrait) {
+    grid-area: 2 / 1 / 3 / 3;
+  }
   .center-heading {
     position: relative;
     padding: $BasePadding;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Play;
     font-size: 2em;
+    font-weight: 700;
     background: $ColorLinearHeadingCool;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Play;
-    font-weight: 700;
   }
   button.preview {
     cursor: pointer;

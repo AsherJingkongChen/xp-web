@@ -5,7 +5,9 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-rows: min-content auto min-content;
+  grid-template: min-content auto min-content / min-content auto;
+  grid-auto-flow: column;
+  align-items: center;
 }
 a,
 button {
