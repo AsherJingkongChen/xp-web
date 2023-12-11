@@ -26,12 +26,10 @@ defineProps<{
   </div>
 </template>
 
-<style scoped lang="scss">
-@import '@/styles/base.scss';
-
+<style scoped>
 h1 {
   font-weight: 500;
-  line-height: $LineHeight;
+  line-height: 1.5;
   font-size: 2.6rem;
   position: relative;
   top: -10px;

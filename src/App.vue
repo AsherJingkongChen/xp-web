@@ -29,22 +29,12 @@
     </RouterLink>
   </nav>
   <main class="main">
-    <h1 class="center-heading">
-      <span class="center-header-block">Let’s preview</span>
-      <span class="center-header-block">your files</span>
-    </h1>
-    <button class="preview">
-      <img
-        class="icon"
-        alt="Preview"
-        src="@/icons/preview.svg" />
-    </button>
+    <RouterView />
   </main>
 </template>
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import { onMounted } from 'vue';
 </script>
 
 <style scoped lang="scss">
@@ -87,7 +77,7 @@ nav.nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: math.div($BaseSize, 2);
+    gap: 0.5 * $BaseSize;
     font-weight: 600;
 
     color: $ColorTextCool;
@@ -120,43 +110,14 @@ nav.nav {
   }
 }
 main.main {
+  grid-area: 2 / 1 / 3 / 3;
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: $BaseSize;
-
-  grid-area: 2 / 1 / 4 / 3;
-  @media screen and (orientation: portrait) {
-    grid-area: 2 / 1 / 3 / 3;
-  }
-  .center-heading {
-    position: relative;
-    padding: $BaseSize;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Play;
-    font-size: 3.5 * $BaseSize;
-    font-weight: 700;
-    text-align: center;
-    background: $ColorLinearHeadingCool;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  button.preview {
-    cursor: pointer;
-    position: relative;
-    padding: $BaseSize;
-    .icon {
-      position: relative;
-      width: 4 * $BaseSize;
-      height: 4 * $BaseSize;
-    }
-  }
+  border-radius: 0.5 * $BaseSize;
+  display: grid;
+  place-items: center;
+  overflow: scroll;
+  box-shadow: 0 0 0.5 * $BaseSize $ColorBorder;
 }
 </style>
