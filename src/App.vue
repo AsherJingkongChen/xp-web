@@ -121,11 +121,13 @@ nav.nav {
 }
 main.main {
   position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: $BaseSize;
+  padding: $BaseSize;
 
   grid-area: 2 / 1 / 4 / 3;
   @media screen and (orientation: portrait) {
