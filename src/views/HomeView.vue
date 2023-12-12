@@ -9,7 +9,7 @@
         class="icon"
         alt="Preview"
         title="Click me to open your files"
-        src="@/icons/preview.svg" />
+        src="@/icons/preview.svg"/>
     </button>
   </article>
 </template>
@@ -51,6 +51,9 @@
       position: relative;
       width: 4 * $BaseSize;
       height: 4 * $BaseSize;
+      min-width: max-content;
+      color: $ColorTextWarm;
+      font-size: 1.25 * $BaseSize;
     }
   }
 }

@@ -15,17 +15,13 @@
     <RouterLink
       class="nav-option to-guide"
       to="/guide">
-      <div
-        class="icon"
-        alt="@"></div>
+      <div class="icon"></div>
       <div class="nav-name">Guide</div>
     </RouterLink>
     <RouterLink
       class="nav-option to-info"
       to="/info">
-      <div
-        class="icon"
-        alt="@"></div>
+      <div class="icon"></div>
       <div class="nav-name">Info</div>
     </RouterLink>
   </nav>
@@ -55,6 +51,9 @@ header.header {
       position: relative;
       width: 4 * $BaseSize;
       height: 2 * $BaseSize;
+      min-width: max-content;
+      color: $ColorTextCool;
+      font-size: 0.75 * $BaseSize;
     }
   }
 }
