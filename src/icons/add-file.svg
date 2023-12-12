@@ -1,14 +1,1 @@
-<!-- https://www.svgrepo.com/collection/nimble-tiny-flat-icons -->
-<svg width="16" height="16" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_901_2636)">
-<path d="M26.8901 19.3101C29.2701 20.0901 31.0001 22.3501 31.0001 25.0001C31.0001 28.3101 28.3101 31.0001 25.0001 31.0001C21.6901 31.0001 19.0001 28.3101 19.0001 25.0001C19.0001 21.6901 21.6901 19.0001 25.0001 19.0001C25.6601 19.0001 26.3001 19.1101 26.8901 19.3101Z" fill="#FFC44D"/>
-<path d="M27 19L26.89 19.31C26.3 19.11 25.66 19 25 19C21.69 19 19 21.69 19 25C19 28.31 21.69 31 25 31H2C1 31 1 30 1 30V2C1 1 2 1 2 1H17V10C17 10 17 11 18 11H27V19Z" fill="#FFE6EA"/>
-<path d="M26 9C27 10 27 11 27 11H18C17 11 17 10 17 10V1C17 1 18 1 19 2L26 9Z" fill="#668077"/>
-<path d="M27 16V11C27 11 27 10 26 9L19 2C18 1 17 1 17 1M17 1H2C2 1 1 1 1 2V30C1 30 1 31 2 31H18M17 1V10C17 10 17 11 18 11H23M23 25H27M25 27V23M31 25C31 21.687 28.313 19 25 19C21.687 19 19 21.687 19 25C19 28.313 21.687 31 25 31C28.313 31 31 28.313 31 25Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_901_2636">
-<rect width="32" height="32" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 32 32"><g clip-path="url(#a)"><path fill="#FFC44D" d="M26.8901 19.3101c2.38.78 4.11 3.04 4.11 5.69 0 3.31-2.69 6-6 6s-6-2.69-6-6 2.69-6 6-6c.66 0 1.3.11 1.89.31"/><path fill="#FFE6EA" d="m27 19-.11.31c-.59-.2-1.23-.31-1.89-.31-3.31 0-6 2.69-6 6s2.69 6 6 6H2c-1 0-1-1-1-1V2c0-1 1-1 1-1h15v9s0 1 1 1h9z"/><path fill="#668077" d="M26 9c1 1 1 2 1 2h-9c-1 0-1-1-1-1V1s1 0 2 1z"/><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M27 16v-5s0-1-1-2l-7-7c-1-1-2-1-2-1m0 0H2S1 1 1 2v28s0 1 1 1h16M17 1v9s0 1 1 1h5m0 14h4m-2 2v-4m6 2c0-3.313-2.687-6-6-6s-6 2.687-6 6 2.687 6 6 6 6-2.687 6-6"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h32v32H0z"/></clipPath></defs></svg>
