@@ -4,7 +4,7 @@
 
 ## What is it for?
 
-With XP, you can preview any file in your browser.
+With XP Web, you can preview any file in your browser.
 
 ## Try Our Demo
 
@@ -42,12 +42,6 @@ npm run dev:test
 npm run format
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-
 ### Run All Tests
 
 ```sh
@@ -66,4 +60,4 @@ npm run build
 npm run prepublish
 ```
 
-**Note:** The command should always be run before a critical commit or a pull request.
+**Note:** The command should always be run before a release commit or a pull request.
