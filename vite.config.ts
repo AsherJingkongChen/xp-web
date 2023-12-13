@@ -1,9 +1,9 @@
 import { fileURLToPath, URL } from 'node:url';
-import { defineConfig } from 'vite';
+import { defineConfig, UserConfigFn } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
-export default defineConfig((env) => ({
+export const config: UserConfigFn = (env) => ({
   base: '/',
   build: {
     assetsInlineLimit: 0,
@@ -18,4 +18,6 @@ export default defineConfig((env) => ({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-}));
+});
+
+export default defineConfig(config);

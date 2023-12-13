@@ -8,7 +8,8 @@ export const routes: RouterOptions['routes'] = [
     path: '/',
     name: 'Home',
     meta: {
-      description: 'The home page of XP. Users can preview their files here.',
+      description:
+        'The home page of XP. Users can preview their files here.',
     },
     component: HomeView,
   },
@@ -16,7 +17,8 @@ export const routes: RouterOptions['routes'] = [
     path: '/guide',
     name: 'Guide',
     meta: {
-      description: 'The guide page of XP. Users can learn how to use the application here.',
+      description:
+        'The guide page of XP. Users can learn how to use the application here.',
     },
     component: GuideView,
   },
@@ -24,7 +26,8 @@ export const routes: RouterOptions['routes'] = [
     path: '/info',
     name: 'Info',
     meta: {
-      description: 'The info page of XP. Users can see the information of the application here.',
+      description:
+        'The info page of XP. Users can see the information of the application here.',
     },
     component: InfoView,
   },

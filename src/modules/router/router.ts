@@ -10,9 +10,7 @@ export const routerOptions: RouterOptions = {
 export const setupRouter: SetupModuleFunction = ({ router }) => {
   if (import.meta.env.DEV) {
     router.beforeEach((to, from, next) => {
-      console.log(
-        `[vue-router] "${to.path}" <- "${from.path}"`,
-      );
+      console.log(`[vue-router] "${to.path}" <- "${from.path}"`);
       next();
     });
   }
