@@ -1,7 +1,7 @@
 <template>
   <article class="home-view">
     <h1 class="home-heading">
-      <span class="heading-block">Let’s preview</span>
+      <span class="heading-block">Let’s preview </span>
       <span class="heading-block">your files</span>
     </h1>
     <button class="preview">
@@ -9,7 +9,7 @@
         class="icon"
         alt="Preview"
         title="Click me to open your files"
-        src="@/icons/preview.svg"/>
+        src="@/icons/preview.svg" />
     </button>
   </article>
 </template>

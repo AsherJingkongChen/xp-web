@@ -55,6 +55,12 @@ npm run test
 npm run build
 ```
 
+### Preview Your Deployment on Localhost
+
+```sh
+npm run preview
+```
+
 ### The Convenient Way to Do All of the Above
 
 ```sh
