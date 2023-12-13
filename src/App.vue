@@ -1,4 +1,10 @@
 <template>
+  <Head>
+    <title>{{ title }}</title>
+    <meta
+      name="description"
+      :content="description" />
+  </Head>
   <header class="header">
     <RouterLink
       class="brand"
@@ -31,7 +37,19 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink, RouterView, useRoute } from 'vue-router';
+import { Head } from '@unhead/vue/components';
+import { computed } from 'vue';
+
+const route = useRoute();
+const title = computed(() => {
+  let name = route.name?.toString();
+  name = name ? ` - ${name}` : '';
+  return `${import.meta.env.VITE_APP_TITLE_PREFIX}${name}`;
+});
+const description = computed(
+  () => route.meta.description?.toString() ?? '',
+);
 </script>
 
 <style scoped lang="scss">

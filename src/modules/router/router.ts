@@ -7,16 +7,13 @@ export const routerOptions: RouterOptions = {
   routes,
 };
 
-export const setupRouter: SetupModuleFunction = ({ router, isClient }) => {
-  router.beforeEach((to, from, next) => {
-    if (isClient) {
+export const setupRouter: SetupModuleFunction = ({ router }) => {
+  if (import.meta.env.DEV) {
+    router.beforeEach((to, from, next) => {
       console.log(
-        `router.beforeEach "${from.fullPath}" -> "${to.fullPath}"`,
+        `[vue-router] "${to.path}" <- "${from.path}"`,
       );
-      let pageName = to.name?.toString();
-      pageName = pageName ? ` - ${pageName}` : '';
-      document.title = import.meta.env.VITE_APP_TITLE_PREFIX + pageName;
-    }
-    next();
-  });
+      next();
+    });
+  }
 };

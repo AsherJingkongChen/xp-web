@@ -3,14 +3,14 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
-export default defineConfig({
+export default defineConfig((env) => ({
   base: '/',
   build: {
     assetsInlineLimit: 0,
     outDir: 'dist',
   },
   esbuild: {
-    drop: ['console', 'debugger'],
+    drop: env.mode === 'production' ? ['console', 'debugger'] : undefined,
   },
   plugins: [vue(), vueJsx()],
   resolve: {
@@ -18,4 +18,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-});
+}));
