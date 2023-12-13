@@ -1,12 +1,23 @@
-import { defineConfig } from 'vite';
+import { defineConfig, mergeConfig } from 'vite';
+import type { ViteSSGOptions } from 'vite-ssg';
 import { name } from './package.json';
 import { config } from './vite.config';
 
-export default defineConfig((env) => ({
-  ...config(env),
-  base: `/${name}/`,
-  build: {
-    assetsInlineLimit: 0,
-    outDir: 'dist-gh-pages',
-  },
-}));
+const path = 'dist-gh-pages';
+
+export default defineConfig((env) =>
+  mergeConfig(
+    config(env),
+    defineConfig({
+      base: `/${name}/`,
+      build: {
+        outDir: `${path}/${name}`,
+      },
+      ssgOptions: <ViteSSGOptions>{
+        crittersOptions: {
+          path,
+        },
+      },
+    }),
+  ),
+);
