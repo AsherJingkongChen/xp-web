@@ -1,6 +1,6 @@
 {
   "name": "xp-web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "email": "gpks556@gmail.com",
     "name": "AsherJingkongChen"
@@ -43,8 +43,8 @@
     "build": "run-p type-check build-only build-only:gh-pages",
     "build-only": "vite-ssg build",
     "build-only:gh-pages": "vite-ssg build -c vite.config.gh-pages.ts",
-    "deploy": "run-s prepublish && run-p deploy:gh-pages",
-    "deploy:gh-pages": "cd dist-gh-pages/xp-web && cp index.html 404.html && gh-pages -d .",
+    "deploy": "run-s prepublish && run-p deploy-only:gh-pages",
+    "deploy-only:gh-pages": "cd dist-gh-pages/xp-web && cp index.html 404.html && gh-pages -d .",
     "dev": "vite",
     "dev:test": "vitest",
     "format": "prettier --write .",
