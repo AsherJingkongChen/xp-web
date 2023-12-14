@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "composite": true,
+    "lib": [],
+    "types": ["cypress", "jsdom", "node"]
+  },
+  "exclude": [],
+  "extends": "./tsconfig.app.json",
+  "include": ["env.d.ts", "src", "test"]
+}

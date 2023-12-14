@@ -1,6 +1,6 @@
+import 'vite-ssg';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, UserConfigFn } from 'vite';
-import type { ViteSSGOptions } from 'vite-ssg';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
@@ -21,7 +21,7 @@ export const config: UserConfigFn = (env) => ({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  ssgOptions: <ViteSSGOptions>{
+  ssgOptions: {
     crittersOptions: {
       path,
     },

@@ -1,5 +1,5 @@
+import 'vite-ssg';
 import { defineConfig, mergeConfig } from 'vite';
-import type { ViteSSGOptions } from 'vite-ssg';
 import { name } from './package.json';
 import { config } from './vite.config';
 
@@ -13,7 +13,7 @@ export default defineConfig((env) =>
       build: {
         outDir: `${path}/${name}`,
       },
-      ssgOptions: <ViteSSGOptions>{
+      ssgOptions: {
         crittersOptions: {
           path,
         },
