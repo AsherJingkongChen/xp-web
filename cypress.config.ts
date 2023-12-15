@@ -6,7 +6,7 @@ const previewOption = viteConfig({
   mode: 'test',
 }).preview;
 const host = previewOption?.host ?? 'localhost';
-const port = previewOption?.port ?? 4173;
+const port = previewOption?.port ?? 4172;
 
 export default defineConfig({
   component: {
@@ -19,10 +19,10 @@ export default defineConfig({
   },
   e2e: {
     baseUrl: `http://${host}:${port}/`,
-    defaultCommandTimeout: 0,
+    // defaultCommandTimeout: 1000,
     specPattern: 'test/e2e/**/*.test.ts',
     supportFile: false,
-    screenshotOnRunFailure: false,
-    video: false,
   },
+  screenshotOnRunFailure: false,
+  video: false,
 });
