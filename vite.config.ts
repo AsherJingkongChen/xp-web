@@ -1,23 +1,29 @@
 import 'vite-ssg';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, UserConfigFn } from 'vite';
+import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
 
+const base = '/';
 const path = 'dist';
+const outDir = path + base;
+const host = 'localhost';
+const port = 4173;
+const hostname = `http://${host}:${port}${base}`;
 
 export const config: UserConfigFn = (env) => ({
-  base: '/',
+  base,
   build: {
     assetsInlineLimit: 0,
-    outDir: path,
+    outDir,
   },
   esbuild: {
     drop: env.mode === 'production' ? ['console', 'debugger'] : undefined,
   },
   plugins: [vue()],
   preview: {
-    host: 'localhost',
-    port: 4173,
+    host,
+    port,
     strictPort: true,
   },
   resolve: {
@@ -32,6 +38,13 @@ export const config: UserConfigFn = (env) => ({
     },
     formatting: 'minify',
     script: 'defer',
+    onFinished() {
+      generateSitemap({
+        basePath: base.substring(0, base.length - 1),
+        hostname,
+        outDir,
+      });
+    },
   },
   test: {
     include: ['test/**/*.test.ts'],
