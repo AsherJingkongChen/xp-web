@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      # Match a SemVer tag. Reference: https://gist.github.com/jhorsman/62eeea161a13b80e39f5249281e17c39?permalink_comment_id=2965690#gistcomment-2965690
+      - '^v(?<Major>0|(?:[1-9]\d*))(?:\.(?<Minor>0|(?:[1-9]\d*))(?:\.(?<Patch>0|(?:[1-9]\d*)))?(?:\-(?<PreRelease>[0-9A-Z\.-]+))?(?:\+(?<Meta>[0-9A-Z\.-]+))?)?'
+
+jobs:
+  ci-ubuntu-latest:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v3
+
+      - id: setup-bun
+        name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - id: install-deps
+        name: Install Dependencies
+        run: |
+          bun install
+
+      - id: all-in-one-check
+        name: All-In-One Check
+        run: |
+          bun prepublish
+
+      - id: e2e-test
+        name: E2E Test
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run preview
+          browser: chrome
