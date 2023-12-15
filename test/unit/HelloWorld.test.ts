@@ -1,5 +1,5 @@
 describe('Hello, World!', () => {
   it('It works!', () => {
-    expect(true).to.equal(true);
+    expect(true).to.eq(true);
   });
 });

@@ -23,8 +23,8 @@ export default defineConfig({
     baseUrl: `http://${host}:${port}/`,
     defaultCommandTimeout: 0,
     specPattern: 'test/e2e/**/*.test.ts',
-    screenshotOnRunFailure: false,
-    supportFile: false,
     video: false,
   },
+  screenshotOnRunFailure: false,
+  video: false,
 });
