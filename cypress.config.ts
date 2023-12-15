@@ -2,6 +2,7 @@ import { defineConfig } from 'cypress';
 import { preview } from './vite.config';
 
 const baseUrl = `http://${preview.host}:${preview.port}/`;
+const path = 'dist';
 
 export default defineConfig({
   component: {
@@ -10,7 +11,7 @@ export default defineConfig({
       bundler: 'vite',
       framework: 'vue',
     },
-    indexHtmlFile: 'index.html',
+    indexHtmlFile: `${path}/index.html`,
     supportFile: false,
   },
   e2e: {
