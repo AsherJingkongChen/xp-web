@@ -28,7 +28,7 @@ jobs:
         name: All-In-One Check
         run: |
           bun prepublish
-      
+
       - id: e2e-test
         name: E2E Test
         run: |
