@@ -88,7 +88,7 @@ npm run test:gui
 npm run prepublish
 ```
 
-**Note:** The command should always be run successfully before a release commit or a pull request.
+**Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run E2E tests before merge.
 
 ### Deploy to Your GitHub Pages (Very Optional)
 

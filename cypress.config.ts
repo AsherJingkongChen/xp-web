@@ -7,8 +7,8 @@ const previewOption = (
     mode: 'test',
   })
 ).preview;
-const host = previewOption ?? 'localhost';
-const port = previewOption ?? 4173;
+const host = previewOption?.host ?? 'localhost';
+const port = previewOption?.port ?? 4173;
 
 export default defineConfig({
   component: {
@@ -24,7 +24,7 @@ export default defineConfig({
     defaultCommandTimeout: 0,
     specPattern: 'test/e2e/**/*.test.ts',
     supportFile: false,
+    screenshotOnRunFailure: false,
+    video: false,
   },
-  screenshotOnRunFailure: false,
-  video: false,
 });
