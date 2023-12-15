@@ -30,12 +30,6 @@ npm install
 npm run dev
 ```
 
-### Run Interactive Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run dev:test
-```
-
 ### Format with [Prettier](https://prettier.io/)
 
 ```sh
@@ -81,6 +75,12 @@ npm run test:e2e
 ```
 
 **Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/). The preview server will watch file changes in `dist` directory.
+
+### Run Tests on [Cypress's pretty GUI](https://www.cypress.io/)
+
+```sh
+npm run test:gui
+```
 
 ### The Convenient Way to Do All of the Above
 
