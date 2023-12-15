@@ -6,7 +6,7 @@ on:
       - v*.*.*
 
 jobs:
-  ci-ubuntu-latest:
+  release-ubuntu-latest:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
@@ -28,10 +28,9 @@ jobs:
         name: All-In-One Check
         run: |
           bun prepublish
-
+      
       - id: e2e-test
         name: E2E Test
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run preview
-          browser: chrome
+        run: |
+          bun run preview &
+          bun run test:e2e
