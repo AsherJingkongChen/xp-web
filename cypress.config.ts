@@ -1,12 +1,10 @@
 import { defineConfig } from 'cypress';
-import { config } from './vite.config';
+import viteConfig from './vite.config';
 
-const previewOption = (
-  await config({
-    command: 'serve',
-    mode: 'test',
-  })
-).preview;
+const previewOption = viteConfig({
+  command: 'serve',
+  mode: 'test',
+}).preview;
 const host = previewOption?.host ?? 'localhost';
 const port = previewOption?.port ?? 4173;
 
