@@ -1,21 +1,27 @@
 import { defineConfig } from 'cypress';
-import { preview } from './vite.config';
+import { config } from './vite.config';
 
-const baseUrl = `http://${preview.host}:${preview.port}/`;
-const path = 'dist';
+const previewOption = (
+  await config({
+    command: 'serve',
+    mode: 'test',
+  })
+).preview;
+const host = previewOption ?? 'localhost';
+const port = previewOption ?? 4173;
 
 export default defineConfig({
   component: {
-    specPattern: 'test/unit/**/*.test.ts',
     devServer: {
       bundler: 'vite',
       framework: 'vue',
     },
-    indexHtmlFile: `${path}/index.html`,
+    specPattern: 'test/unit/**/*.test.ts',
     supportFile: false,
   },
   e2e: {
-    baseUrl,
+    baseUrl: `http://${host}:${port}/`,
+    defaultCommandTimeout: 0,
     specPattern: 'test/e2e/**/*.test.ts',
     screenshotOnRunFailure: false,
     supportFile: false,

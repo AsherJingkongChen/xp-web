@@ -6,28 +6,34 @@ import InfoView from '@/views/InfoView.vue';
 export const routes: RouterOptions['routes'] = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Home - Any file previewer',
     meta: {
       description:
-        'The home page of XP. Users can preview their files here.',
+        'Explore XP to preview diverse files. ' +
+        'Start your journey on the home page ' +
+        'for an intuitive and versatile file preview experience.',
     },
     component: HomeView,
   },
   {
     path: '/guide',
-    name: 'Guide',
+    name: 'Guide - Learn how to preview files',
     meta: {
       description:
-        'The guide page of XP. Users can learn how to use the application here.',
+        "Master XP's file preview capabilities on the guide page. " +
+        'Discover expert tips and tricks to ' +
+        'enhance your file previewing skills effortlessly.',
     },
     component: GuideView,
   },
   {
     path: '/info',
-    name: 'Info',
+    name: 'Info - About this file previewer',
     meta: {
       description:
-        'The info page of XP. Users can see the information of the application here.',
+        'Get insights into XP, the ultimate file previewer. ' +
+        'Visit the info page to unravel the details ' +
+        'and understand the uniqueness of this application.',
     },
     component: InfoView,
   },

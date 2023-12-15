@@ -1,7 +1,6 @@
 # xp-web (Web package of XP)
 
-[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages/pages-build-deployment?label=Github%20Pages&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment)
-[![CI Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/ci.yml?label=CI&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/ci)
+[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages/pages-build-deployment?label=Github%20Pages&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment) [![CI Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/ci.yml?label=CI&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/ci)
 
 ## What is it for?
 
@@ -43,6 +42,22 @@ npm run dev:test
 npm run format
 ```
 
+### Compile and Bundle for Your Deployment
+
+```sh
+npm run build
+```
+
+**Note:** The output directory starts with `dist`.
+
+### Preview Your Deployment on `localhost`
+
+```sh
+npm run preview
+```
+
+**Note:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in [`vite.config.ts`](./vite.config.ts).
+
 ### Run Tests
 
 ```sh
@@ -65,21 +80,7 @@ npm run preview
 npm run test:e2e
 ```
 
-**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/)
-
-### Compile and Bundle for Your Deployment
-
-```sh
-npm run build
-```
-
-### Preview Your Deployment on `localhost`
-
-```sh
-npm run preview
-```
-
-**Note:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in `vite.config.ts`.
+**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/). The preview server will watch file changes in `dist` directory.
 
 ### The Convenient Way to Do All of the Above
 
