@@ -1,14 +1,22 @@
 {
-  "files": [],
-  "references": [
-    {
-      "path": "./tsconfig.app.json"
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "composite": true,
+    "isolatedModules": true,
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      "@": ["src"],
+      "@/*": ["src/*"]
     },
-    {
-      "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.test.json"
-    }
-  ]
+    "strictNullChecks": true,
+    "types": ["cypress", "jsdom", "vite/client"],
+    "verbatimModuleSyntax": false
+  },
+  "include": ["src", "test", "*.config.ts", "*.d.ts"],
+  "extends": "@vue/tsconfig/tsconfig.dom.json"
 }
