@@ -1,5 +1,7 @@
 import { defineConfig } from 'cypress';
-import { previewPort } from './vite.config';
+import { preview } from './vite.config';
+
+const baseUrl = `http://${preview.host}:${preview.port}/`;
 
 export default defineConfig({
   component: {
@@ -7,16 +9,12 @@ export default defineConfig({
     devServer: {
       bundler: 'vite',
       framework: 'vue',
-      viteConfig: {
-        server: {
-          port: previewPort,
-        },
-      },
     },
+    indexHtmlFile: 'index.html',
     supportFile: false,
   },
   e2e: {
-    baseUrl: `http://localhost:${previewPort}/`,
+    baseUrl,
     specPattern: 'test/e2e/**/*.test.ts',
     screenshotOnRunFailure: false,
     supportFile: false,

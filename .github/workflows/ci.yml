@@ -29,7 +29,7 @@ jobs:
         run: |
           bun install
 
-      # - id: all-in-one-check
-      #   name: All-In-One Check
-      #   run: |
-      #     bun prepublish
+      - id: all-in-one-check
+        name: All-In-One Check
+        run: |
+          bun prepublish

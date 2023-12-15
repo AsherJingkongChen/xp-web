@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-### Run Interactive Tests with [Vitest](https://vitest.dev/)
+### Run Interactive Tests with [Cypress](https://www.cypress.io/)
 
 ```sh
 npm run dev:test
@@ -43,11 +43,29 @@ npm run dev:test
 npm run format
 ```
 
-### Run All Tests
+### Run Tests
 
 ```sh
 npm run test
 ```
+
+**Note:** The command `test` excludes e2e tests.
+
+### Run E2E Tests
+
+#### Session 1
+
+```sh
+npm run preview
+```
+
+#### Session 2
+
+```sh
+npm run test:e2e
+```
+
+**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/)
 
 ### Compile and Bundle for Your Deployment
 
@@ -55,11 +73,13 @@ npm run test
 npm run build
 ```
 
-### Preview Your Deployment on Localhost
+### Preview Your Deployment on `localhost`
 
 ```sh
 npm run preview
 ```
+
+**Note:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in `vite.config.ts`.
 
 ### The Convenient Way to Do All of the Above
 
@@ -67,4 +87,10 @@ npm run preview
 npm run prepublish
 ```
 
-**Note:** The command should always be run before a release commit or a pull request.
+**Note:** The command should always be run successfully before a release commit or a pull request.
+
+### Deploy to Your GitHub Pages (Very Optional)
+
+```sh
+npm run deploy:gh-pages
+```

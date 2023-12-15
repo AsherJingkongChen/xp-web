@@ -1,20 +1,23 @@
 import 'vite-ssg';
 import { fileURLToPath, URL } from 'node:url';
-import { defineConfig, UserConfigFn } from 'vite';
+import { defineConfig, PreviewOptions, UserConfigFn } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-export const previewPort = 4173;
-
 const path = 'dist';
+
+export const preview = {
+  host: 'localhost',
+  port: 4173,
+  strictPort: true,
+} as const satisfies PreviewOptions;
+
 export const config: UserConfigFn = (env) => ({
   base: '/',
   build: {
     assetsInlineLimit: 0,
     outDir: path,
   },
-  preview: {
-    port: previewPort,
-  },
+  preview,
   esbuild: {
     drop: env.mode === 'production' ? ['console', 'debugger'] : undefined,
   },
