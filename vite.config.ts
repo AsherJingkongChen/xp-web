@@ -30,6 +30,7 @@ export const config: UserConfigFn = (env) => ({
   ssgOptions: {
     crittersOptions: {
       path,
+      preload: 'media',
     },
     formatting: 'minify',
     script: 'defer',
