@@ -19,7 +19,7 @@ export default defineConfig({
   },
   e2e: {
     baseUrl: `http://${host}:${port}/`,
-    // defaultCommandTimeout: 1000,
+    defaultCommandTimeout: 0,
     specPattern: 'test/e2e/**/*.test.ts',
     supportFile: false,
   },
