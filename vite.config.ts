@@ -35,12 +35,12 @@ export const customConfigFn = ({
       vue(),
       VitePWA({
         manifest: {
-          name: 'XP Web',
+          name: 'XP App',
           short_name: 'XP',
           description: 'Any file previewer',
           lang: 'en',
-          background_color: '#ffffff',
-          theme_color: '#ffffff',
+          background_color: '#503030',
+          theme_color: '#301D30',
           icons: [
             {
               src: 'assets/favicon-72x72.png',
