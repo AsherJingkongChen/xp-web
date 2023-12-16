@@ -4,6 +4,10 @@
     <meta
       name="description"
       :content="description" />
+    <meta
+      v-if="googleSiteVerification"
+      name="google-site-verification"
+      :content="googleSiteVerification" />
   </Head>
   <header class="header">
     <RouterLink
@@ -50,6 +54,8 @@ const title = computed(() => {
 const description = computed(
   () => route.meta.description?.toString() ?? '',
 );
+const googleSiteVerification = import.meta.env
+  .VITE_GOOGLE_SITE_VERIFICATION;
 </script>
 
 <style scoped lang="scss">

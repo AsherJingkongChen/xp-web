@@ -26,6 +26,7 @@ export const customConfigFn = ({
       assetsInlineLimit: 0,
       outDir,
     },
+    envDir: join('env', dist),
     esbuild: {
       drop:
         env.mode === 'production' ? ['console', 'debugger'] : undefined,
@@ -40,56 +41,12 @@ export const customConfigFn = ({
           lang: 'en',
           background_color: '#503030',
           theme_color: '#301D30',
-          icons: [
-            {
-              src: 'assets/favicon-72x72.png',
-              type: 'image/png',
-              sizes: '72x72',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-96x96.png',
-              type: 'image/png',
-              sizes: '96x96',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-128x128.png',
-              type: 'image/png',
-              sizes: '128x128',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-144x144.png',
-              type: 'image/png',
-              sizes: '144x144',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-152x152.png',
-              type: 'image/png',
-              sizes: '152x152',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-192x192.png',
-              type: 'image/png',
-              sizes: '192x192',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-384x384.png',
-              type: 'image/png',
-              sizes: '384x384',
-              purpose: 'any maskable',
-            },
-            {
-              src: 'assets/favicon-512x512.png',
-              type: 'image/png',
-              sizes: '512x512',
-              purpose: 'any maskable',
-            },
-          ],
+          icons: [72, 96, 128, 144, 152, 192, 384, 512].map((size) => ({
+            src: `assets/favicon-${size}x${size}.png`,
+            type: 'image/png',
+            sizes: `${size}x${size}`,
+            purpose: 'any maskable',
+          })),
         },
         registerType: 'autoUpdate',
       }),

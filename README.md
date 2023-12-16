@@ -90,8 +90,10 @@ npm run prepublish
 
 **Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run E2E tests before merge.
 
-### Deploy to Your GitHub Pages (Very Optional)
+### Deploy to Your GitHub Pages (Optional)
 
 ```sh
-npm run deploy:gh-pages
+npm run gh-pages:deploy
 ```
+
+**Note:** You can configure the author name in [`package.json`](./package.json) if the different origin is used.
