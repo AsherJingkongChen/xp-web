@@ -1,10 +1,9 @@
 import 'vite-ssg';
-import { fileURLToPath, URL } from 'node:url';
+import { join, resolve } from 'node:path';
 import { ConfigEnv, defineConfig, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
-import { join } from 'node:path';
 
 const host = 'localhost';
 const port = 4172;
@@ -102,7 +101,7 @@ export const customConfigFn = ({
     },
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@': resolve('src'),
       },
     },
     ssgOptions: {

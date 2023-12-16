@@ -14,9 +14,9 @@
       "@/*": ["src/*"]
     },
     "strictNullChecks": true,
-    "types": ["cypress", "jsdom", "vite/client"],
+    "types": ["cypress", "vite/client"],
     "verbatimModuleSyntax": false
   },
-  "include": ["src", "test", "*.config.ts", "*.d.ts"],
+  "include": ["src", "test", "*.config.ts"],
   "extends": "@vue/tsconfig/tsconfig.dom.json"
 }

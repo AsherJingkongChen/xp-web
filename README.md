@@ -52,7 +52,7 @@ npm run preview
 
 **Note:** The base URL is [http://localhost:4172/](http://localhost:4172/). You can configure it in [`vite.config.ts`](./vite.config.ts).
 
-### Run Tests
+### Run All Tests
 
 ```sh
 npm run test
