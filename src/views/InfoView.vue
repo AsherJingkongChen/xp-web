@@ -1,8 +1,8 @@
 <template>
   <article class="info-view">
-    <h1 class="info-heading">
-      <span class="heading-block">Info</span>
-      <span class="heading-block">Nothing to show</span>
+    <h1 class="heading">
+      <span class="block">Info</span>
+      <span class="block">Nothing to show</span>
     </h1>
   </article>
 </template>
@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .info-heading {
+  .heading {
     position: relative;
     display: flex;
     flex-direction: column;

@@ -2,6 +2,7 @@ import type { RouterOptions } from 'vue-router';
 import GuideView from '@/views/GuideView.vue';
 import HomeView from '@/views/HomeView.vue';
 import InfoView from '@/views/InfoView.vue';
+import PageNotFountViewVue from '@/views/fallbacks/PageNotFountView.vue';
 
 export const routes: RouterOptions['routes'] = [
   {
@@ -36,5 +37,10 @@ export const routes: RouterOptions['routes'] = [
         'and understand the uniqueness of this application.',
     },
     component: InfoView,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'Page Not Found',
+    component: PageNotFountViewVue,
   },
 ];

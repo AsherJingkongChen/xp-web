@@ -1,14 +1,13 @@
 <template>
-  <article class="home-view">
+  <article class="page-not-found-view">
     <h1 class="heading">
-      <span class="block">Let’s preview </span>
-      <span class="block">your files</span>
+      <p class="block">Page Not Found</p>
     </h1>
-    <button class="preview">
+    <button class="go-back">
       <img
         class="icon"
         alt="Preview"
-        title="Click me to open your files"
+        title="Go to the previous page"
         src="@/icons/preview.svg" />
     </button>
   </article>
@@ -19,7 +18,7 @@
 <style scoped lang="scss">
 @import '@/styles/base.scss';
 
-.home-view {
+.page-not-found-view {
   position: relative;
   width: 100%;
   height: 100%;
@@ -28,7 +27,6 @@
   align-items: center;
   justify-content: center;
   .heading {
-    cursor: default;
     position: relative;
     padding: $BaseSize;
     display: flex;
@@ -39,17 +37,16 @@
     font-weight: 700;
     text-align: center;
     user-select: none;
-    -webkit-user-select: none;
     background: $ColorLinearHeadingCool;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  button.preview {
+  button.go-back {
     position: relative;
     padding: $BaseSize;
     .icon {
-      cursor: url('@/icons/add-file.svg'), copy;
+      cursor: url('@/icons/paperplane.svg'), pointer;
       position: relative;
       width: 4 * $BaseSize;
       height: 4 * $BaseSize;

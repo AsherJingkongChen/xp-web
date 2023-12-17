@@ -8,6 +8,7 @@
   },
   "bugs": "https://github.com/AsherJingkongChen/xp-web/issues",
   "dependencies": {
+    "@iconify/vue": "^4.1.1",
     "@unhead/vue": "^1.8.9",
     "pinia": "^2.1.7",
     "vue": "^3.3.11",
@@ -57,7 +58,7 @@
     "gh-pages:build": "run-p type-check gh-pages:build-only",
     "gh-pages:build-only": "vite-ssg build -c vite.config.gh-pages.ts",
     "gh-pages:dev": "vite -c vite.config.gh-pages.ts",
-    "gh-pages:deploy": "gh-pages -d dist-gh-pages/xp-web",
+    "gh-pages:deploy": "cd dist-gh-pages/xp-web && cp index.html 404.html && gh-pages -d .",
     "gh-pages:preview": "vite preview -c vite.config.gh-pages.ts"
   },
   "type": "module"
