@@ -146,7 +146,8 @@ nav.nav {
   }
 }
 main.main {
-  $ScrollBarWidth: 0.4 * $BaseSize;
+  $ScrollBarWidth: 0.5 * $BaseSize;
+  $ScrollBarBorder: 0.1 * $ScrollBarWidth;
   grid-area: 2 / 1 / 3 / 3;
   position: relative;
   width: 100%;
@@ -156,20 +157,25 @@ main.main {
   place-items: center;
   overflow: auto;
   scrollbar-width: $ScrollBarWidth;
-  scrollbar-color: $ColorLinearHeadingWarm;
+  scrollbar-color: $ColorOutline $ColorBorder;
   scrollbar-gutter: stable;
-  // &.overflow {
-  //   box-shadow: 0 0 0.5 * $ScrollBarWidth $ColorBorder;
-  // }
+  article {
+    padding: $BaseSize;
+  }
   &::-webkit-scrollbar {
     width: $ScrollBarWidth;
   }
-  &::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-track {
+    background-color: $ColorBorder;
     border-radius: 0.5 * $ScrollBarWidth;
-    background: $ColorBorder;
   }
-  article {
-    padding: $BaseSize;
+  &::-webkit-scrollbar-thumb {
+    background: $ColorOutline;
+    border-radius: 0.5 * $ScrollBarWidth;
+    border: $ScrollBarBorder solid $ColorBorder;
+    box-shadow: inset 0 0 2 * $ScrollBarBorder $ColorBorder;
+    background-clip: content-box;
+    -webkit-background-clip: content-box;
   }
 }
 </style>

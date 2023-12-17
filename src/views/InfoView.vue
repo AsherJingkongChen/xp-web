@@ -2,7 +2,9 @@
   <article class="info-view">
     <h1 class="heading">
       <span class="block">Info</span>
-      <span class="block">Nothing_to_show_but_I_am_a_very_long_heading</span>
+      <span class="block"
+        >Nothing_to_show_but_I_am_a_very_long_heading</span
+      >
     </h1>
   </article>
 </template>

@@ -10,6 +10,9 @@ $BaseSize: 1rem;
 $ColorBlack: hsl(0, 0%, 12%);
 $ColorDeepAmethyst: hsl(270, 10%, 60%);
 $ColorGreige: hsl(30, 10%, 60%);
+$ColorGreigeTint: hsl(30, 10%, 85%);
+$ColorGreigeTone: hsl(30, 10%, 35%);
+$ColorGreigeShade: hsl(30, 10%, 20%);
 $ColorJapaneseViolet: hsl(300, 25%, 25%);
 $ColorJapaneseVioletTint: hsl(300, 25%, 50%);
 $ColorJapaneseVioletTone: hsl(300, 25%, 20%);
@@ -51,6 +54,8 @@ $ColorLinearHeadingWarm: linear-gradient(
   $ColorTuscanRed 25%,
   $ColorTuscanRedShade
 );
-$ColorBorder: $ColorGreige;
+$ColorShadow: $ColorGreigeShade;
+$ColorBorder: $ColorGreigeTone;
+$ColorOutline: $ColorGreigeTint;
 $ColorTextCool: $ColorDeepAmethyst;
 $ColorTextWarm: $ColorGreige;
