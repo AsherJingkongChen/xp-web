@@ -1,9 +1,9 @@
 <template>
   <article class="guide-view">
     <h1 class="heading">
-      <span class="heading-block">Guide</span>
+      <span class="block">Guide</span>
     </h1>
-    <p class="content">
+    <div class="content">
       <span class="block">1. Click the preview button</span>
       <span class="block">2. Select your files</span>
       <span class="block">3. Click the open button</span>
@@ -54,7 +54,7 @@
       <span class="block">48. Click the preview button</span>
       <span class="block">49. Repeat from step 42</span>
       <span class="block">50. Select your files</span>
-    </p>
+    </div>
   </article>
 </template>
 
@@ -64,7 +64,7 @@
 @use 'sass:color'; // debug
 @import '@/styles/base.scss';
 
-.guide-view {
+article.guide-view {
   position: relative;
   width: 100%;
   height: 100%;
@@ -76,7 +76,6 @@
   background: color.change($ColorDeepAmethyst, $alpha: 0.2); // debug
   .heading {
     position: relative;
-    padding-top: $BaseSize; // debug
     display: flex;
     flex-direction: column;
     align-items: center;

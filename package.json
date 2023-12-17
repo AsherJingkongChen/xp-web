@@ -8,18 +8,21 @@
   },
   "bugs": "https://github.com/AsherJingkongChen/xp-web/issues",
   "dependencies": {
+    "@fontsource/noto-sans": "^5.0.18",
+    "@fontsource/play": "^5.0.18",
     "@iconify/vue": "^4.1.1",
     "@unhead/vue": "^1.8.9",
+    "@vueuse/core": "^10.7.0",
     "pinia": "^2.1.7",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5"
   },
   "description": "Web package of XP (Any file previewer)",
   "devDependencies": {
+    "@types/node": "^18.19.2",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/test-utils": "^2.4.3",
     "@vue/tsconfig": "^0.4.0",
-    "@types/node": "^18.19.2",
     "critters": "^0.0.20",
     "cypress": "~12.17.0",
     "gh-pages": "^6.1.0",

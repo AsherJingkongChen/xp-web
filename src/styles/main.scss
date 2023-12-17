@@ -14,8 +14,21 @@
   grid-auto-flow: column;
   align-items: center;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: unset;
+}
 a,
 button {
+  cursor: unset;
+  display: block;
+  background: unset;
+  color: unset;
+  line-height: unset;
+  text-align: center;
+  text-decoration: unset;
   transition: filter 0.25s linear;
   &:hover {
     filter: $FilterBright;
@@ -31,7 +44,51 @@ body {
   @include mediaQueryPortrait {
     padding-bottom: 0;
   }
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Inter,
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  width: 100dvw;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 html {
   font-size: calc(8px + 0.8vmax + 0.08vmin);
+}
+blockquote,
+button,
+dl,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+ol,
+table,
+ul {
+  border: unset;
+  margin: unset;
+  padding: unset;
+}
+h1,h2,h3,h4,h5,h6,p,span {
+  word-break: break-all;
+  word-break: break-word;
 }

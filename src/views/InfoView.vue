@@ -2,7 +2,7 @@
   <article class="info-view">
     <h1 class="heading">
       <span class="block">Info</span>
-      <span class="block">Nothing to show</span>
+      <span class="block">Nothing_to_show_but_I_am_a_very_long_heading</span>
     </h1>
   </article>
 </template>
@@ -12,7 +12,7 @@
 <style scoped lang="scss">
 @import '@/styles/base.scss';
 
-.info-view {
+article.info-view {
   position: relative;
   width: 100%;
   height: 100%;

@@ -1,7 +1,7 @@
 <template>
   <article class="page-not-found-view">
     <h1 class="heading">
-      <p class="block">Page Not Found</p>
+      <span class="block">Page Not Found</span>
     </h1>
     <button class="go-back">
       <img
@@ -18,7 +18,7 @@
 <style scoped lang="scss">
 @import '@/styles/base.scss';
 
-.page-not-found-view {
+article.page-not-found-view {
   position: relative;
   width: 100%;
   height: 100%;

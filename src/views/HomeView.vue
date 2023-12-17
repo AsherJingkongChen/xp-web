@@ -19,7 +19,7 @@
 <style scoped lang="scss">
 @import '@/styles/base.scss';
 
-.home-view {
+article.home-view {
   position: relative;
   width: 100%;
   height: 100%;
