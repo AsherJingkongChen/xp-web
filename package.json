@@ -47,7 +47,7 @@
   },
   "scripts": {
     "build": "run-p type-check build-only",
-    "build-only": "vite-ssg build -c vite.config.ts",
+    "build-only": "vite-ssg build --force -c vite.config.ts",
     "deploy": "run-s prepublish gh-pages:deploy",
     "dev": "vite -c vite.config.ts",
     "format": "prettier --write .",
@@ -58,10 +58,11 @@
     "test:gui": "cypress open",
     "test:unit": "cypress run --component",
     "type-check": "vue-tsc --build --force",
-    "gh-pages:build": "run-p type-check gh-pages:build-only",
-    "gh-pages:build-only": "vite-ssg build -c vite.config.gh-pages.ts",
+    "gh-pages:build": "run-p type-check gh-pages:build-only && run-s gh-pages:copy-404.html",
+    "gh-pages:build-only": "vite-ssg build --force -c vite.config.gh-pages.ts",
+    "gh-pages:copy-404.html": "cd dist-gh-pages/xp-web && cp index.html 404.html",
     "gh-pages:dev": "vite -c vite.config.gh-pages.ts",
-    "gh-pages:deploy": "cd dist-gh-pages/xp-web && cp index.html 404.html && gh-pages -d .",
+    "gh-pages:deploy": "cd dist-gh-pages/xp-web && gh-pages -d .",
     "gh-pages:preview": "vite preview -c vite.config.gh-pages.ts"
   },
   "type": "module"
