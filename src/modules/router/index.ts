@@ -1,4 +1,4 @@
-import { ModuleSetupFn } from '../types.d';
+import { ModuleSetupFn } from '@/modules';
 
 export const setup: ModuleSetupFn = () => {
   console.log('[vue-router] ready');

@@ -37,8 +37,7 @@ export const customConfigFn = ({
     },
     envDir: join('env', dist),
     esbuild: {
-      drop:
-        env.mode === 'production' ? ['debugger'] : undefined,
+      drop: env.mode === 'production' ? ['debugger'] : undefined,
     },
     plugins: [
       vue(),

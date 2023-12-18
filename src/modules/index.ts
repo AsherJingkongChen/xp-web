@@ -1,7 +1,9 @@
-import { Module, ModuleSetupFn } from './types.d';
+import { Module, ModuleSetupFn } from './types';
 
 export const setupAllModules: ModuleSetupFn = (context) => {
-  const moduleMap = import.meta.glob<Module>('./*/index.ts', { eager: true });
+  const moduleMap = import.meta.glob<Module>('./*/index.ts', {
+    eager: true,
+  });
   for (const module of Object.values(moduleMap)) {
     module.setup(context);
   }

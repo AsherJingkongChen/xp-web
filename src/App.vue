@@ -2,7 +2,7 @@
   <Head>
     <title>{{ title }}</title>
     <meta
-      v-for="({ name, content }) in namedMetadata"
+      v-for="{ name, content } in namedMetadata"
       :key="name"
       :name="name"
       :content="content" />
@@ -10,6 +10,9 @@
       v-if="VITE_GOOGLE_SITE_VERIFICATION_TOKEN"
       name="google-site-verification"
       :content="VITE_GOOGLE_SITE_VERIFICATION_TOKEN" />
+    <meta
+      name="counter"
+      :content="counter.count.toString()" />
   </Head>
   <header class="header">
     <RouterLink
@@ -45,20 +48,28 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView, useRoute } from 'vue-router';
+import {
+  RouterLink,
+  RouterView,
+  useRoute /* , useRouter */,
+} from 'vue-router';
 import { Head } from '@unhead/vue/components';
 import { computed, ref } from 'vue';
-
-/* Lifecycle hooks */
+import { useCounterStore } from '@/stores';
 
 /* Constants */
 
 const { VITE_GOOGLE_SITE_VERIFICATION_TOKEN } = import.meta.env;
 
+/* Lifecycle hooks */
+
 /* States */
 
 const mainElement = ref<HTMLElement | null>(null);
 const route = useRoute();
+// const router = useRouter();
+const counter = useCounterStore();
+setInterval(() => counter.increment(), 1000);
 
 /* Computed States */
 
@@ -72,6 +83,14 @@ const namedMetadata = computed(() =>
     .map(([name, value]) => ({ name, content: value?.toString() ?? '' }))
     .filter(({ name, content }) => content && name !== 'state'),
 );
+
+/** Watchers **/
+
+// router.beforeEach((to, from) => {
+//   if (to.meta.error === 404) {
+
+//   }
+// });
 </script>
 
 <style scoped lang="scss">
