@@ -4,7 +4,9 @@
       <span class="block">Oops!</span>
       <span class="block">Page Not Found</span>
     </h1>
-    <button class="go-back" @click="router.back">
+    <button
+      class="go-back"
+      @click="router.back">
       <img
         class="icon"
         alt="Go back"
@@ -20,7 +22,6 @@ import { useRouter } from 'vue-router';
 /* States */
 
 const router = useRouter();
-
 </script>
 
 <style scoped lang="scss">

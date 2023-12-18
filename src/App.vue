@@ -72,12 +72,7 @@ const namedMetadata = computed(() =>
 
 /** Watchers **/
 
-
-
 /* Lifecycle Hooks */
-
-
-
 </script>
 
 <style scoped lang="scss">
