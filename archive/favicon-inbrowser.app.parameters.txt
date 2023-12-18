@@ -1,6 +1,7 @@
-#503030;
-#503030;
-margin: 36;
-margin: 36;
-margin: 36;
-#FFFFFF
+theme: #503030;
+background: #503030;
+desktop: default;
+iOS: margin=40;
+any: margin=40;
+maskable: margin=40;
+*: #FFFFFF;
