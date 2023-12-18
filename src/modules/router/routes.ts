@@ -1,4 +1,4 @@
-import type { RouterOptions } from 'vue-router';
+import { RouterOptions } from 'vue-router';
 import GuideView from '@/views/GuideView.vue';
 import HomeView from '@/views/HomeView.vue';
 import InfoView from '@/views/InfoView.vue';
@@ -40,14 +40,16 @@ export const routes: RouterOptions['routes'] = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'Page Not Found - This is not a place to preview files',
+    name: "Page Not Found - Let's preview files at home page?",
     meta: {
       description:
         "Oops! The page you're searching for " +
         'is not found in XP-powered digital realm. ' +
         "Navigate back or explore our file previewer's " +
         'intriguing corners.',
+      robots: 'nofollow, noindex',
     },
+    
     component: PageNotFountViewVue,
   },
 ];

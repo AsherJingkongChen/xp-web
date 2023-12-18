@@ -2,8 +2,10 @@
   <Head>
     <title>{{ title }}</title>
     <meta
-      name="description"
-      :content="description" />
+      v-for="({ name, content }) in namedMetadata"
+      :key="name"
+      :name="name"
+      :content="content" />
     <meta
       v-if="VITE_GOOGLE_SITE_VERIFICATION_TOKEN"
       name="google-site-verification"
@@ -65,7 +67,11 @@ const title = computed(() => {
   name = name ? ` - ${name}` : '';
   return `${import.meta.env.VITE_APP_TITLE_PREFIX}${name}`;
 });
-const description = computed(() => route.meta.description?.toString());
+const namedMetadata = computed(() =>
+  Object.entries(route.meta)
+    .map(([name, value]) => ({ name, content: value?.toString() ?? '' }))
+    .filter(({ name, content }) => content && name !== 'state'),
+);
 </script>
 
 <style scoped lang="scss">

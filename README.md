@@ -50,7 +50,7 @@ npm run build
 npm run preview
 ```
 
-**Note:** The base URL is [http://localhost:4172/](http://localhost:4172/). You can configure it in [`vite.config.ts`](./vite.config.ts).
+**Note:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in [`vite.config.ts`](./vite.config.ts).
 
 ### Run All Tests
 
@@ -74,7 +74,7 @@ npm run preview
 npm run test:e2e
 ```
 
-**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4172/](http://localhost:4172/). The preview server will watch file changes in `dist` directory.
+**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/). The preview server will watch file changes in `dist` directory.
 
 ### Run Tests on [Cypress's pretty GUI](https://www.cypress.io/)
 
