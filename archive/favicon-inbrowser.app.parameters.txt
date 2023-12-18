@@ -2,6 +2,6 @@ theme: #503030;
 background: #503030;
 desktop: default;
 iOS: margin=40;
-any: margin=40;
+any: margin=40&border=50%;
 maskable: margin=40;
 *: #FFFFFF;
