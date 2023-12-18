@@ -1,19 +1,27 @@
 <template>
   <article class="page-not-found-view">
     <h1 class="heading">
+      <span class="block">Oops!</span>
       <span class="block">Page Not Found</span>
     </h1>
-    <button class="go-back">
+    <button class="go-back" @click="router.back">
       <img
         class="icon"
-        alt="Preview"
+        alt="Go back"
         title="Go to the previous page"
-        src="@/icons/preview.svg" />
+        src="@/icons/navigate-back.svg" />
     </button>
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+/* States */
+
+const router = useRouter();
+
+</script>
 
 <style scoped lang="scss">
 @import '@/styles/base.scss';

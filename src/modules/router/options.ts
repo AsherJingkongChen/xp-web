@@ -4,7 +4,7 @@ import HomeView from '@/views/HomeView.vue';
 import InfoView from '@/views/InfoView.vue';
 import PageNotFountViewVue from '@/views/fallbacks/PageNotFountView.vue';
 
-const routes: RouterOptions['routes'] = [
+const routes: RouterOptions['routes'] = Object.freeze([
   {
     path: '/',
     name: 'Home - Any file previewer',
@@ -48,11 +48,10 @@ const routes: RouterOptions['routes'] = [
         "Navigate back or explore our file previewer's " +
         'intriguing corners.',
       robots: 'nofollow, noindex',
-      error: 404,
     },
     component: PageNotFountViewVue,
   },
-];
+]);
 
 export const router: RouterOptions = {
   base: import.meta.env.BASE_URL,
