@@ -48,6 +48,7 @@ export const customConfigFn = ({
           description: 'Any file previewer',
           background_color: '#503030',
           theme_color: '#503030',
+          orientation: 'portrait',
           icons: [
             {
               src: 'assets/pwa-192x192.png',
