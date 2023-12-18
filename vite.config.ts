@@ -79,17 +79,18 @@ export const customConfigFn = ({
           ],
           screenshots: [
             {
-              label: 'XP App',
-              src: 'assets/screenshot-portrait-412x915.png',
+              label: 'Home Page',
+              src: 'assets/screenshot-portrait-1082x2402.png',
               sizes: '1082x2402',
               type: 'image/png',
               form_factor: 'narrow',
             },
             {
-              label: 'XP App',
-              src: 'assets/screenshot-landscape-1280x800.png',
+              label: 'Home Page',
+              src: 'assets/screenshot-landscape-2560x1600.png',
               sizes: '2560x1600',
               type: 'image/png',
+              form_factor: 'wide',
             },
           ],
         },
