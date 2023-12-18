@@ -26,6 +26,7 @@ export const customConfigFn = ({
       assetsInlineLimit: 0,
       outDir,
     },
+    assetsInclude: [/\.woff2?$/],
     envDir: join('env', dist),
     esbuild: {
       drop:
@@ -34,21 +35,42 @@ export const customConfigFn = ({
     plugins: [
       vue(),
       VitePWA({
+        injectRegister: 'script-defer',
         manifest: {
           name: 'XP App',
           short_name: 'XP',
           description: 'Any file previewer',
-          lang: 'en',
           background_color: '#503030',
-          theme_color: '#301D30',
-          icons: [72, 96, 128, 144, 152, 192, 384, 512].map((size) => ({
-            src: `assets/favicon-${size}x${size}.png`,
-            type: 'image/png',
-            sizes: `${size}x${size}`,
-            purpose: 'any maskable',
-          })),
+          theme_color: '#503030',
+          icons: [
+            {
+              src: 'assets/pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'any',
+            },
+            {
+              src: 'assets/pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any',
+            },
+            {
+              src: 'assets/pwa-maskable-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+            {
+              src: 'assets/pwa-maskable-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+          ],
         },
         registerType: 'autoUpdate',
+        selfDestroying: true, // debug
       }),
     ],
     preview: {
@@ -65,6 +87,8 @@ export const customConfigFn = ({
       crittersOptions: {
         path: dist,
         preload: 'media',
+        inlineFonts: true,
+        preloadFonts: false,
       },
       formatting: 'minify',
       script: 'defer',

@@ -1,5 +1,5 @@
-import type { RouterOptions } from 'vite-ssg';
-import type { SetupModuleFunction } from '@/modules';
+import { RouterOptions } from 'vite-ssg';
+import { SetupModuleFunction } from '@/modules';
 import { routes } from './routes';
 
 export const routerOptions: RouterOptions = {
