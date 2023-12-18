@@ -50,7 +50,7 @@ export const customConfigFn = ({
           theme_color: '#503030',
           orientation: 'any',
           display: 'standalone',
-          display_override: ['window-controls-overlay', 'fullscreen'],
+          display_override: ['fullscreen', 'minimal-ui'],
           icons: [
             {
               src: 'assets/pwa-192x192.png',
@@ -75,6 +75,21 @@ export const customConfigFn = ({
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',
+            },
+          ],
+          screenshots: [
+            {
+              label: 'XP App',
+              src: 'assets/screenshot-portrait-412x915.png',
+              sizes: '1082x2402',
+              type: 'image/png',
+              form_factor: 'narrow',
+            },
+            {
+              label: 'XP App',
+              src: 'assets/screenshot-landscape-1280x800.png',
+              sizes: '2560x1600',
+              type: 'image/png',
             },
           ],
         },
