@@ -48,9 +48,9 @@ export const customConfigFn = ({
           description: 'Any file previewer',
           background_color: '#503030',
           theme_color: '#503030',
-          orientation: 'portrait',
+          orientation: 'any',
           display: 'standalone',
-          display_override: ['fullscreen'],
+          display_override: ['fullscreen', 'minimal-ui'],
           icons: [
             {
               src: 'assets/pwa-192x192.png',
