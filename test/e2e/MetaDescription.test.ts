@@ -9,6 +9,7 @@ describe('Meta Description', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 
   it('contains all parts of the URL', () => {
@@ -39,6 +40,7 @@ describe('Meta Description', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 
   /**
@@ -54,5 +56,6 @@ describe('Meta Description', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 });

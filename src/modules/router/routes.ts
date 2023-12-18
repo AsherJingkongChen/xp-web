@@ -40,7 +40,14 @@ export const routes: RouterOptions['routes'] = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'Page Not Found',
+    name: 'Page Not Found - This is not a place to preview files',
+    meta: {
+      description:
+        "Oops! The page you're searching for " +
+        'is not found in XP-powered digital realm. ' +
+        "Navigate back or explore our file previewer's " +
+        'intriguing corners.',
+    },
     component: PageNotFountViewVue,
   },
 ];

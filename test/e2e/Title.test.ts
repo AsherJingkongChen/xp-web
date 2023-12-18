@@ -6,6 +6,7 @@ describe('Title', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 
   it('contains all parts of the URL', () => {
@@ -32,6 +33,7 @@ describe('Title', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 
   /**
@@ -46,6 +48,7 @@ describe('Title', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 
   /**
@@ -57,5 +60,6 @@ describe('Title', () => {
     check('/');
     check('/guide');
     check('/info');
+    check('/fallbacks/page-not-found');
   });
 });
