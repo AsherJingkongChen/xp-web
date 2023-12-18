@@ -1,6 +1,6 @@
 #503030;
 #503030;
-margin: 24;
-margin: 16;
-margin: 48;
+margin: 36;
+margin: 36;
+margin: 36;
 #FFFFFF

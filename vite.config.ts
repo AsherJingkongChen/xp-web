@@ -49,6 +49,8 @@ export const customConfigFn = ({
           background_color: '#503030',
           theme_color: '#503030',
           orientation: 'portrait',
+          display: 'standalone',
+          display_override: ['fullscreen'],
           icons: [
             {
               src: 'assets/pwa-192x192.png',
