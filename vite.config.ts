@@ -50,7 +50,7 @@ export const customConfigFn = ({
           theme_color: '#503030',
           orientation: 'any',
           display: 'standalone',
-          display_override: ['fullscreen', 'minimal-ui'],
+          display_override: ['window-controls-overlay', 'fullscreen'],
           icons: [
             {
               src: 'assets/pwa-192x192.png',
