@@ -1,10 +1,10 @@
-import { RouterOptions } from 'vue-router';
+import { RouterOptions } from 'vite-ssg';
 import GuideView from '@/views/GuideView.vue';
 import HomeView from '@/views/HomeView.vue';
 import InfoView from '@/views/InfoView.vue';
 import PageNotFountViewVue from '@/views/fallbacks/PageNotFountView.vue';
 
-export const routes: RouterOptions['routes'] = [
+const routes: RouterOptions['routes'] = [
   {
     path: '/',
     name: 'Home - Any file previewer',
@@ -48,8 +48,13 @@ export const routes: RouterOptions['routes'] = [
         "Navigate back or explore our file previewer's " +
         'intriguing corners.',
       robots: 'nofollow, noindex',
+      error: 404,
     },
-    
     component: PageNotFountViewVue,
   },
 ];
+
+export const router: RouterOptions = {
+  base: import.meta.env.BASE_URL,
+  routes,
+};

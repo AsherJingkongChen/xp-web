@@ -2,16 +2,13 @@ import './styles/main.scss';
 
 // import { createPinia } from 'pinia';
 import { ViteSSG } from 'vite-ssg';
-import { routerOptions } from './modules/router';
-import { setupRouter } from './modules';
+import { router, setupAllModules } from './modules';
 import App from './App.vue';
 
 export const createApp: ReturnType<typeof ViteSSG> = ViteSSG(
   App,
-  routerOptions,
-  (context) => {
-    setupRouter(context);
-  },
+  router,
+  setupAllModules,
 );
 
 export default createApp;

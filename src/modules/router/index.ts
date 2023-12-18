@@ -1,5 +1,7 @@
-import { setupRouter } from './router';
+import { ModuleSetupFn } from '../types.d';
 
-export * from './router';
-export * from './routes';
-export default setupRouter;
+export const setup: ModuleSetupFn = () => {
+  console.log('[vue-router] ready');
+};
+
+export * from './options';

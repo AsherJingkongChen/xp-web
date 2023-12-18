@@ -8,6 +8,15 @@ import vue from '@vitejs/plugin-vue';
 const host = 'localhost';
 const port = 4173;
 
+export default defineConfig((env) =>
+  customConfigFn({
+    dist: 'dist',
+    env,
+    origin: `http://${host}:${port}`,
+    root: '/',
+  }),
+);
+
 export const customConfigFn = ({
   dist,
   env,
@@ -26,16 +35,14 @@ export const customConfigFn = ({
       assetsInlineLimit: 0,
       outDir,
     },
-    assetsInclude: [/\.woff2?$/],
     envDir: join('env', dist),
     esbuild: {
       drop:
-        env.mode === 'production' ? ['console', 'debugger'] : undefined,
+        env.mode === 'production' ? ['debugger'] : undefined,
     },
     plugins: [
       vue(),
       VitePWA({
-        injectRegister: 'script-defer',
         manifest: {
           name: 'XP App',
           short_name: 'XP',
@@ -70,7 +77,6 @@ export const customConfigFn = ({
           ],
         },
         registerType: 'autoUpdate',
-        selfDestroying: true, // debug
       }),
     ],
     preview: {
@@ -101,12 +107,3 @@ export const customConfigFn = ({
     },
   };
 };
-
-export default defineConfig((env) =>
-  customConfigFn({
-    dist: 'dist',
-    env,
-    origin: `http://${host}:${port}`,
-    root: '/',
-  }),
-);
