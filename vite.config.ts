@@ -6,7 +6,7 @@ import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
 
 const host = 'localhost';
-const port = 4172;
+const port = 4173;
 
 export const customConfigFn = ({
   dist,
@@ -87,8 +87,7 @@ export const customConfigFn = ({
       crittersOptions: {
         path: dist,
         preload: 'media',
-        inlineFonts: true,
-        preloadFonts: false,
+        fonts: true,
       },
       formatting: 'minify',
       script: 'defer',
