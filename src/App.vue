@@ -86,7 +86,6 @@ header.header {
     position: relative;
     width: min-content;
     padding: 1.25 * $BaseSize 1 * $BaseSize;
-    display: flex;
     .icon {
       position: relative;
       width: 4 * $BaseSize;

@@ -25,8 +25,6 @@ defineProps<{
   flex-direction: column;
   align-items: center;
   font-family: Play, Arial, Roboto, sans-serif;
-  font-size: 3 * $BaseSize;
-  font-weight: 700;
   text-align: center;
   background: $ColorLinearHeadingCool;
   background-clip: text;
