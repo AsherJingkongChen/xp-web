@@ -1,21 +1,14 @@
 @use 'sass:color';
 
-/* Import fonts */
-
-@import '@fontsource/noto-sans/400.css';
-@import '@fontsource/noto-sans/600.css';
-@import '@fontsource/noto-sans/700.css';
-@import '@fontsource/play/700.css';
-
 /* Constants */
 
 $BaseSize: 1rem;
 $ColorBlack: hsl(0, 0%, 12%);
 $ColorDeepAmethyst: hsl(270, 10%, 60%);
 $ColorGreige: hsl(30, 10%, 60%);
-$ColorGreigeTint: hsl(30, 10%, 85%);
+$ColorGreigeTint: hsl(30, 10%, 80%);
 $ColorGreigeTone: hsl(30, 10%, 35%);
-$ColorGreigeShade: hsl(30, 10%, 20%);
+$ColorGreigeShade: hsl(30, 10%, 15%);
 $ColorJapaneseViolet: hsl(300, 25%, 25%);
 $ColorJapaneseVioletTint: hsl(300, 25%, 50%);
 $ColorJapaneseVioletTone: hsl(300, 25%, 20%);

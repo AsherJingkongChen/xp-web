@@ -1,6 +1,8 @@
 <template>
   <article class="home-view">
-    <Heading :lines="['Let’s preview ', 'your files']" />
+    <Heading
+      class="heading"
+      :lines="['Let’s preview ', 'your files']" />
     <button class="preview">
       <img
         class="icon"
@@ -16,7 +18,7 @@ import Heading from '@/components/Heading.vue';
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/base.scss';
+@import '@/styles/main.scss';
 
 article.home-view {
   position: relative;
@@ -26,6 +28,9 @@ article.home-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .heading {
+    @include colorLinearGradient($ColorLinearHeadingCool);
+  }
   button.preview {
     position: relative;
     padding: $BaseSize;

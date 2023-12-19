@@ -25,6 +25,7 @@
     "@vue/tsconfig": "^0.4.0",
     "critters": "^0.0.20",
     "cypress": "~12.17.0",
+    "fontaine": "^0.4.1",
     "gh-pages": "^6.1.0",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.1.1",

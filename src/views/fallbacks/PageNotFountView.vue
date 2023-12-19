@@ -1,6 +1,8 @@
 <template>
   <article class="page-not-found-view">
-    <Heading :lines="['Oops!', 'Page not found']" />
+    <Heading
+      class="heading"
+      :lines="['Oops!', 'Page not found']" />
     <button
       class="go-back"
       @click="router.back">
@@ -23,7 +25,7 @@ const router = useRouter();
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/base.scss';
+@import '@/styles/main.scss';
 
 article.page-not-found-view {
   position: relative;
@@ -33,6 +35,9 @@ article.page-not-found-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .heading {
+    @include colorLinearGradient($ColorLinearHeadingCool);
+  }
   button.go-back {
     position: relative;
     padding: $BaseSize;

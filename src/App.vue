@@ -158,7 +158,7 @@ main.main {
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 0.4 * $BaseSize;
+  border-radius: $BaseSize;
   display: grid;
   place-items: center;
   overflow: auto;

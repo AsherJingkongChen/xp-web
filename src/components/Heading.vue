@@ -24,12 +24,8 @@ defineProps<{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Play, Arial, Roboto, sans-serif;
+  font-family: Play, sans-serif;
   text-align: center;
-  background: $ColorLinearHeadingCool;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   user-select: none;
   -webkit-user-select: none;
 }

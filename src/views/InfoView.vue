@@ -1,6 +1,7 @@
 <template>
   <article class="info-view">
     <Heading
+      class="heading"
       :lines="['Info', 'Nothing_to_show_but_I_am_a_very_long_heading']" />
   </article>
 </template>
@@ -10,7 +11,7 @@ import Heading from '@/components/Heading.vue';
 </script>
 
 <style scoped lang="scss">
-@import '@/styles/base.scss';
+@import '@/styles/main.scss';
 
 article.info-view {
   position: relative;
@@ -20,5 +21,8 @@ article.info-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  .heading {
+    @include colorLinearGradient($ColorLinearHeadingCool);
+  }
 }
 </style>

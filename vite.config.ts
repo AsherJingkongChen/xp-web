@@ -1,6 +1,7 @@
 import { join, resolve } from 'node:path';
 import { ConfigEnv, defineConfig, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { FontaineTransform } from 'fontaine';
 import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
 
@@ -102,6 +103,9 @@ export const customConfigFn = ({
         workbox: {
           globPatterns: ['**/*.{css,html,js,ico,png,svg,woff,woff2}'],
         },
+      }),
+      FontaineTransform.vite({
+        fallbacks: ['Arial', 'Helvetica Neue', 'Roboto'],
       }),
     ],
     preview: {

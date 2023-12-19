@@ -1,8 +1,6 @@
 <template>
   <article class="guide-view">
-    <h1 class="heading">
-      <span class="block">Guide</span>
-    </h1>
+    <Heading :lines="['Guide']" />
     <div class="content">
       <span class="block">1. Click the preview button</span>
       <span class="block">2. Select your files</span>
@@ -58,7 +56,9 @@
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Heading from '@/components/Heading.vue';
+</script>
 
 <style scoped lang="scss">
 @use 'sass:color'; // debug
@@ -74,17 +74,6 @@ article.guide-view {
   justify-content: center;
   color: $ColorTextWarm;
   background: color.change($ColorDeepAmethyst, $alpha: 0.2); // debug
-  .heading {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Play, Arial, Roboto, sans-serif;
-    font-size: 3 * $BaseSize;
-    font-weight: 700;
-    text-align: center;
-    user-select: none;
-  }
   .content {
     // debug
     position: relative;
