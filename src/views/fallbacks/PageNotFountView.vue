@@ -5,11 +5,11 @@
       :lines="['Oops!', 'Page not found']" />
     <button
       class="go-back"
+      title="Go to the previous page"
       @click="router.back">
       <img
         class="icon"
-        alt="Go back"
-        title="Go to the previous page"
+        alt="Back"
         src="@/icons/navigate-back.svg" />
     </button>
   </article>

@@ -12,26 +12,28 @@
   </Head>
   <header class="header">
     <RouterLink
+      to="/"
       class="brand"
-      to="/">
+      title="Go to Home Page">
       <img
         class="icon"
-        alt="XP Brand"
-        title="Go to Home Page"
+        alt="Home"
         src="@/icons/brand.svg"
         @contextmenu.prevent.stop />
     </RouterLink>
   </header>
   <nav class="nav">
     <RouterLink
+      to="/guide"
       class="nav-option to-guide"
-      to="/guide">
+      title="Go to Guide Page">
       <div class="icon"></div>
       <div class="nav-name">Guide</div>
     </RouterLink>
     <RouterLink
+      to="/info"
       class="nav-option to-info"
-      to="/info">
+      title="Go to Info Page">
       <div class="icon"></div>
       <div class="nav-name">Info</div>
     </RouterLink>

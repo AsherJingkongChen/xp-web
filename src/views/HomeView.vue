@@ -3,11 +3,12 @@
     <Heading
       class="heading"
       :lines="['Let’s preview ', 'your files']" />
-    <button class="preview">
+    <button
+      class="preview"
+      title="Choose files">
       <img
         class="icon"
         alt="Preview"
-        title="Click me to open your files"
         src="@/icons/preview.svg" />
     </button>
   </article>
