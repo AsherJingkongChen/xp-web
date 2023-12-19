@@ -1,9 +1,6 @@
 <template>
   <article class="home-view">
-    <h1 class="heading">
-      <span class="block">Let’s preview </span>
-      <span class="block">your files</span>
-    </h1>
+    <Heading :lines="['Let’s preview ', 'your files']" />
     <button class="preview">
       <img
         class="icon"
@@ -14,7 +11,9 @@
   </article>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Heading from '@/components/Heading.vue';
+</script>
 
 <style scoped lang="scss">
 @import '@/styles/base.scss';
@@ -27,24 +26,6 @@ article.home-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .heading {
-    cursor: default;
-    position: relative;
-    padding: $BaseSize;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Play;
-    font-size: 3 * $BaseSize;
-    font-weight: 700;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    background: $ColorLinearHeadingCool;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   button.preview {
     position: relative;
     padding: $BaseSize;

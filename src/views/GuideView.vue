@@ -79,7 +79,7 @@ article.guide-view {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Play;
+    font-family: Play, Arial, Roboto, sans-serif;
     font-size: 3 * $BaseSize;
     font-weight: 700;
     text-align: center;

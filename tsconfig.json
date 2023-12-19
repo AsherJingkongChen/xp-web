@@ -14,7 +14,7 @@
       "@/*": ["src/*"]
     },
     "strictNullChecks": true,
-    "types": ["cypress", "vite/client"],
+    "types": ["cypress", "vite/client", "vite-ssg"],
     "verbatimModuleSyntax": false
   },
   "include": ["src", "test", "*.config.ts"],

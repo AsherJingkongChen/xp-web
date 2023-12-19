@@ -1,9 +1,6 @@
 <template>
   <article class="page-not-found-view">
-    <h1 class="heading">
-      <span class="block">Oops!</span>
-      <span class="block">Page Not Found</span>
-    </h1>
+    <Heading :lines="['Oops!', 'Page not found']" />
     <button
       class="go-back"
       @click="router.back">
@@ -17,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import Heading from '@/components/Heading.vue';
 import { useRouter } from 'vue-router';
 
 /* States */
@@ -35,22 +33,6 @@ article.page-not-found-view {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  .heading {
-    position: relative;
-    padding: $BaseSize;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Play;
-    font-size: 3 * $BaseSize;
-    font-weight: 700;
-    text-align: center;
-    user-select: none;
-    background: $ColorLinearHeadingCool;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
   button.go-back {
     position: relative;
     padding: $BaseSize;
