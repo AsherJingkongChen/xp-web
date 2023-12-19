@@ -15,8 +15,8 @@
   align-items: center;
 }
 *,
-*::before,
-*::after {
+*::after,
+*::before {
   box-sizing: border-box;
   margin: unset;
 }

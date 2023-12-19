@@ -1,4 +1,3 @@
-import 'vite-ssg';
 import { join, resolve } from 'node:path';
 import { ConfigEnv, defineConfig, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -42,6 +41,7 @@ export const customConfigFn = ({
     plugins: [
       vue(),
       VitePWA({
+        includeManifestIcons: false,
         manifest: {
           name: 'XP App',
           short_name: 'XP',
@@ -99,6 +99,9 @@ export const customConfigFn = ({
           ],
         },
         registerType: 'autoUpdate',
+        workbox: {
+          globPatterns: ['**/*.{css,html,js,ico,png,svg,woff,woff2}'],
+        },
       }),
     ],
     preview: {
@@ -115,7 +118,8 @@ export const customConfigFn = ({
       crittersOptions: {
         path: dist,
         preload: 'media',
-        fonts: true,
+        inlineFonts: true,
+        preloadFonts: false,
       },
       formatting: 'minify',
       script: 'defer',
