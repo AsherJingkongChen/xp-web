@@ -100,6 +100,7 @@ export const customConfigFn = ({
         },
         registerType: 'autoUpdate',
         workbox: {
+          dontCacheBustURLsMatching: /[]/,
           globPatterns: ['**/*.{css,html,js,ico,png,svg,woff,woff2}'],
         },
       }),
