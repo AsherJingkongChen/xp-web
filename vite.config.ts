@@ -28,6 +28,8 @@ export const customConfigFn = ({
   root: string;
 }): UserConfig => {
   const outDir = join(dist, root);
+  const hashPattern = '@h:[hash:20]';
+  const scriptPattern = `scripts/[name]${hashPattern}.[format].js`;
   return {
     base: join(root, '/'),
     build: {
@@ -35,12 +37,12 @@ export const customConfigFn = ({
       outDir,
       rollupOptions: {
         output: {
-          assetFileNames: 'assets/[name]?h=[hash:20][extname]',
-          chunkFileNames: 'scripts/[name]?h=[hash:20].[format].js',
-          entryFileNames: 'scripts/[name]?h=[hash:20].[format].js',
-          sourcemapFileNames: 'sourcemaps/[name]?h=[hash:20].map.[format]',
-        }
-      }
+          assetFileNames: `assets/[name]${hashPattern}[extname]`,
+          chunkFileNames: scriptPattern,
+          entryFileNames: scriptPattern,
+          sourcemapFileNames: `${scriptPattern}.map`,
+        },
+      },
     },
     envDir: join('env', dist),
     esbuild: {
@@ -108,7 +110,7 @@ export const customConfigFn = ({
         },
         registerType: 'autoUpdate',
         workbox: {
-          dontCacheBustURLsMatching: /\?h=.{20,}$/i,
+          dontCacheBustURLsMatching: /@h:.{20}$/i,
           globPatterns: ['**/*'],
         },
       }),
