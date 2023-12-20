@@ -42,9 +42,16 @@ export const customConfigFn = ({
     plugins: [
       vue(),
       VitePWA({
+        // Service Worker Configuration Reference:
+        // [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/docs/scripts/pwa.ts)
+        includeManifestIcons: false,
         registerType: 'autoUpdate',
-        includeAssets: ['assets/apple-touch-icon.png', 'assets/favicon.*'],
+        workbox: {
+          globIgnores: ['**/pwa-screenshot*', '**/manifest.webmanifest'],
+          globPatterns: ['**/*'],
+        },
         manifest: {
+          id: '/',
           name: 'XP App',
           short_name: 'XP App',
           description: 'Any file previewer',
@@ -86,14 +93,14 @@ export const customConfigFn = ({
           screenshots: [
             {
               label: 'Home Page',
-              src: 'assets/screenshot-portrait-1082x2402.png',
+              src: 'assets/pwa-screenshot-portrait-1082x2402.png',
               sizes: '1082x2402',
               type: 'image/png',
               form_factor: 'narrow',
             },
             {
               label: 'Home Page',
-              src: 'assets/screenshot-landscape-2560x1600.png',
+              src: 'assets/pwa-screenshot-landscape-2560x1600.png',
               sizes: '2560x1600',
               type: 'image/png',
               form_factor: 'wide',
