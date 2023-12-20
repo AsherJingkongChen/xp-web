@@ -78,8 +78,9 @@ h5,
 h6,
 p,
 span {
-  overflow-wrap: break-word;
-  word-break: break-all;
+  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
+  word-break: normal;
 }
 button,
 input,
