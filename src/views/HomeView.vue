@@ -2,13 +2,13 @@
   <article class="home-view">
     <Heading
       class="heading"
-      :lines="['Let’s preview ', 'your files']" />
+      :lines="['Any file', 'To Preview?']" />
     <button
       class="preview"
-      title="Choose files">
+      title="Choose files to preview">
       <img
         class="icon"
-        alt="Preview"
+        alt="Choose files to preview"
         src="@/icons/preview.svg" />
     </button>
   </article>
@@ -35,6 +35,9 @@ article.home-view {
   button.preview {
     position: relative;
     padding: $BaseSize;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .icon {
       cursor: url('@/icons/add-file.svg'), copy;
       position: relative;

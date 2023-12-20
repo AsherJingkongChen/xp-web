@@ -1,7 +1,7 @@
 <template>
   <article class="guide-view">
     <Heading :lines="['Guide']" />
-    <div class="content">
+    <p class="content">
       <span class="block">1. Click the preview button</span>
       <span class="block">2. Select your files</span>
       <span class="block">3. Click the open button</span>
@@ -11,7 +11,10 @@
       <span class="block">7. Click the close button</span>
       <span class="block">8. Click the preview button</span>
       <span class="block">9. Repeat from step 2</span>
-      <span class="block">10. Select your files</span>
+      <span class="block"
+        >10. Select your files and it should be a
+        very_super_extraordinary_lengthy_text_without_breaks</span
+      >
       <span class="block">11. Click the open button</span>
       <span class="block">12. Click the play button</span>
       <span class="block">13. Enjoy your files</span>
@@ -52,7 +55,7 @@
       <span class="block">48. Click the preview button</span>
       <span class="block">49. Repeat from step 42</span>
       <span class="block">50. Select your files</span>
-    </div>
+    </p>
   </article>
 </template>
 
@@ -81,6 +84,7 @@ article.guide-view {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 }
 </style>

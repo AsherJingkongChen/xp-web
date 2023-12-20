@@ -14,10 +14,10 @@
     <RouterLink
       to="/"
       class="brand"
-      title="Go to Home Page">
+      title="Go to Home page">
       <img
         class="icon"
-        alt="Home"
+        alt="Go Home"
         src="@/icons/brand.svg"
         @contextmenu.prevent.stop />
     </RouterLink>
@@ -26,14 +26,14 @@
     <RouterLink
       to="/guide"
       class="nav-option to-guide"
-      title="Go to Guide Page">
+      title="Go to Guide page">
       <div class="icon"></div>
       <div class="nav-name">Guide</div>
     </RouterLink>
     <RouterLink
       to="/info"
       class="nav-option to-info"
-      title="Go to Info Page">
+      title="Go to Info page">
       <div class="icon"></div>
       <div class="nav-name">Info</div>
     </RouterLink>
@@ -92,6 +92,7 @@ header.header {
       position: relative;
       width: 4 * $BaseSize;
       height: 2 * $BaseSize;
+      min-width: max-content;
       color: $ColorTextCool;
       font-size: 0.75 * $BaseSize;
     }
