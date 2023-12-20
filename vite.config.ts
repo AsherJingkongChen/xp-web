@@ -28,21 +28,11 @@ export const customConfigFn = ({
   root: string;
 }): UserConfig => {
   const outDir = join(dist, root);
-  const hashPattern = '@h:[hash:20]';
-  const scriptPattern = `scripts/[name]${hashPattern}.[format].js`;
   return {
     base: join(root, '/'),
     build: {
       assetsInlineLimit: 0,
       outDir,
-      rollupOptions: {
-        output: {
-          assetFileNames: `assets/[name]${hashPattern}[extname]`,
-          chunkFileNames: scriptPattern,
-          entryFileNames: scriptPattern,
-          sourcemapFileNames: `${scriptPattern}.map`,
-        },
-      },
     },
     envDir: join('env', dist),
     esbuild: {
@@ -51,10 +41,11 @@ export const customConfigFn = ({
     plugins: [
       vue(),
       VitePWA({
-        includeManifestIcons: false,
+        registerType: 'autoUpdate',
+        includeAssets: ['assets/apple-touch-icon.png', 'assets/favicon.*'],
         manifest: {
           name: 'XP App',
-          short_name: 'XP',
+          short_name: 'XP App',
           description: 'Any file previewer',
           background_color: '#503030',
           theme_color: '#503030',
@@ -107,11 +98,6 @@ export const customConfigFn = ({
               form_factor: 'wide',
             },
           ],
-        },
-        registerType: 'autoUpdate',
-        workbox: {
-          dontCacheBustURLsMatching: /@h:.{20}$/i,
-          globPatterns: ['**/*'],
         },
       }),
     ],
