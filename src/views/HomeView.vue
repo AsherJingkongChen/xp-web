@@ -2,7 +2,7 @@
   <article class="home-view">
     <Heading
       class="heading"
-      :lines="['Any file', 'To Preview?']" />
+      :lines="['Any File', 'To Preview?']" />
     <button
       class="preview"
       title="Choose files to preview">

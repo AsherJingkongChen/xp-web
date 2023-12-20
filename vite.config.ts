@@ -58,12 +58,12 @@ export const customConfigFn = ({
           background_color: '#503030',
           theme_color: '#503030',
           orientation: 'any',
-          display: 'minimal-ui',
           display_override: [
             'window-controls-overlay',
             'standalone',
             'minimal-ui',
           ],
+          handle_links: 'preferred',
           icons: [
             {
               src: 'assets/pwa-192x192.png',
