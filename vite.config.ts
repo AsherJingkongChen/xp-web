@@ -1,6 +1,7 @@
 import { join, resolve } from 'node:path';
 import { ConfigEnv, defineConfig, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import webfontDownload from 'vite-plugin-webfont-dl';
 import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
 
@@ -100,6 +101,21 @@ export const customConfigFn = ({
           ],
         },
       }),
+      webfontDownload(
+        // The font files should be under `dist*/assets/` after build.
+        [
+          'https://fonts.googleapis.com/css2?' +
+            'family=Noto+Sans:wght@400;600;700&' +
+            'family=Play:wght@700&' +
+            'display=swap',
+        ],
+        // The options are strange.
+        // Anyway, it should load CSS asynchronously.
+        {
+          async: false,
+          injectAsStyleTag: false,
+        },
+      ),
     ],
     preview: {
       host,

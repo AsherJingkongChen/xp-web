@@ -14,9 +14,15 @@
       "@/*": ["src/*"]
     },
     "strictNullChecks": true,
-    "types": ["cypress", "vite/client", "vite-ssg"],
+    "types": [
+      "cypress",
+      "vite/client",
+      "vite-ssg",
+      "vite-plugin-pwa/client"
+    ],
     "verbatimModuleSyntax": false
   },
   "include": ["src", "test", "*.config.ts"],
+  "exclude": ["dist*", "node_modules"],
   "extends": "@vue/tsconfig/tsconfig.dom.json"
 }
