@@ -33,6 +33,14 @@ export const customConfigFn = ({
     build: {
       assetsInlineLimit: 0,
       outDir,
+      rollupOptions: {
+        output: {
+          assetFileNames: 'assets/[name]?h=[hash:20][extname]',
+          chunkFileNames: 'scripts/[name]?h=[hash:20].[format].js',
+          entryFileNames: 'scripts/[name]?h=[hash:20].[format].js',
+          sourcemapFileNames: 'sourcemaps/[name]?h=[hash:20].map.[format]',
+        }
+      }
     },
     envDir: join('env', dist),
     esbuild: {
@@ -100,8 +108,8 @@ export const customConfigFn = ({
         },
         registerType: 'autoUpdate',
         workbox: {
-          dontCacheBustURLsMatching: /[]/,
-          globPatterns: ['**/*.{css,html,js,ico,png,svg,woff,woff2}'],
+          dontCacheBustURLsMatching: /\?h=.{20,}$/i,
+          globPatterns: ['**/*'],
         },
       }),
     ],
