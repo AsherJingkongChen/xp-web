@@ -50,7 +50,7 @@
     "x:g": "vite dev",
     "x:p": "vite preview",
     "x:t": "run-s test:unit",
-    "pub": "run-s prepublish deploy:gh-pages && git push",
+    "pub": "run-s prepublish deploy:gh-pages",
     "build": "UNSECURE=1 run-s x:b",
     "build:gh-pages": "HOST=asherjingkongchen.github.io ROOT=/xp-web/ run-s x:b",
     "build:vercel": "HOST=xp-web.vercel.app run-s x:b",
