@@ -13,7 +13,7 @@
   <header class="header">
     <RouterLink
       to="/"
-      class="brand"
+      class="home"
       title="Go to Home page">
       <img
         class="icon"
@@ -27,15 +27,13 @@
       to="/guide"
       class="nav-option to-guide"
       title="Go to Guide page">
-      <div class="icon"></div>
-      <div class="nav-name">Guide</div>
+      Guide
     </RouterLink>
     <RouterLink
       to="/info"
       class="nav-option to-info"
       title="Go to Info page">
-      <div class="icon"></div>
-      <div class="nav-name">Info</div>
+      Info
     </RouterLink>
   </nav>
   <main
@@ -83,10 +81,11 @@ const namedMetadata = computed(() =>
 
 header.header {
   position: relative;
-  .brand {
+  .home {
     cursor: url('@/icons/paperplane.svg'), pointer;
     position: relative;
     width: min-content;
+    height: min-content;
     padding: 1.25 * $BaseSize 1 * $BaseSize;
     .icon {
       position: relative;
@@ -99,6 +98,8 @@ header.header {
 }
 nav.nav {
   position: relative;
+  width: min-content;
+  height: min-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -125,9 +126,19 @@ nav.nav {
     @media screen and (orientation: portrait) {
       color: $ColorTextWarm;
     }
+
+    &::before {
+      content: '';
+      position: relative;
+      width: #{$LineHeight}em;
+      height: #{$LineHeight}em;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
     &.to-guide {
       cursor: url('@/icons/document.svg'), context-menu;
-      .icon {
+      &::before {
         background-image: url('@/icons/guide-cool.svg');
         @media screen and (orientation: portrait) {
           background-image: url('@/icons/guide-warm.svg');
@@ -136,20 +147,12 @@ nav.nav {
     }
     &.to-info {
       cursor: url('@/icons/radar.svg'), help;
-      .icon {
+      &::before {
         background-image: url('@/icons/info-cool.svg');
         @media screen and (orientation: portrait) {
           background-image: url('@/icons/info-warm.svg');
         }
       }
-    }
-    .icon {
-      position: relative;
-      width: #{$LineHeight}em;
-      height: #{$LineHeight}em;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
     }
   }
 }

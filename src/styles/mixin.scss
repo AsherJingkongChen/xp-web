@@ -1,5 +1,5 @@
 @mixin mediaQueryPortrait {
-  @media screen and ((orientation: portrait) and (max-width: 640px)) {
+  @media screen and (orientation: portrait) and (max-width: 640px) {
     @content;
   }
 }
