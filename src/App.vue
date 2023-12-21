@@ -18,7 +18,7 @@
       <img
         class="icon"
         alt="Go Home"
-        src="@/icons/brand.svg"
+        src="@/icons/xp-brand.svg"
         @contextmenu.prevent.stop />
     </RouterLink>
   </header>
@@ -84,13 +84,12 @@ header.header {
   .home {
     cursor: url('@/icons/paperplane.svg'), pointer;
     position: relative;
-    width: min-content;
-    height: min-content;
     padding: 1.25 * $BaseSize 1 * $BaseSize;
     .icon {
       position: relative;
       width: 4 * $BaseSize;
       height: 2 * $BaseSize;
+      min-width: max-content;
       color: $ColorTextCool;
       font-size: 0.75 * $BaseSize;
     }
@@ -98,8 +97,6 @@ header.header {
 }
 nav.nav {
   position: relative;
-  width: min-content;
-  height: min-content;
   display: flex;
   flex-direction: row;
   align-items: center;

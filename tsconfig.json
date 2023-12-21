@@ -16,8 +16,8 @@
     "strictNullChecks": true,
     "types": [
       "cypress",
-      "vite/client",
       "vite-ssg",
+      "vite/client",
       "vite-plugin-pwa/client"
     ],
     "verbatimModuleSyntax": false

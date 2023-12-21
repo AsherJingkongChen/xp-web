@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import webfontDownload from 'vite-plugin-webfont-dl';
 import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
+import { ViteSSGOptions } from 'vite-ssg';
 
 const host = 'localhost';
 const port = 4173;
@@ -27,7 +28,7 @@ export const customConfigFn = ({
   env: ConfigEnv;
   origin: string;
   root: string;
-}): UserConfig => {
+}): UserConfig & { ssgOptions: ViteSSGOptions } => {
   const outDir = join(dist, root);
   return {
     base: join(root, '/'),
@@ -139,7 +140,7 @@ export const customConfigFn = ({
       crittersOptions: {
         path: dist,
         inlineFonts: true,
-        preloadFonts: false,
+        preloadFonts: true,
         preload: 'media',
       },
       formatting: 'minify',
