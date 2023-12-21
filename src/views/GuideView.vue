@@ -76,7 +76,7 @@ article.guide-view {
   align-items: center;
   justify-content: center;
   color: $ColorTextWarm;
-  background: color.change($ColorDeepAmethyst, $alpha: 0.2); // debug
+  background: color.change($ColorTextWarm, $alpha: 0.15); // debug
   .content {
     // debug
     position: relative;

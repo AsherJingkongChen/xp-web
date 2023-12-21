@@ -52,21 +52,25 @@ body {
   @include mediaQueryPortrait {
     padding-bottom: 0;
   }
-  font-family: 'Noto Sans', sans-serif;
   height: 100vh;
   height: 100svh;
   width: 100vw;
   width: 100svw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: $ColorJapaneseVioletShade;
   background-image: $ColorLinearBackground;
   background-repeat: no-repeat;
   color: $ColorTextWarm;
+  font-family: 'Noto Sans', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 html {
   line-height: $LineHeight;
+  font-size: 16px;
   font-size: calc(8px + 0.8vmax + 0.08vmin);
   -webkit-text-size-adjust: 100%;
 }
