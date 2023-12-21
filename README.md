@@ -53,33 +53,30 @@ npm run build
 npm run preview
 ```
 
-**Note 1:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in [`vite.config.ts`](./vite.config.ts).
-
-**Note 2:** To clear caches for XP Web, which is a **Progressive Web Application**. You will need to unregister the service worker, or hold `Shift` key to force-reload the page.
+**Note:** To clear caches for XP Web, which is a **Progressive Web Application**. You will need to unregister the service worker, or hold `Shift` key to force-reload the page.
 
 ### Run All Tests
 
 ```sh
-npm run test
+npm run test      # Unit Tests + E2E Tests
+npm run test:unit # Unit Tests
 ```
-
-**Note:** The command `test` excludes e2e tests.
 
 ### Run E2E Tests
 
-#### Session 1
+#### 1st Session
 
 ```sh
 npm run preview
 ```
 
-#### Session 2
+#### 2nd Session
 
 ```sh
 npm run test:e2e
 ```
 
-**Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/). The preview server will watch file changes in `dist` directory.
+**Note:** The command `test:e2e` depends on `vite preview` which serves web artifacts. The preview server will watch file changes in `dist` directory.
 
 ### Run Tests on [Cypress's beautiful UI](https://www.cypress.io/)
 
@@ -87,18 +84,27 @@ npm run test:e2e
 npm run test:gui
 ```
 
-### The Convenient Way to Do All of the Above
+### The Convenient Way to Ensure The Program Works
 
 ```sh
 npm run prepublish
 ```
 
-**Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run E2E tests before merge.
+**Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run E2E tests before merge into the `main` branch.
 
-### Deploy to Your GitHub Pages (Optional)
+### Deploy to Your Sites (GitHub Pages)
 
 ```sh
-npm run gh-pages:deploy
+npm run deploy:gh-pages
 ```
 
-**Note:** You can configure the author name in [`package.json`](./package.json) if the different origin is used.
+**Note 1:** You can replace the subdomain in [`package.json`](./package.json) with your GitHub organization name.
+
+**Note 2:** You can configure for critical environment variables at files matching `env/**/.env.production`.
+
+### Miscellaneous Commands
+
+```sh
+npm run x:* # Shortcuts, should not be used directly
+npm run pub # Literally All-in-One
+```

@@ -1,50 +1,47 @@
 import { join, resolve } from 'node:path';
-import { ConfigEnv, defineConfig, UserConfig } from 'vite';
+import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import webfontDownload from 'vite-plugin-webfont-dl';
 import generateSitemap from 'vite-ssg-sitemap';
 import vue from '@vitejs/plugin-vue';
-import { ViteSSGOptions } from 'vite-ssg';
+import { copyFileSync } from 'node:fs';
 
-const host = 'localhost';
-const port = 4173;
+const noTrailingSlash = (path?: string) => path?.replace(/\/$/, '');
+// const setTrailingSlash = (path: string) => path.endsWith('/') ? path + '/' : path;
 
-export default defineConfig((env) =>
-  customConfigFn({
-    dist: 'dist',
-    env,
-    origin: `http://${host}:${port}`,
-    root: '/',
-  }),
-);
+/**
+ * Takes arguments from `process.env`
+ * @property {string} HOST - default to `localhost`
+ * @property {string} ROOT - base path of the app, default to `/`
+ * @property {boolean} UNSECURE - whether origin disables https or not, `true` if set
+ */
+export default defineConfig(({ mode }) => {
+  let { HOST, ROOT, UNSECURE } = process.env;
+  const port = 4173;
+  const strictPort = !HOST;
+  const host = HOST || `localhost:${port}`;
+  const origin = `http${UNSECURE ? '' : 's'}://${host}`;
+  const root = ROOT || '/';
+  const outDir = join(`dist-${host}`, root);
 
-export const customConfigFn = ({
-  dist,
-  env,
-  origin,
-  root,
-}: {
-  dist: string;
-  env: ConfigEnv;
-  origin: string;
-  root: string;
-}): UserConfig & { ssgOptions: ViteSSGOptions } => {
-  const outDir = join(dist, root);
   return {
-    base: join(root, '/'),
+    base: root,
     build: {
       assetsInlineLimit: 0,
       outDir,
     },
-    envDir: join('env', dist),
+    envDir: join('env', host),
     esbuild: {
-      drop: env.mode === 'production' ? ['debugger'] : undefined,
+      drop: mode === 'production' ? ['debugger'] : undefined,
     },
     plugins: [
       vue(),
       VitePWA({
         // Service Worker Configuration Reference:
         // [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/docs/scripts/pwa.ts)
+        devOptions: {
+          enabled: mode === 'development',
+        },
         includeManifestIcons: false,
         registerType: 'autoUpdate',
         workbox: {
@@ -52,7 +49,9 @@ export const customConfigFn = ({
           globPatterns: ['**/*'],
         },
         manifest: {
-          id: '/',
+          id: origin,
+          scope: root,
+          start_url: root,
           name: 'XP App',
           short_name: 'XP App',
           description: 'Any file previewer',
@@ -126,9 +125,8 @@ export const customConfigFn = ({
       ),
     ],
     preview: {
-      host,
       port,
-      strictPort: true,
+      strictPort,
     },
     resolve: {
       alias: {
@@ -140,11 +138,16 @@ export const customConfigFn = ({
       script: 'defer',
       onFinished() {
         generateSitemap({
-          basePath: root.substring(1),
-          hostname: join(origin, root, '/'),
+          basePath: noTrailingSlash(root),
+          hostname: new URL(root, origin).href,
           outDir,
         });
+
+        // Copy `index.html` as fallback pages
+        const indexPage = join(outDir, 'index.html');
+        const notFoundPage = join(outDir, '404.html');
+        copyFileSync(indexPage, notFoundPage);
       },
     },
   };
-};
+});
