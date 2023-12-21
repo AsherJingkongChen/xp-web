@@ -1,6 +1,8 @@
 # xp-web (Web package of XP)
 
-[![GitHub Pages Build Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/pages/pages-build-deployment?label=Github%20Pages&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/pages/pages-build-deployment) [![CI Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/ci.yml?label=CI&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/ci)
+[![Vercel Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/Production?label=vercel.app&logo=Vercel)](https://xp-web.vercel.app)
+[![GitHub Pages Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/github-pages?label=github.io&logo=GitHub)](https://asherjingkongchen.github.io/xp-web/)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/ci.yml?label=CI&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/ci.yml)
 
 ## What is it for?
 
@@ -8,7 +10,8 @@ With XP Web, you can preview any file in your browser.
 
 ## Try Our Demo
 
-[On GitHub Pages](https://asherjingkongchen.github.io/xp-web/)
+- [On Vercel](https://xp-web.vercel.app) (Recommended)
+- [On GitHub Pages](https://asherjingkongchen.github.io/xp-web/) (Alternative)
 
 ## Let's Setup the Project
 
@@ -78,7 +81,7 @@ npm run test:e2e
 
 **Note:** The command `test:e2e` depends on `vite preview` which serves on [http://localhost:4173/](http://localhost:4173/). The preview server will watch file changes in `dist` directory.
 
-### Run Tests on [Cypress's pretty GUI](https://www.cypress.io/)
+### Run Tests on [Cypress's beautiful UI](https://www.cypress.io/)
 
 ```sh
 npm run test:gui
