@@ -22,9 +22,8 @@
 a,
 button {
   cursor: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   background: unset;
   color: unset;
   line-height: unset;
@@ -63,7 +62,6 @@ body {
   background-image: $ColorLinearBackground;
   background-repeat: no-repeat;
   color: $ColorTextWarm;
-  font-family: 'Noto Sans', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -71,6 +69,7 @@ body {
 html {
   line-height: $LineHeight;
   font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
   font-size: calc(8px + 0.8vmax + 0.08vmin);
   -webkit-text-size-adjust: 100%;
 }
