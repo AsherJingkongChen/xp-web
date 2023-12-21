@@ -92,7 +92,6 @@ header.header {
       position: relative;
       width: 4 * $BaseSize;
       height: 2 * $BaseSize;
-      min-width: max-content;
       color: $ColorTextCool;
       font-size: 0.75 * $BaseSize;
     }
