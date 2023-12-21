@@ -118,8 +118,7 @@ export const customConfigFn = ({
             'family=Play:wght@700&' +
             'display=swap',
         ],
-        // The options are strange.
-        // Anyway, it should load CSS asynchronously.
+        // Fonts are critical resources, so we should preload them.
         {
           async: false,
           injectAsStyleTag: false,
@@ -137,12 +136,6 @@ export const customConfigFn = ({
       },
     },
     ssgOptions: {
-      crittersOptions: {
-        path: dist,
-        inlineFonts: true,
-        preloadFonts: true,
-        preload: 'media',
-      },
       formatting: 'minify',
       script: 'defer',
       onFinished() {

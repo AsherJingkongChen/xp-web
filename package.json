@@ -21,7 +21,6 @@
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/test-utils": "^2.4.3",
     "@vue/tsconfig": "^0.5.0",
-    "critters": "^0.0.20",
     "cypress": "~12.17.0",
     "gh-pages": "^6.1.0",
     "npm-run-all2": "^6.1.1",
