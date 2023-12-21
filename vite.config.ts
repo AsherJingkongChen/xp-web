@@ -58,6 +58,7 @@ export const customConfigFn = ({
           background_color: '#503030',
           theme_color: '#503030',
           orientation: 'any',
+          display: 'standalone',
           display_override: [
             'window-controls-overlay',
             'standalone',

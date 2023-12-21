@@ -12,7 +12,7 @@ With XP Web, you can preview any file in your browser.
 
 ## Let's Setup the Project
 
-> This section is for contributors and developers only
+> **Note:** This section is for contributors and developers only
 
 ### Recommended IDE Setup for you
 
@@ -50,7 +50,9 @@ npm run build
 npm run preview
 ```
 
-**Note:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in [`vite.config.ts`](./vite.config.ts).
+**Note 1:** The base URL is [http://localhost:4173/](http://localhost:4173/). You can configure it in [`vite.config.ts`](./vite.config.ts).
+
+**Note 2:** To clear caches for XP Web, which is a **Progressive Web Application**. You will need to unregister the service worker, or hold `Shift` key to force-reload the page.
 
 ### Run All Tests
 
