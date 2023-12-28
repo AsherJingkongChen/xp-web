@@ -1,10 +1,10 @@
 import { error } from '@sveltejs/kit';
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 import { building } from '$app/environment';
 
 export const trailingSlash = 'never';
 
-export const load: PageServerLoad = () => {
+export const load: PageLoad = () => {
   if (!building) {
     error(404, 'Not Found');
   }

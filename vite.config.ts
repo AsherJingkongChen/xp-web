@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => {
       },
       filename: 'service-worker.js',
       includeManifestIcons: false,
+      injectRegister: false,
       registerType: 'autoUpdate',
       strategies: 'generateSW',
       workbox: {
@@ -74,15 +75,8 @@ export default defineConfig(({ mode }) => {
         navigateFallback: '404.html',
       },
       manifest: {
-        id: BUILD_BASE_URL.origin,
-        scope: BUILD_BASE_PATH_SLASHED,
-        start_url: BUILD_BASE_PATH_SLASHED,
-        name: 'XP App',
-        short_name: 'XP App',
-        description: 'Any file previewer',
         background_color: '#503030',
-        theme_color: '#503030',
-        orientation: 'any',
+        description: 'Any file previewer',
         display: 'standalone',
         display_override: [
           'window-controls-overlay',
@@ -90,6 +84,13 @@ export default defineConfig(({ mode }) => {
           'minimal-ui',
         ],
         handle_links: 'preferred',
+        id: BUILD_BASE_URL.origin,
+        name: 'XP App',
+        orientation: 'any',
+        scope: BUILD_BASE_PATH_SLASHED,
+        short_name: 'XP App',
+        start_url: BUILD_BASE_PATH_SLASHED,
+        theme_color: '#503030',
         icons: [
           {
             src: 'assets/logo/favicon-192x192.png',
