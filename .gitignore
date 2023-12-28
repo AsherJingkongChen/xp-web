@@ -6,5 +6,7 @@
 
 node_modules
 /build
+/dev-dist
+/dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

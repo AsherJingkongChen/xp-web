@@ -1,12 +1,16 @@
+<script>
+  import { base } from '$app/paths';
+</script>
+
 <header>
   <a
     class="home"
-    href="/"
+    href="{base}/"
     title="Go to Home page">
     <img
       class="icon"
       alt="Go Home"
-      src="/icons/xp-brand.svg"
+      src="assets/logo/brand.svg"
       on:contextmenu|preventDefault|stopPropagation />
   </a>
 </header>
@@ -15,7 +19,7 @@
   header {
     position: relative;
     .home {
-      cursor: url('/icons/paperplane.svg'), pointer;
+      cursor: url('/assets/icons/paperplane.svg'), pointer;
       position: relative;
       padding: 1.25 * $BaseSize 1 * $BaseSize;
       .icon {

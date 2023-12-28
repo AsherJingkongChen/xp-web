@@ -2,13 +2,6 @@
   "name": "xp-web",
   "version": "0.7.0",
   "private": true,
-  "scripts": {
-    "build": "vite build",
-    "check": "svelte-kit sync && svelte-check",
-    "dev": "vite dev",
-    "format": "prettier --write .",
-    "preview": "vite preview --open"
-  },
   "devDependencies": {
     "@343dev/optimizt": "^6.0.0",
     "@fontsource/noto-sans": "^5.0.18",
@@ -16,14 +9,34 @@
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.0.6",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^18.18.0",
+    "@vite-pwa/sveltekit": "^0.3.0",
+    "cypress": "~12.17.4",
+    "dotenv": "^16.3.1",
+    "npm-run-all2": "^6.1.1",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
+    "super-sitemap": "^0.14.13",
     "svelte": "^4.2.7",
     "svelte-check": "^3.6.0",
     "svelte-preprocess": "^5.1.3",
-    "tslib": "^2.4.1",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.10"
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vite-plugin-pwa": "^0.17.4"
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:optimum": "run-s optimize build",
+    "check": "svelte-kit sync && svelte-check",
+    "dev": "vite dev",
+    "format": "prettier --write .",
+    "optimize": "optimizt static",
+    "preview": "vite preview --open",
+    "test:e2e": "cypress run --e2e",
+    "test:gui": "cypress open",
+    "test:unit": "cypress run --component"
   },
   "type": "module"
 }

@@ -1,7 +1,11 @@
 import { join } from 'path';
 import { fileURLToPath, URL } from 'url';
-import adapter from '@sveltejs/adapter-static';
+import adapterStatic from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess';
+import {
+  BUILD_BASE_URL,
+  BUILD_BASE_PATH_UNSLASHED,
+} from './env.config.js';
 
 const styleDir = fileURLToPath(
   new URL('src/lib/styles', import.meta.url),
@@ -10,15 +14,30 @@ const styleDir = fileURLToPath(
 /** @type {import('@sveltejs/kit').Config} */
 export default {
   kit: {
-    adapter: adapter({
-      assets: 'build',
+    adapter: adapterStatic({
+      assets: 'dist',
       fallback: '404.html',
-      pages: 'build',
+      pages: 'dist',
       precompress: false,
       strict: true,
     }),
     env: {
-      dir: 'env/github.io',
+      dir: join(
+        'env',
+        BUILD_BASE_URL.host,
+        BUILD_BASE_PATH_UNSLASHED,
+      ),
+    },
+    files: {
+      appTemplate: 'src/index.html',
+    },
+    paths: {
+      base: BUILD_BASE_PATH_UNSLASHED,
+      relative: false,
+    },
+    serviceWorker: {
+      // Use `@vite-pwa/svelte` instead
+      register: false,
     },
   },
   preprocess: [
@@ -27,7 +46,6 @@ export default {
         prependData: `\
           @use 'sass:color';
           @import '${join(styleDir, 'constant.scss')}';
-          @import '${join(styleDir, 'font.scss')}';
           @import '${join(styleDir, 'mixin.scss')}';
         `,
       },

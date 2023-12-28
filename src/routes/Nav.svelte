@@ -1,13 +1,13 @@
 <nav>
   <a
     class="nav-option go-to-guide"
-    href="/guide"
+    href="guide/"
     title="Go to Guide page">
     Guide
   </a>
   <a
     class="nav-option go-to-info"
-    href="/info"
+    href="info/"
     title="Go to Info page">
     Info
   </a>
@@ -55,22 +55,22 @@
         background-size: contain;
       }
       &.go-to-guide {
-        cursor: url('/icons/document.svg'), context-menu;
+        cursor: url('/assets/icons/document.svg'), context-menu;
         &::before {
           // On orientation changed: Change color
-          background-image: url('/icons/guide-cool.svg');
+          background-image: url('/assets/icons/guide-cool.svg');
           @media screen and (orientation: portrait) {
-            background-image: url('/icons/guide-warm.svg');
+            background-image: url('/assets/icons/guide-warm.svg');
           }
         }
       }
       &.go-to-info {
-        cursor: url('/icons/radar.svg'), help;
+        cursor: url('/assets/icons/radar.svg'), help;
         &::before {
           // On orientation changed: Change color
-          background-image: url('/icons/info-cool.svg');
+          background-image: url('/assets/icons/info-cool.svg');
           @media screen and (orientation: portrait) {
-            background-image: url('/icons/info-warm.svg');
+            background-image: url('/assets/icons/info-warm.svg');
           }
         }
       }

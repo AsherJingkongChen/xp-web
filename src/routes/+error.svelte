@@ -3,11 +3,11 @@
   import { page } from '$app/stores';
   import { capitalizeEach } from '$lib/utils';
 
-  const DefaultMessage = 'Has An Error';
-  let message = DefaultMessage;
+  const defaultMessage = 'Has An Error';
+  let message = defaultMessage;
   $: {
     message = capitalizeEach(
-      $page.error?.message ?? DefaultMessage,
+      $page.error?.message ?? defaultMessage,
     );
   }
 </script>
@@ -16,11 +16,10 @@
   title={`Page ${message} - ` +
     'Your file previewer has a problem'}
   description={'' +
-    "Oops! The page you're searching for " +
-    `encounters an error (${message}). ` +
-    'Please navigate back to the last page or ' +
-    "explore our file previewer's " +
-    'intriguing corners.'} />
+    "Oops! The page you're looking for " +
+    `has a problem (${message}). ` +
+    'XP recommends going back to the previous page. ' +
+    "Let's explore more of your file previewer!"} />
 
 <svelte:head>
   <meta
@@ -49,9 +48,9 @@
   }
   button.go-back {
     @include mainButton(
-      $image: url('/icons/navigate-back.svg'),
+      $image: url('/assets/icons/navigate-back.svg'),
       $cursor: (
-        url('/icons/paperplane.svg'),
+        url('/assets/icons/paperplane.svg'),
         pointer,
       )
     );

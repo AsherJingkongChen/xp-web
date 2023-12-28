@@ -29,9 +29,9 @@
   }
   button.preview {
     @include mainButton(
-      $image: url('/icons/preview.svg'),
+      $image: url('/assets/icons/preview.svg'),
       $cursor: (
-        url('/icons/add-file.svg'),
+        url('/assets/icons/add-file.svg'),
         copy,
       )
     );

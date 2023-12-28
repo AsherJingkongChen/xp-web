@@ -78,7 +78,7 @@ npm run test:e2e
 
 **Note:** The command `test:e2e` depends on `vite preview` which serves web artifacts. The preview server will watch file changes in `dist` directory.
 
-### Run Tests on [Cypress's beautiful UI](https://www.cypress.io/)
+### Run Tests on [Cypress's beautiful GUI](https://www.cypress.io/)
 
 ```sh
 npm run test:gui

@@ -15,7 +15,7 @@
 </h1>
 
 <section class="content">
-  <h5>It's Your File Previewer</h5>
+  <strong>It's Your File Previewer</strong>
   <p>
     <span>*But It's Not Ready Yet*</span>
   </p>
@@ -34,5 +34,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    strong {
+      font-size: larger;
+    }
   }
 </style>

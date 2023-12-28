@@ -1,17 +1,42 @@
 <script lang="ts">
+  import '$lib/styles/font.scss';
+  import { browser } from '$app/environment';
+  import { base } from '$app/paths';
   import { PUBLIC_GOOGLE_SITE_VERIFICATION_TOKEN } from '$env/static/public';
+  import { useRegisterSW } from 'virtual:pwa-register/svelte';
   import Header from './Header.svelte';
   import Main from './Main.svelte';
   import Nav from './Nav.svelte';
+
+  if (browser) {
+    useRegisterSW({ immediate: true });
+  }
 </script>
 
 <svelte:head>
+  <base href="{base}/" />
+  <link
+    rel="icon"
+    href="assets/logo/favicon.ico"
+    sizes="48x48" />
+  <link
+    rel="icon"
+    href="assets/logo/favicon.svg"
+    sizes="any"
+    type="image/svg+xml" />
+  <link
+    rel="apple-touch-icon"
+    href="assets/logo/apple-touch-icon.png" />
+  <link
+    rel="manifest"
+    href="manifest.webmanifest" />
+  <meta
+    name="theme-color"
+    content="#503030" />
   <meta
     name="google-site-verification"
     content={PUBLIC_GOOGLE_SITE_VERIFICATION_TOKEN} />
 </svelte:head>
-
-<svelte:body data-sveltekit-preload-data="tap" />
 
 <Header />
 <Nav />
