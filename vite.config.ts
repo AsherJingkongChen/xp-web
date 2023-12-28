@@ -60,7 +60,7 @@ export default defineConfig(({ mode }) => {
             for (const entry of manifest) {
               entry.url = entry.url
                 .replace(
-                  /^(client\/|prerendered\/pages\/)/,
+                  /^(client|prerendered\/(dependencies|pages))\//,
                   '',
                 )
                 .replace(/(.*)index\.html$/, '$1')
@@ -71,7 +71,7 @@ export default defineConfig(({ mode }) => {
         ],
         maximumFileSizeToCacheInBytes:
           Number.MAX_SAFE_INTEGER,
-        navigateFallback: BUILD_BASE_PATH_SLASHED,
+        navigateFallback: '404.html',
       },
       manifest: {
         id: BUILD_BASE_URL.origin,

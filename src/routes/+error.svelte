@@ -3,17 +3,14 @@
   import { page } from '$app/stores';
   import { capitalizeEach } from '$lib/utils';
 
-  const defaultMessage = 'Has An Error';
-  let message = defaultMessage;
-  $: {
-    message = capitalizeEach(
-      $page.error?.message ?? defaultMessage,
-    );
-  }
+  const DEFAULT_MESSAGE = 'Not Implemented';
+  export let message = DEFAULT_MESSAGE;
+
+  $: message = capitalizeEach($page.error?.message ?? message);
 </script>
 
 <Head
-  title={`Page ${message} - ` +
+  title={`Oops! ${message} - ` +
     'Your file previewer has a problem'}
   description={'' +
     "Oops! The page you're looking for " +
@@ -29,7 +26,7 @@
 
 <h1 class="heading">
   <span>Oops!</span>
-  <span>Page {message}</span>
+  <span>{message}</span>
 </h1>
 
 <button

@@ -15,8 +15,9 @@ const styleDir = fileURLToPath(
 export default {
   kit: {
     adapter: adapterStatic({
+      // Write to `dist/` and use custom `404.html`
       assets: 'dist',
-      fallback: '404.html',
+      fallback: undefined,
       pages: 'dist',
       precompress: false,
       strict: true,

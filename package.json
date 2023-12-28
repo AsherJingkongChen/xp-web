@@ -29,11 +29,13 @@
   "scripts": {
     "build": "vite build",
     "build:optimum": "run-s optimize build",
+    "build:preview": "run-s build preview",
     "check": "svelte-kit sync && svelte-check",
     "dev": "vite dev",
     "format": "prettier --write .",
     "optimize": "optimizt static",
     "preview": "vite preview --open",
+    "serve": "run-s dev",
     "test:e2e": "cypress run --e2e",
     "test:gui": "cypress open",
     "test:unit": "cypress run --component"
