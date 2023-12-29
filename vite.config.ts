@@ -1,6 +1,9 @@
 import { defineConfig, type PluginOption } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
+import { createSitemap } from 'svelte-sitemap/src';
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
 import {
   BUILD_BASE_URL,
   BUILD_BASE_PATH_SLASHED,
@@ -19,7 +22,9 @@ export default defineConfig(({ mode }) => {
           : undefined,
     },
     plugins: [
-      customPostBuild(),
+      customPostBuildLogger(),
+      customRobotsTxtGenerator(),
+      customSitemapGenerator(),
       customSvelteKitPWA(),
       sveltekit(),
     ],
@@ -29,9 +34,9 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
     },
   };
-  function customPostBuild(): PluginOption {
+  function customPostBuildLogger(): PluginOption {
     return {
-      name: 'virtual:post-build',
+      name: 'virtual:post-build-logger',
       closeBundle() {
         console.log({
           BUILD_BASE_URL: BUILD_BASE_URL.href,
@@ -39,10 +44,59 @@ export default defineConfig(({ mode }) => {
       },
     };
   }
+  function customRobotsTxtGenerator(): PluginOption {
+    return {
+      name: 'virtual:robots-txt-generator',
+      apply: 'build',
+      closeBundle: {
+        order: 'pre',
+        sequential: true,
+        async handler() {
+          const outDir =
+            '.svelte-kit/output/prerendered/pages';
+          await writeFile(
+            join(outDir, 'robots.txt'),
+            `\
+User-agent: *
+Disallow:
+
+Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
+`,
+            {
+              encoding: 'utf-8',
+            },
+          ).catch(console.warn);
+        },
+      },
+      enforce: 'pre',
+    }
+  }
+  function customSitemapGenerator(): PluginOption {
+    return {
+      name: 'virtual:sitemap-generator',
+      apply: 'build',
+      closeBundle: {
+        order: 'pre',
+        sequential: true,
+        async handler() {
+          const outDir =
+            '.svelte-kit/output/prerendered/pages';
+          await createSitemap(BUILD_BASE_URL.href, {
+            changeFreq: 'daily',
+            ignore: ['/404.html'],
+            outDir,
+            resetTime: true,
+            trailingSlashes: true,
+          });
+        },
+      },
+      enforce: 'pre',
+    }
+  }
   function customSvelteKitPWA(): PluginOption {
     return SvelteKitPWA({
       devOptions: {
-        enabled: mode === 'development',
+        enabled: true,
       },
       filename: 'service-worker.js',
       includeManifestIcons: false,
@@ -61,7 +115,7 @@ export default defineConfig(({ mode }) => {
             for (const entry of manifest) {
               entry.url = entry.url
                 .replace(
-                  /^(client|prerendered\/(dependencies|pages))\//,
+                  /^(client|prerendered\/[^\/]*)\//,
                   '',
                 )
                 .replace(/(.*)index\.html$/, '$1')

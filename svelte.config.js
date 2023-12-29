@@ -15,9 +15,9 @@ const styleDir = fileURLToPath(
 export default {
   kit: {
     adapter: adapterStatic({
-      assets: 'dist',
+      assets: 'build',
       fallback: undefined, // Use custom `404.html` instead
-      pages: 'dist',
+      pages: 'build',
       precompress: false,
       strict: true,
     }),
@@ -42,6 +42,7 @@ export default {
   },
   preprocess: [
     sveltePreprocess({
+      preserve: ['ld+json'],
       scss: {
         prependData: `\
           @use 'sass:color';

@@ -3,7 +3,7 @@
 import { config } from 'dotenv';
 import { join, resolve } from 'path';
 
-export const PREVIEW_ORIGIN = 'http://localhost:4173';
+const PREVIEW_ORIGIN = 'http://localhost:4173';
 
 /* Raw Environment Variables */
 
@@ -18,14 +18,12 @@ const { BASE_URL } = config({
 
 /* Typed Environment Variables */
 
-export const BUILD_BASE_URL = new URL(BASE_URL);
+export const BUILD_BASE_URL = new URL(join(BASE_URL, '/'));
 export const BUILD_BASE_PATH_UNSLASHED =
   BUILD_BASE_URL.pathname.replace(/\/$/, '');
-export const BUILD_BASE_PATH_SLASHED = join(
-  BUILD_BASE_URL.pathname,
-  '/',
-);
+export const BUILD_BASE_PATH_SLASHED =
+  BUILD_BASE_PATH_UNSLASHED + '/';
 export const PREVIEW_BASE_URL = new URL(
-  BUILD_BASE_URL.pathname,
+  BUILD_BASE_PATH_SLASHED,
   PREVIEW_ORIGIN,
 );
