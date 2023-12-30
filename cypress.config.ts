@@ -7,14 +7,6 @@ export default defineConfig(
       PREVIEW_BASE_URL: PREVIEW_BASE_URL.href,
     });
     return {
-      component: {
-        devServer: {
-          bundler: 'vite',
-          framework: 'svelte',
-        },
-        specPattern: 'tests/unit/**/*.test.ts',
-        supportFile: false,
-      },
       e2e: {
         baseUrl: PREVIEW_BASE_URL.href,
         defaultCommandTimeout: 50,

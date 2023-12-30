@@ -1,21 +1,21 @@
-name: CI
+name: Development Checks
 
 on:
   push:
     branches:
-      - main
+      - dev*
 
   pull_request:
     branches:
-      - main
+      - dev*
 
 jobs:
-  ci-ubuntu-latest:
+  check:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - id: setup-bun
         name: Setup Bun
@@ -23,12 +23,12 @@ jobs:
         with:
           bun-version: latest
 
-      - id: install-deps
+      - id: install-dependencies
         name: Install Dependencies
         run: |
           bun install
 
-      # - id: all-in-one-check
-      #   name: All-In-One Check
-      #   run: |
-      #     bun prepublish
+      - id: prepare
+        name: Prepare
+        run: |
+          bun prepare

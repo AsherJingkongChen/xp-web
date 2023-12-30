@@ -73,7 +73,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
         },
       },
       enforce: 'pre',
-    }
+    };
   }
   function customSitemapGenerator(): PluginOption {
     return {
@@ -95,7 +95,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
         },
       },
       enforce: 'pre',
-    }
+    };
   }
   function customSvelteKitPWA(): PluginOption {
     return SvelteKitPWA({
