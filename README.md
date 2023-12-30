@@ -1,8 +1,8 @@
 # xp-web (Web package of XP)
 
-[![Vercel Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/Production?label=vercel.app&logo=Vercel)](https://xp-web.vercel.app)
 [![GitHub Pages Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/github-pages?label=github.io&logo=GitHub)](https://asherjingkongchen.github.io/xp-web/)
-[![CI Status](https://img.shields.io/github/actions/workflow/status/AsherJingkongChen/xp-web/ci.yml?label=CI&logo=GitHub)](https://github.com/AsherJingkongChen/xp-web/actions/workflows/ci.yml)
+[![Netlify Deployment](https://img.shields.io/netlify/b69d5757-4329-4328-bd99-a71505b14a39?label=netlify.app&logo=Netlify)](https://app.netlify.com/sites/xp-web/deploys)
+[![Vercel Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/Production?label=vercel.app&logo=Vercel)](https://xp-web.vercel.app)
 
 ## What is it for?
 
@@ -10,101 +10,91 @@ With XP Web, you can preview any file in your browser.
 
 ## Try Our Demo
 
-- [On Vercel](https://xp-web.vercel.app) (Recommended)
-- [On GitHub Pages](https://asherjingkongchen.github.io/xp-web/) (Alternative)
+- [On GitHub Pages](https://asherjingkongchen.github.io/xp-web/)
+- [On Netlify](https://xp-web.netlify.app/)
+- [On Vercel](https://xp-web.vercel.app/)
 
 ## Let's Setup the Project
 
-> **Note:** This section is for contributors and developers only
+> **Note:** THIS section is for contributors and developers only
 
-### Recommended IDE Setup for you
+### Recommended IDE Setup for You
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- IDE:
+  - [VSCode](https://code.visualstudio.com/)
+- Extensions:
+  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+  - [SCSS](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
+  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
-### Install Dependencies
+### See What Dependencies We Are Using
 
-```sh
-npm install
-```
+You can install all of them with:
+| Package Manager | Command |
+|---|---|
+| [Bun](https://bun.sh/) (Recommended) | `bun install` or `bun i` |
+| [npm](https://www.npmjs.com/) | `npm install` or `npm i` |
+| [pnpm](https://pnpm.io/) | `pnpm install` or `pnpm i` |
+| [Yarn](https://yarnpkg.com/) | `yarn install` or `yarn` |
 
-### Launch a Development Server with Hot-Reloading
+- Assets
+  + [Fontsource](https://fontsource.org/)
+  + [Optimizt](https://github.com/343dev/optimizt)
+- Build
+  + [Bun](https://bun.sh/)
+  + [Dotenv](https://www.dotenv.org/)
+  + [Node.js](https://nodejs.org/)
+  + [Vite](https://vitejs.dev/)
+- Deploy
+  + [GitHub Actions](https://github.com/features/actions)
+  + [GitHub Pages](https://pages.github.com/)
+  + [Netlify](https://www.netlify.com/)
+  + [Vercel](https://vercel.com/)
+- Linters
+  + [Prettier](https://prettier.io/)
+  + [svelte-check](https://www.npmjs.com/package/svelte-check)
+  + [TypeScript](https://www.typescriptlang.org/)
+- Test
+  + [Cypress](https://www.cypress.io/)
+- Web
+  + [SASS/SCSS](https://sass-lang.com/)
+  + [Svelte](https://svelte.dev/)
+  + [SvelteKit](https://kit.svelte.dev/)
+  + [Vite PWA](https://vite-pwa-org.netlify.app/)
 
-```sh
-npm run dev
-```
+### See What Commands We Are Using
 
-### Format with [Prettier](https://prettier.io/)
+  ```sh
+  <bun | pnpm | npm | yarn> run <Script>
+  ```
 
-```sh
-npm run format
-```
+  | Script | Description |
+  |---|---|
+  | build | Builds the application using Vite |
+  | build:preview | Builds and previews |
+  | build:stable | Builds and Optimize the application |
+  | check | Checks the source code with Svelte |
+  | format | Formats the code using Prettier |
+  | optimize | Optimizes the static assets |
+  | prepack | Runs before building for deployment |
+  | preview | Previews the application using Vite |
+  | start | Builds the stable version and previews |
+  | serve | Serves the application using Vite dev server |
+  | test:e2e | Runs end-to-end tests using Cypress |
+  | test:gui | Opens the Cypress GUI for interactive testing |
 
-### Compile and Bundle for Your Deployment
+### Be Aware of These Details
 
-```sh
-npm run build
-```
+You may encounter some problems during development and deployment.
+Please read the following notes carefully.
 
-**Note:** The output directory starts with `dist`.
-
-### Preview Your Deployment on `localhost`
-
-```sh
-npm run preview
-```
-
-**Note:** To clear caches for XP Web, which is a **Progressive Web Application**. You will need to unregister the service worker, or hold `Shift` key to force-reload the page.
-
-### Run All Tests
-
-```sh
-npm run test      # Unit Tests + E2E Tests
-npm run test:unit # Unit Tests
-```
-
-### Run E2E Tests
-
-#### 1st Session
-
-```sh
-npm run preview
-```
-
-#### 2nd Session
-
-```sh
-npm run test:e2e
-```
-
-**Note:** The command `test:e2e` depends on `vite preview` which serves web artifacts. The preview server will watch file changes in `dist` directory.
-
-### Run Tests on [Cypress's beautiful GUI](https://www.cypress.io/)
-
-```sh
-npm run test:gui
-```
-
-### The Convenient Way to Ensure The Program Works
-
-```sh
-npm run prepublish
-```
-
-**Note:** The command should always be run successfully before a release commit or a pull request. Also, it's better to run E2E tests before merge into the `main` branch.
-
-### Deploy to Your Sites (GitHub Pages)
-
-```sh
-npm run deploy:gh-pages
-```
-
-**Note 1:** You can replace the subdomain in [`package.json`](./package.json) with your GitHub organization name.
-
-**Note 2:** You can configure for critical environment variables at files matching `env/**/.env.production`.
-
-### Miscellaneous Commands
-
-```sh
-npm run x:* # Shortcuts, should not be used directly
-npm run pub # Literally All-in-One
-```
+1. To clear caches for this PWA, or **Progressive Web Application**. You need to unregister the service worker, or hold `Shift` key to force-reload the page. Also, be careful with Workbox options. You may find some errors in the dev console after modifying them.
+2. The script `test:e2e` depends on another script `preview` which serves the application on `localhost:4173`. The preview server will watch file changes in `build` directory.
+3. The application artifacts after building is at `build` directory. The directory is ignored by Git.
+4. The environment variables are configured at files matching `env/**/.env*`. You can configure them and rename the directory paths. Before running commands, you can set the environment variable `BUILD_ENV_DIR` to the environment directory path.
+  - macOS (Bash / Zsh): `export BUILD_ENV_DIR=env/localhost:4173`
+    + Peek variable: `echo $BUILD_ENV_DIR`
+  - Windows (CMD): `set BUILD_ENV_DIR=.\env\localhost:4173`
+    + Peek variable: `echo %BUILD_ENV_DIR%`
+  - Windows (PowerShell): `$Env:BUILD_ENV_DIR = '.\env\localhost:4173'`
+    + Peek variable: `$Env:BUILD_ENV_DIR`
