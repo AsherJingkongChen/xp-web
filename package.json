@@ -29,11 +29,11 @@
   "scripts": {
     "build": "vite build",
     "build:preview": "run-s build preview",
-    "build:stable": "run-s optimize prepare build",
+    "build:stable": "run-s optimize prepack build",
     "check": "svelte-kit sync && svelte-check",
     "format": "prettier --write .",
     "optimize": "optimizt static",
-    "prepare": "run-s format check",
+    "prepack": "run-s format check",
     "preview": "vite preview --open",
     "start": "run-s build:stable preview",
     "serve": "vite dev",

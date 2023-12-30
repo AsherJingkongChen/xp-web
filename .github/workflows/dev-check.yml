@@ -1,4 +1,4 @@
-name: Development Checks
+name: Development Check
 
 on:
   push:
@@ -28,7 +28,12 @@ jobs:
         run: |
           bun install
 
-      - id: prepare
-        name: Prepare
+      - id: prepack
+        name: Prepack
         run: |
-          bun prepare
+          bun prepack
+      
+      - id: build
+        name: Build
+        run: |
+          bun run build
