@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
           : undefined,
     },
     plugins: [
-      customPostBuildLogger(),
+      customBuildLogger(),
       customRobotsTxtGenerator(),
       customSitemapGenerator(),
       customSvelteKitPWA(),
@@ -34,14 +34,18 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
     },
   };
-  function customPostBuildLogger(): PluginOption {
+  function customBuildLogger(): PluginOption {
+    const logger = () => {
+      console.log({
+        BUILD_BASE_URL: BUILD_BASE_URL.href,
+        BUILD_BASE_PATH_SLASHED,
+      });
+    };
     return {
-      name: 'virtual:post-build-logger',
-      closeBundle() {
-        console.log({
-          BUILD_BASE_URL: BUILD_BASE_URL.href,
-        });
-      },
+      name: 'virtual:build-logger',
+      apply: 'build',
+      config: logger,
+      closeBundle: logger,
     };
   }
   function customRobotsTxtGenerator(): PluginOption {
@@ -65,7 +69,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
             {
               encoding: 'utf-8',
             },
-          ).catch(console.warn);
+          ).catch(console.error);
         },
       },
       enforce: 'pre',

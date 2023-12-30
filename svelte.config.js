@@ -12,45 +12,47 @@ const styleDir = fileURLToPath(
 );
 
 /** @type {import('@sveltejs/kit').Config} */
-export default {
-  kit: {
-    adapter: adapterStatic({
-      assets: 'build',
-      fallback: undefined, // Use custom `404.html` instead
-      pages: 'build',
-      precompress: false,
-      strict: true,
-    }),
-    appDir: 'assets',
-    env: {
-      dir: join(
-        'env',
-        BUILD_BASE_URL.host,
-        BUILD_BASE_PATH_UNSLASHED,
-      ),
+export default (() => {
+  return {
+    kit: {
+      adapter: adapterStatic({
+        assets: 'build',
+        fallback: undefined, // Use custom `404.html` instead
+        pages: 'build',
+        precompress: false,
+        strict: true,
+      }),
+      appDir: 'assets',
+      env: {
+        dir: join(
+          'env',
+          BUILD_BASE_URL.host,
+          BUILD_BASE_PATH_UNSLASHED,
+        ),
+      },
+      files: {
+        appTemplate: 'src/page.html',
+      },
+      paths: {
+        base: BUILD_BASE_PATH_UNSLASHED,
+        relative: false,
+      },
+      serviceWorker: {
+        // Use `@vite-pwa/svelte` instead
+        register: false,
+      },
     },
-    files: {
-      appTemplate: 'src/page.html',
-    },
-    paths: {
-      base: BUILD_BASE_PATH_UNSLASHED,
-      relative: false,
-    },
-    serviceWorker: {
-      // Use `@vite-pwa/svelte` instead
-      register: false,
-    },
-  },
-  preprocess: [
-    sveltePreprocess({
-      preserve: ['ld+json'],
-      scss: {
-        prependData: `\
+    preprocess: [
+      sveltePreprocess({
+        preserve: ['ld+json'],
+        scss: {
+          prependData: `\
           @use 'sass:color';
           @import '${join(styleDir, 'constant.scss')}';
           @import '${join(styleDir, 'mixin.scss')}';
         `,
-      },
-    }),
-  ],
-};
+        },
+      }),
+    ],
+  };
+})();
