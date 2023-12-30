@@ -30,7 +30,7 @@ export default {
       ),
     },
     files: {
-      appTemplate: 'src/index.html',
+      appTemplate: 'src/page.html',
     },
     paths: {
       base: BUILD_BASE_PATH_UNSLASHED,

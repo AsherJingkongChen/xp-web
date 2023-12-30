@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1" />
     %sveltekit.head%
-    <!-- <static-link-set> -->
+    <!--LINK_FAVICON_START -->
     <link
       rel="icon"
       href="assets/logo/favicon.ico"
@@ -19,13 +19,15 @@
     <link
       rel="apple-touch-icon"
       href="assets/logo/apple-touch-icon.png" />
-    <meta
-      name="theme-color"
-      content="#503030" />
+    <!-- LINK_FAVICON_END -->
+    <!-- LINK_MANIFEST_START -->
     <link
       rel="manifest"
       href="manifest.webmanifest" />
-    <!-- <static-link-set> -->
+    <!-- LINK_MANIFEST_END -->
+    <meta
+      name="theme-color"
+      content="#503030" />
   </head>
   <body>
     <div style="display: contents">%sveltekit.body%</div>

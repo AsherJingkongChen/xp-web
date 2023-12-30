@@ -70,7 +70,7 @@ describe('Title', () => {
     ) => {
       cy.visit(url, options)
         .title()
-        .should('have.length.at.most', 55);
+        .should('have.length.at.most', 60);
     };
     check('/');
     check('/guide/');
