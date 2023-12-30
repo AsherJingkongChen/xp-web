@@ -21,6 +21,7 @@ export default {
       precompress: false,
       strict: true,
     }),
+    appDir: 'assets',
     env: {
       dir: join(
         'env',

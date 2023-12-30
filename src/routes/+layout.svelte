@@ -15,24 +15,6 @@
 
 <svelte:head>
   <base href="{base}/" />
-  <link
-    rel="icon"
-    href="assets/logo/favicon.ico"
-    sizes="48x48" />
-  <link
-    rel="icon"
-    href="assets/logo/favicon.svg"
-    sizes="any"
-    type="image/svg+xml" />
-  <link
-    rel="apple-touch-icon"
-    href="assets/logo/apple-touch-icon.png" />
-  <link
-    rel="manifest"
-    href="manifest.webmanifest" />
-  <meta
-    name="theme-color"
-    content="#503030" />
   <meta
     name="google-site-verification"
     content={PUBLIC_GOOGLE_SITE_VERIFICATION_TOKEN} />

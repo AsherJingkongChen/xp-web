@@ -100,10 +100,12 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
       },
       filename: 'service-worker.js',
       includeManifestIcons: false,
-      injectRegister: false,
+      injectRegister: 'auto',
       registerType: 'autoUpdate',
       strategies: 'generateSW',
       workbox: {
+        cleanupOutdatedCaches: true,
+        disableDevLogs: true,
         globIgnores: [
           'server/**/*',
           '**/*.webmanifest',

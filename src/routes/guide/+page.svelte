@@ -14,7 +14,6 @@
   <h1 class="heading">
     <span>Guide</span>
   </h1>
-
   <section class="content">
     <span class="block">1. Click the preview button</span>
     <span class="block">2. Select your files</span>
