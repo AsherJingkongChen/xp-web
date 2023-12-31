@@ -1,6 +1,12 @@
 {
   "name": "xp-web",
-  "version": "0.7.0",
+  "version": "0.8.0",
+  "author": {
+    "email": "gpks556@gmail.com",
+    "name": "AsherJingkongChen"
+  },
+  "bugs": "https://github.com/AsherJingkongChen/xp-web/issues",
+  "description": "Web package of XP (Any file previewer)",
   "devDependencies": {
     "@343dev/optimizt": "^6.0.0",
     "@fontsource/noto-sans": "^5.0.18",
@@ -27,7 +33,17 @@
     "vite": "^5.0.10",
     "vite-plugin-pwa": "^0.17.4"
   },
+  "files": [
+    "build"
+  ],
+  "homepage": "https://github.com/AsherJingkongChen/xp-web",
+  "license": "MIT",
+  "packageManager": "bun@1.0.20",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AsherJingkongChen/xp-web.git"
+  },
   "scripts": {
     "build": "vite build",
     "build:preview": "run-s build preview",
