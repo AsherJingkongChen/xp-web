@@ -30,12 +30,13 @@ With XP Web, you can preview any file in your browser.
 ### See What Dependencies We Are Using
 
 You can install all of them with:
-| Package Manager | Command | Shorthand |
-|---|---|---|
-| [bun](https://bun.sh/) (Recommended) | `bun install` | `bun i` |
-| [npm](https://www.npmjs.com/) | `npm install` | `npm i` |
-| [pnpm](https://pnpm.io/) | `pnpm install` | `pnpm i` |
-| [yarn](https://yarnpkg.com/) | `yarn install` | `yarn` |
+
+| Package Manager                      | Command        | Shorthand |
+| ------------------------------------ | -------------- | --------- |
+| [bun](https://bun.sh/) (Recommended) | `bun install`  | `bun i`   |
+| [npm](https://www.npmjs.com/)        | `npm install`  | `npm i`   |
+| [pnpm](https://pnpm.io/)             | `pnpm install` | `pnpm i`  |
+| [yarn](https://yarnpkg.com/)         | `yarn install` | `yarn`    |
 
 - Build
   - [Bun](https://bun.sh/)
@@ -66,6 +67,8 @@ You can install all of them with:
   - [Vite PWA](https://vite-pwa-org.netlify.app/)
 
 ### See What Commands We Are Using
+
+The syntax to run scripts:
 
 ```sh
 <bun | pnpm | npm | yarn> run <Script>
