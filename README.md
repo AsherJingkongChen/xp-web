@@ -22,20 +22,12 @@ With XP Web, you can preview any file in your browser.
 
 - IDE:
   - [VSCode](https://code.visualstudio.com/)
-- Extensions:
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-  - [SCSS](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
-  - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - VSCode Extensions:
+    - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+    - [SCSS](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
+    - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
 ### See What Dependencies We Are Using
-
-You can install all of them with:
-| Package Manager | Command | Shorthand |
-|---|---|---|
-| [bun](https://bun.sh/) (Recommended) | `bun install` | `bun i` |
-| [npm](https://www.npmjs.com/) | `npm install` | `npm i` |
-| [pnpm](https://pnpm.io/) | `pnpm install` | `pnpm i` |
-| [yarn](https://yarnpkg.com/) | `yarn install` | `yarn` |
 
 - Build
   - [Bun](https://bun.sh/)
@@ -65,7 +57,18 @@ You can install all of them with:
   - [SvelteKit](https://kit.svelte.dev/)
   - [Vite PWA](https://vite-pwa-org.netlify.app/)
 
+You can install most of them with:
+
+| Package Manager                      | Command        | Shorthand |
+| ------------------------------------ | -------------- | --------- |
+| [bun](https://bun.sh/) (Recommended) | `bun install`  | `bun i`   |
+| [npm](https://www.npmjs.com/)        | `npm install`  | `npm i`   |
+| [pnpm](https://pnpm.io/)             | `pnpm install` | `pnpm i`  |
+| [yarn](https://yarnpkg.com/)         | `yarn install` | `yarn`    |
+
 ### See What Commands We Are Using
+
+The syntax to run scripts:
 
 ```sh
 <bun | pnpm | npm | yarn> run <Script>
