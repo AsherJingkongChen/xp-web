@@ -22,7 +22,7 @@ With XP Web, you can preview any file in your browser.
 
 - IDE:
   - [VSCode](https://code.visualstudio.com/)
-  - VSCode Extensions:
+  - Extensions:
     - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
     - [SCSS](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
     - [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
