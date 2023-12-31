@@ -138,7 +138,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
         navigateFallback: '404.html',
       },
       manifest: {
-        background_color: '#503030',
+        background_color: 'hsl(0, 30%, 20%)',
         description: 'Any file previewer',
         display: 'standalone',
         display_override: [
@@ -153,7 +153,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
         scope: BUILD_BASE_PATH_SLASHED,
         short_name: 'XP App',
         start_url: BUILD_BASE_PATH_SLASHED,
-        theme_color: '#503030',
+        theme_color: 'hsl(0, 30%, 20%)',
         icons: [
           {
             src: 'assets/logo/favicon-192x192.png',
