@@ -1,7 +1,7 @@
 # xp-web (Web package of XP)
 
 [![GitHub Pages Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/github-pages?label=github.io&logo=GitHub)](https://asherjingkongchen.github.io/xp-web/)
-[![Netlify Deployment](https://img.shields.io/netlify/b69d5757-4329-4328-bd99-a71505b14a39?label=netlify.app&logo=Netlify)](https://app.netlify.com/sites/xp-web/deploys)
+[![Netlify Deployment](https://img.shields.io/netlify/b69d5757-4329-4328-bd99-a71505b14a39?label=netlify.app&logo=Netlify)](https://xp-web.netlify.app)
 [![Vercel Deployment](https://img.shields.io/github/deployments/AsherJingkongChen/xp-web/Production?label=vercel.app&logo=Vercel)](https://xp-web.vercel.app)
 
 ## What is it for?
