@@ -7,11 +7,6 @@
     class="home"
     href="{base}/"
     title="Go to Home page">
-    <img
-      class="icon"
-      alt="Go Home"
-      src="assets/icons/brand.svg"
-      on:contextmenu|preventDefault|stopPropagation />
   </a>
 </header>
 
@@ -19,17 +14,15 @@
   header {
     position: relative;
     .home {
-      cursor: url('/assets/icons/paperplane.svg'), pointer;
-      position: relative;
-      padding: 1.25 * $BaseSize 1 * $BaseSize;
-      .icon {
-        position: relative;
-        width: 4 * $BaseSize;
-        height: 2 * $BaseSize;
-        min-width: max-content;
-        color: $ColorTextCool;
-        font-size: 0.75 * $BaseSize;
-      }
+      @include imageButton(
+        $image: url('/assets/icons/brand.svg'),
+        $cursor: (
+          url('/assets/icons/paperplane.svg'), pointer
+        ),
+        $width: 4 * $BaseSize,
+        $height: 2 * $BaseSize,
+      );
+      padding-block: 1.25 * $BaseSize;
     }
   }
 </style>
