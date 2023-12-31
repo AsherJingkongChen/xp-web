@@ -104,7 +104,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
   function customSvelteKitPWA(): PluginOption {
     return SvelteKitPWA({
       devOptions: {
-        enabled: true,
+        enabled: mode === 'development',
       },
       filename: 'service-worker.js',
       includeManifestIcons: false,
@@ -113,7 +113,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
       strategies: 'generateSW',
       workbox: {
         cleanupOutdatedCaches: true,
-        disableDevLogs: true,
+        disableDevLogs: mode === 'development',
         globIgnores: [
           'server/**/*',
           '**/*.webmanifest', // deduplication
