@@ -11,6 +11,8 @@ import {
 } from './env.config.js';
 
 export default defineConfig(({ mode }) => {
+  const PAGES_OUTDIR =
+    '.svelte-kit/output/prerendered/pages';
   return {
     build: {
       assetsInlineLimit: 0,
@@ -36,13 +38,16 @@ export default defineConfig(({ mode }) => {
   };
   function customBuildLogger(): PluginOption {
     const logger = () => {
+      console.log(
+        '\x1b[91;1m> Using these build arguments:\x1b[0m',
+      );
       console.log({
         BUILD_BASE_URL: BUILD_BASE_URL.href,
         BUILD_BASE_PATH_SLASHED,
       });
     };
     return {
-      name: 'virtual:build-logger',
+      name: 'custom-build-logger',
       apply: 'build',
       config: logger,
       closeBundle: logger,
@@ -50,16 +55,17 @@ export default defineConfig(({ mode }) => {
   }
   function customRobotsTxtGenerator(): PluginOption {
     return {
-      name: 'virtual:robots-txt-generator',
+      name: 'custom-robots-txt-generator',
       apply: 'build',
       closeBundle: {
         order: 'pre',
         sequential: true,
         async handler() {
-          const outDir =
-            '.svelte-kit/output/prerendered/pages';
+          console.log(
+            '\x1b[91;1m> Using custom-robots-txt-generator\x1b[0m',
+          );
           await writeFile(
-            join(outDir, 'robots.txt'),
+            join(PAGES_OUTDIR, 'robots.txt'),
             `\
 User-agent: *
 Disallow:
@@ -77,18 +83,16 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
   }
   function customSitemapGenerator(): PluginOption {
     return {
-      name: 'virtual:sitemap-generator',
+      name: 'custom-sitemap-generator',
       apply: 'build',
       closeBundle: {
         order: 'pre',
         sequential: true,
         async handler() {
-          const outDir =
-            '.svelte-kit/output/prerendered/pages';
           await createSitemap(BUILD_BASE_URL.href, {
             changeFreq: 'daily',
             ignore: ['/404.html'],
-            outDir,
+            outDir: PAGES_OUTDIR,
             resetTime: true,
             trailingSlashes: true,
           });
@@ -187,8 +191,8 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
           },
           {
             label: 'Home Page',
-            src: 'assets/screenshots/portrait-1082x2402.png',
-            sizes: '1082x2402',
+            src: 'assets/screenshots/portrait-1442x3203.png',
+            sizes: '1442x3203',
             type: 'image/png',
             form_factor: 'narrow',
           },

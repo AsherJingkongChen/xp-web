@@ -1,12 +1,11 @@
-.DS_Store
-
 /.svelte-kit
 /.vscode
 !/.vscode/extensions.json
-
-node_modules
 /build
 /dev-dist
 /dist
+
+.DS_Store
+node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

@@ -32,7 +32,7 @@ jobs:
         name: Prepack
         run: |
           bun prepack
-      
+
       - id: build
         name: Build
         run: |

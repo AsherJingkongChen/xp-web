@@ -10,7 +10,7 @@
     <img
       class="icon"
       alt="Go Home"
-      src="assets/logo/brand.svg"
+      src="assets/icons/brand.svg"
       on:contextmenu|preventDefault|stopPropagation />
   </a>
 </header>

@@ -3,7 +3,7 @@
   "arrowParens": "always",
   "bracketSameLine": true,
   "bracketSpacing": true,
-  "htmlWhitespaceSensitivity": "strict",
+  "htmlWhitespaceSensitivity": "ignore",
   "printWidth": 60,
   "semi": true,
   "singleAttributePerLine": true,

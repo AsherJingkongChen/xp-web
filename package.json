@@ -1,7 +1,6 @@
 {
   "name": "xp-web",
   "version": "0.7.0",
-  "private": true,
   "devDependencies": {
     "@343dev/optimizt": "^6.0.0",
     "@fontsource/noto-sans": "^5.0.18",
@@ -9,11 +8,13 @@
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.0.6",
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@types/html-minifier": "^4.0.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "^18.18.0",
     "@vite-pwa/sveltekit": "^0.3.0",
     "cypress": "~12.17.4",
     "dotenv": "^16.3.1",
+    "html-minifier": "^4.0.0",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.1.1",
     "sass": "^1.69.5",
@@ -26,6 +27,7 @@
     "vite": "^5.0.10",
     "vite-plugin-pwa": "^0.17.4"
   },
+  "private": true,
   "scripts": {
     "build": "vite build",
     "build:preview": "run-s build preview",
@@ -36,7 +38,7 @@
     "prepack": "run-s format check",
     "preview": "vite preview --open",
     "start": "run-s build:stable preview",
-    "serve": "vite dev",
+    "serve": "vite dev --open",
     "test:e2e": "cypress run --e2e",
     "test:gui": "cypress open"
   },

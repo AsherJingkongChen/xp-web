@@ -1,0 +1,7 @@
+theme: hsl(0, 30%, 20%) or #422424;
+background: hsl(0, 30%, 20%) or #422424;
+desktop: default;
+iOS: margin=40;
+any: margin=40&border=50%;
+maskable: margin=40;
+*: #FFFFFF;

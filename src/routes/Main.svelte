@@ -40,7 +40,7 @@
       border-radius: 0.5 * $ScrollBarWidth;
       border: $ScrollBarBorder solid $ColorBorder;
       box-shadow: inset 0 0 2 * $ScrollBarBorder
-        $ColorBorder;
+        $ColorShadow;
       background-clip: content-box;
       -webkit-background-clip: content-box;
     }
