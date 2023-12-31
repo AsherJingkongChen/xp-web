@@ -116,8 +116,7 @@ Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
         disableDevLogs: true,
         globIgnores: [
           'server/**/*',
-          '**/*.webmanifest',
-          '**/screenshots/**/*',
+          '**/*.webmanifest', // deduplication
         ],
         globPatterns: ['**/*'],
         manifestTransforms: [
