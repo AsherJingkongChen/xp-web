@@ -1,0 +1,40 @@
+@import './constant.scss';
+
+@mixin colorLinearGradient($color) {
+  background: $color;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin heading {
+  cursor: default;
+  position: relative;
+  padding: $BaseSize;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Play, sans-serif;
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+@mixin mainButton($image, $cursor) {
+  position: relative;
+  padding: $BaseSize;
+  .icon {
+    cursor: $cursor;
+    position: relative;
+    width: 4 * $BaseSize;
+    height: 4 * $BaseSize;
+    background-image: $image;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+@mixin mediaQueryPortrait {
+  @media screen and (orientation: portrait) and (max-width: 640px) {
+    @content;
+  }
+}

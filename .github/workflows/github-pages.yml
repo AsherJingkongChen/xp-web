@@ -1,0 +1,55 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - id: setup-bun
+        name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - id: install-dependencies
+        name: Install Dependencies
+        run: |
+          bun install
+
+      - id: build-from-source
+        name: Build from Source
+        env:
+          BUILD_ENV_DIR: env/asherjingkongchen.github.io/xp-web
+        run: |
+          bun run build:stable
+
+      - id: upload-artifacts
+        name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - id: deploy
+        name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,39 @@
+name: Development Check
+
+on:
+  push:
+    branches:
+      - dev*
+
+  pull_request:
+    branches:
+      - dev*
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - id: setup-bun
+        name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - id: install-dependencies
+        name: Install Dependencies
+        run: |
+          bun install
+
+      - id: prepack
+        name: Prepack
+        run: |
+          bun prepack
+
+      - id: build
+        name: Build
+        run: |
+          bun run build

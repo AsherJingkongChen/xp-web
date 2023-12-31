@@ -3,10 +3,12 @@
   "arrowParens": "always",
   "bracketSameLine": true,
   "bracketSpacing": true,
-  "printWidth": 75,
+  "htmlWhitespaceSensitivity": "ignore",
+  "printWidth": 60,
   "semi": true,
   "singleAttributePerLine": true,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all"
 }

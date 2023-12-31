@@ -1,0 +1,63 @@
+@use 'sass:color';
+
+/**
+ * Color Palette: https://encycolorpedia.com
+ */
+
+$BaseSize: 1rem;
+
+$ColorBlack: hsl(0, 0%, 10%);
+$ColorDeepAmethyst: hsl(282, 12%, 60%);
+
+$ColorGreigeTint: hsl(42, 12%, 80%);
+$ColorGreige: hsl(42, 12%, 65%);
+$ColorGreigeTone: hsl(42, 12%, 35%);
+$ColorGreigeShade: hsl(42, 12%, 15%);
+
+$ColorJapaneseVioletTint: hsl(305, 30%, 50%);
+$ColorJapaneseViolet: hsl(305, 30%, 35%);
+$ColorJapaneseVioletTone: hsl(305, 30%, 25%);
+$ColorJapaneseVioletShade: hsl(305, 30%, 15%);
+
+$ColorFrenchLilacTint: hsl(290, 20%, 70%);
+$ColorFrenchLilac: hsl(290, 20%, 50%);
+$ColorFrenchLilacTone: hsl(290, 20%, 30%);
+$ColorFrenchLilacShade: hsl(290, 20%, 15%);
+
+$ColorTuscanRedTint: hsl(0, 30%, 65%);
+$ColorTuscanRed: hsl(0, 30%, 50%);
+$ColorTuscanRedTone: hsl(0, 30%, 30%);
+$ColorTuscanRedShade: hsl(0, 30%, 20%);
+
+$ColorBorder: $ColorGreigeTone;
+$ColorOutline: $ColorGreigeTint;
+$ColorShadow: $ColorGreigeShade;
+$ColorTextCool: $ColorDeepAmethyst;
+$ColorTextWarm: $ColorGreige;
+
+$ColorLinearBackground: linear-gradient(
+  to bottom,
+  $ColorTuscanRedShade,
+  $ColorBlack 70%,
+  $ColorJapaneseVioletShade
+);
+$ColorLinearBrand: linear-gradient(
+  to bottom,
+  $ColorFrenchLilac,
+  $ColorTuscanRed
+);
+$ColorLinearHeadingCool: linear-gradient(
+  to bottom,
+  $ColorFrenchLilacTint,
+  $ColorFrenchLilac 70%,
+  $ColorJapaneseVioletTone
+);
+$ColorLinearHeadingWarm: linear-gradient(
+  to bottom,
+  $ColorTuscanRedTint,
+  $ColorTuscanRed 70%,
+  $ColorTuscanRedTone
+);
+
+$FilterBright: brightness(1.5);
+$LineHeight: 1.5;

@@ -1,153 +1,203 @@
-import { join, resolve } from 'node:path';
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
-import webfontDownload from 'vite-plugin-webfont-dl';
-import generateSitemap from 'vite-ssg-sitemap';
-import vue from '@vitejs/plugin-vue';
-import { copyFileSync } from 'node:fs';
+import { defineConfig, type PluginOption } from 'vite';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { SvelteKitPWA } from '@vite-pwa/sveltekit';
+import { createSitemap } from 'svelte-sitemap/src';
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
+import {
+  BUILD_BASE_URL,
+  BUILD_BASE_PATH_SLASHED,
+  PREVIEW_BASE_URL,
+} from './env.config.js';
 
-const noTrailingSlash = (path?: string) => path?.replace(/\/$/, '');
-// const setTrailingSlash = (path: string) => path.endsWith('/') ? path + '/' : path;
-
-/**
- * Takes arguments from `process.env`
- * @property {string} HOST - default to `localhost`
- * @property {string} ROOT - base path of the app, default to `/`
- * @property {boolean} UNSECURE - whether origin disables https or not, `true` if set
- */
 export default defineConfig(({ mode }) => {
-  let { HOST, ROOT, UNSECURE } = process.env;
-  const port = 4173;
-  const strictPort = !HOST;
-  const host = HOST || `localhost:${port}`;
-  const origin = `http${UNSECURE ? '' : 's'}://${host}`;
-  const root = ROOT || '/';
-  const outDir = join(`dist-${host}`, root);
-
+  const PAGES_OUTDIR =
+    '.svelte-kit/output/prerendered/pages';
   return {
-    base: root,
     build: {
       assetsInlineLimit: 0,
-      outDir,
     },
-    envDir: join('env', host),
     esbuild: {
-      drop: mode === 'production' ? ['debugger'] : undefined,
+      drop:
+        mode === 'production'
+          ? ['console', 'debugger']
+          : undefined,
     },
     plugins: [
-      vue(),
-      VitePWA({
-        // Service Worker Configuration Reference:
-        // [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/docs/scripts/pwa.ts)
-        devOptions: {
-          enabled: mode === 'development',
-        },
-        includeManifestIcons: false,
-        registerType: 'autoUpdate',
-        workbox: {
-          globIgnores: ['**/pwa-screenshot*', '**/manifest.webmanifest'],
-          globPatterns: ['**/*'],
-        },
-        manifest: {
-          id: origin,
-          scope: root,
-          start_url: root,
-          name: 'XP App',
-          short_name: 'XP App',
-          description: 'Any file previewer',
-          background_color: '#503030',
-          theme_color: '#503030',
-          orientation: 'any',
-          display: 'standalone',
-          display_override: [
-            'window-controls-overlay',
-            'standalone',
-            'minimal-ui',
-          ],
-          handle_links: 'preferred',
-          icons: [
-            {
-              src: 'assets/pwa-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'any',
-            },
-            {
-              src: 'assets/pwa-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'any',
-            },
-            {
-              src: 'assets/pwa-maskable-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'maskable',
-            },
-            {
-              src: 'assets/pwa-maskable-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'maskable',
-            },
-          ],
-          screenshots: [
-            {
-              label: 'Home Page',
-              src: 'assets/pwa-screenshot-portrait-1082x2402.png',
-              sizes: '1082x2402',
-              type: 'image/png',
-              form_factor: 'narrow',
-            },
-            {
-              label: 'Home Page',
-              src: 'assets/pwa-screenshot-landscape-2560x1600.png',
-              sizes: '2560x1600',
-              type: 'image/png',
-              form_factor: 'wide',
-            },
-          ],
-        },
-      }),
-      webfontDownload(
-        // The font files should be under `dist*/assets/` after build.
-        [
-          'https://fonts.googleapis.com/css2?' +
-            'family=Noto+Sans:wght@400;600;700&' +
-            'family=Play:wght@700&' +
-            'display=swap',
-        ],
-        // Fonts are critical resources, so we should preload them.
-        {
-          async: false,
-          injectAsStyleTag: false,
-        },
-      ),
+      customBuildLogger(),
+      customRobotsTxtGenerator(),
+      customSitemapGenerator(),
+      customSvelteKitPWA(),
+      sveltekit(),
     ],
     preview: {
-      port,
-      strictPort,
-    },
-    resolve: {
-      alias: {
-        '@': resolve('src'),
-      },
-    },
-    ssgOptions: {
-      formatting: 'minify',
-      script: 'defer',
-      onFinished() {
-        generateSitemap({
-          basePath: noTrailingSlash(root),
-          hostname: new URL(root, origin).href,
-          outDir,
-        });
-
-        // Copy `index.html` as fallback pages
-        const indexPage = join(outDir, 'index.html');
-        const notFoundPage = join(outDir, '404.html');
-        copyFileSync(indexPage, notFoundPage);
-      },
+      host: PREVIEW_BASE_URL.hostname,
+      port: Number(PREVIEW_BASE_URL.port),
+      strictPort: true,
     },
   };
+  function customBuildLogger(): PluginOption {
+    const logger = () => {
+      console.log(
+        '\x1b[91;1m> Using these build arguments:\x1b[0m',
+      );
+      console.log({
+        BUILD_BASE_URL: BUILD_BASE_URL.href,
+        BUILD_BASE_PATH_SLASHED,
+      });
+    };
+    return {
+      name: 'custom-build-logger',
+      apply: 'build',
+      config: logger,
+      closeBundle: logger,
+    };
+  }
+  function customRobotsTxtGenerator(): PluginOption {
+    return {
+      name: 'custom-robots-txt-generator',
+      apply: 'build',
+      closeBundle: {
+        order: 'pre',
+        sequential: true,
+        async handler() {
+          console.log(
+            '\x1b[91;1m> Using custom-robots-txt-generator\x1b[0m',
+          );
+          await writeFile(
+            join(PAGES_OUTDIR, 'robots.txt'),
+            `\
+User-agent: *
+Disallow:
+
+Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
+`,
+            {
+              encoding: 'utf-8',
+            },
+          ).catch(console.error);
+        },
+      },
+      enforce: 'pre',
+    };
+  }
+  function customSitemapGenerator(): PluginOption {
+    return {
+      name: 'custom-sitemap-generator',
+      apply: 'build',
+      closeBundle: {
+        order: 'pre',
+        sequential: true,
+        async handler() {
+          await createSitemap(BUILD_BASE_URL.href, {
+            changeFreq: 'daily',
+            ignore: ['/404.html'],
+            outDir: PAGES_OUTDIR,
+            resetTime: true,
+            trailingSlashes: true,
+          });
+        },
+      },
+      enforce: 'pre',
+    };
+  }
+  function customSvelteKitPWA(): PluginOption {
+    return SvelteKitPWA({
+      devOptions: {
+        enabled: true,
+      },
+      filename: 'service-worker.js',
+      includeManifestIcons: false,
+      injectRegister: 'auto',
+      registerType: 'autoUpdate',
+      strategies: 'generateSW',
+      workbox: {
+        cleanupOutdatedCaches: true,
+        disableDevLogs: true,
+        globIgnores: [
+          'server/**/*',
+          '**/*.webmanifest',
+          '**/screenshots/**/*',
+        ],
+        globPatterns: ['**/*'],
+        manifestTransforms: [
+          function transformPrerenderedSlashed(manifest) {
+            for (const entry of manifest) {
+              entry.url = entry.url
+                .replace(
+                  /^(client|prerendered\/[^\/]*)\//,
+                  '',
+                )
+                .replace(/(.*)index\.html$/, '$1')
+                .replace(/^\/?$/, BUILD_BASE_PATH_SLASHED);
+            }
+            return { manifest };
+          },
+        ],
+        maximumFileSizeToCacheInBytes:
+          Number.MAX_SAFE_INTEGER,
+        navigateFallback: '404.html',
+      },
+      manifest: {
+        background_color: '#503030',
+        description: 'Any file previewer',
+        display: 'standalone',
+        display_override: [
+          'window-controls-overlay',
+          'standalone',
+          'minimal-ui',
+        ],
+        handle_links: 'preferred',
+        id: BUILD_BASE_URL.origin,
+        name: 'XP App',
+        orientation: 'any',
+        scope: BUILD_BASE_PATH_SLASHED,
+        short_name: 'XP App',
+        start_url: BUILD_BASE_PATH_SLASHED,
+        theme_color: '#503030',
+        icons: [
+          {
+            src: 'assets/logo/favicon-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/logo/favicon-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'assets/logo/favicon-maskable-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+          {
+            src: 'assets/logo/favicon-maskable-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+        screenshots: [
+          {
+            label: 'Home Page',
+            src: 'assets/screenshots/landscape-2560x1600.png',
+            sizes: '2560x1600',
+            type: 'image/png',
+            form_factor: 'wide',
+          },
+          {
+            label: 'Home Page',
+            src: 'assets/screenshots/portrait-1442x3203.png',
+            sizes: '1442x3203',
+            type: 'image/png',
+            form_factor: 'narrow',
+          },
+        ],
+      },
+    });
+  }
 });

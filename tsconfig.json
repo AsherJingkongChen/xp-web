@@ -1,28 +1,22 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
-    "composite": true,
-    "isolatedModules": true,
-    "moduleResolution": "Bundler",
-    "noEmit": true,
+    "alwaysStrict": true,
+    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "@": ["src"],
-      "@/*": ["src/*"]
-    },
-    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "bundler",
     "types": [
       "cypress",
-      "vite-ssg",
+      "svelte",
       "vite/client",
-      "vite-plugin-pwa/client"
-    ],
-    "verbatimModuleSyntax": false
+      "vite-plugin-pwa/svelte"
+    ]
   },
-  "include": ["src", "test", "*.config.ts"],
-  "exclude": ["dist*", "node_modules"],
-  "extends": "@vue/tsconfig/tsconfig.dom.json"
+  "extends": "./.svelte-kit/tsconfig.json"
 }
