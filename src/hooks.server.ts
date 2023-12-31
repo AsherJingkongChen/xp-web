@@ -21,7 +21,7 @@ const htmlMinifierOptions: Options = {
   removeComments: true,
   removeEmptyAttributes: false,
   removeEmptyElements: false,
-  removeOptionalTags: true,
+  removeOptionalTags: false,
   removeRedundantAttributes: true,
   removeScriptTypeAttributes: true,
   removeStyleLinkTypeAttributes: true,
