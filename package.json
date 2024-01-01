@@ -46,17 +46,16 @@
   },
   "scripts": {
     "build": "vite build",
-    "build:preview": "run-s build preview",
-    "build:stable": "run-s optimize prepack build",
+    "build-preview": "run-s build preview",
+    "build-stable": "run-s optimize prepack build",
     "check": "svelte-kit sync && svelte-check",
     "format": "prettier --write .",
     "optimize": "optimizt static",
     "prepack": "run-s format check",
     "preview": "vite preview --open",
-    "start": "run-s build:stable preview",
+    "start": "run-s build-stable preview",
     "serve": "vite dev --open",
-    "test:e2e": "cypress run --e2e",
-    "test:gui": "cypress open"
+    "test-e2e": "cypress run --e2e"
   },
   "type": "module"
 }

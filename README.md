@@ -77,8 +77,8 @@ The syntax to run scripts:
 | Script        | Description                                   |
 | ------------- | --------------------------------------------- |
 | build         | Builds the application using Vite             |
-| build:preview | Builds and previews                           |
-| build:stable  | Builds and Optimize the application           |
+| build-preview | Builds and previews                           |
+| build-stable  | Builds and Optimize the application           |
 | check         | Checks the source code with Svelte            |
 | format        | Formats the code using Prettier               |
 | optimize      | Optimizes the static assets                   |
@@ -86,8 +86,7 @@ The syntax to run scripts:
 | preview       | Previews the application using Vite           |
 | start         | Builds the stable version and previews        |
 | serve         | Serves the application using Vite dev server  |
-| test:e2e      | Runs end-to-end tests using Cypress           |
-| test:gui      | Opens the Cypress GUI for interactive testing |
+| test-e2e      | Runs end-to-end tests using Cypress           |
 
 ### Be Aware of These Details
 
@@ -95,12 +94,12 @@ You may encounter some problems during development and deployment.
 Please read the following notes carefully.
 
 1. To **clear caches for this PWA**, or Progressive Web Application. You need to unregister the service worker, or hold `Shift` key to force-reload the page. Also, be careful with Workbox options. You may find some errors in the dev console after modifying them.
-2. The script **`test:e2e` depends on another script `preview`** which serves the application on `localhost:4173`. The preview server will watch file changes in `build` directory.
+2. The script **`test-e2e` depends on another script `preview`** which serves the application on `localhost:4173`. The preview server will watch file changes in `build` directory.
 3. The application **artifacts is at `build` directory**. The directory is ignored by Git.
 4. The environment variables are configured at files matching `env/**/.env*`. You can configure them and rename the directory paths. Before running scripts, you can **set the environment variable `BUILD_ENV_DIR` to the environment directory path**. For example:
-  - macOS (Bash / Zsh): `export BUILD_ENV_DIR=env/localhost:4173`
-    - Peek variable: `echo $BUILD_ENV_DIR`
-  - Windows (CMD): `set BUILD_ENV_DIR=.\env\localhost:4173`
-    - Peek variable: `echo %BUILD_ENV_DIR%`
-  - Windows (PowerShell): `$Env:BUILD_ENV_DIR = '.\env\localhost:4173'`
-    - Peek variable: `$Env:BUILD_ENV_DIR`
+   - macOS (Bash / Zsh): `export BUILD_ENV_DIR=env/localhost:4173`
+     - Peek variable: `echo $BUILD_ENV_DIR`
+   - Windows (CMD): `set BUILD_ENV_DIR=.\env\localhost:4173`
+     - Peek variable: `echo %BUILD_ENV_DIR%`
+   - Windows (PowerShell): `$Env:BUILD_ENV_DIR = '.\env\localhost:4173'`
+     - Peek variable: `$Env:BUILD_ENV_DIR`

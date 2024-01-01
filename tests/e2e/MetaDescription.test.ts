@@ -1,5 +1,5 @@
 describe('Meta Description', () => {
-  it('contains "XP", case sensitive', () => {
+  it('contains "XP"', () => {
     const check = (
       url: string,
       options?: Partial<Cypress.VisitOptions>,
@@ -7,7 +7,7 @@ describe('Meta Description', () => {
       cy.visit(url, options)
         .get('meta[name=description]')
         .should('have.attr', 'content')
-        .should('match', /XP/);
+        .should('contain', 'XP');
     };
     check('/');
     check('/guide/');
@@ -15,7 +15,7 @@ describe('Meta Description', () => {
     check('/error/404/', { failOnStatusCode: false });
   });
 
-  it('contains all parts of the URL', () => {
+  it('matches all parts of the URL', () => {
     const check = (url: string) => {
       const description = cy
         .visit(url)
@@ -32,7 +32,7 @@ describe('Meta Description', () => {
     check('/info/');
   });
 
-  it('contains keywords', () => {
+  it('matches critical keywords', () => {
     const check = (
       url: string,
       options?: Partial<Cypress.VisitOptions>,

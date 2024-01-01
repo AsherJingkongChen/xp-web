@@ -2,8 +2,6 @@ import { defineConfig, type PluginOption } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { SvelteKitPWA } from '@vite-pwa/sveltekit';
 import { createSitemap } from 'svelte-sitemap/src';
-import { writeFile } from 'fs/promises';
-import { join } from 'path';
 import {
   BUILD_BASE_URL,
   BUILD_BASE_PATH_SLASHED,
@@ -25,7 +23,6 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       customBuildLogger(),
-      customRobotsTxtGenerator(),
       customSitemapGenerator(),
       customSvelteKitPWA(),
       sveltekit(),
@@ -51,34 +48,6 @@ export default defineConfig(({ mode }) => {
       apply: 'build',
       config: logger,
       closeBundle: logger,
-    };
-  }
-  function customRobotsTxtGenerator(): PluginOption {
-    return {
-      name: 'custom-robots-txt-generator',
-      apply: 'build',
-      closeBundle: {
-        order: 'pre',
-        sequential: true,
-        async handler() {
-          console.log(
-            '\x1b[91;1m> Using custom-robots-txt-generator\x1b[0m',
-          );
-          await writeFile(
-            join(PAGES_OUTDIR, 'robots.txt'),
-            `\
-User-agent: *
-Disallow:
-
-Sitemap: ${new URL('sitemap.xml', BUILD_BASE_URL)}
-`,
-            {
-              encoding: 'utf-8',
-            },
-          ).catch(console.error);
-        },
-      },
-      enforce: 'pre',
     };
   }
   function customSitemapGenerator(): PluginOption {
