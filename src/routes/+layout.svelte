@@ -138,5 +138,12 @@
     h6 {
       font-size: $H6FontSize;
     }
+    ::selection {
+      background-color: color.change(
+        $ColorTextWarm,
+        $alpha: 0.25
+      );
+      color: $ColorOutline;
+    }
   }
 </style>
