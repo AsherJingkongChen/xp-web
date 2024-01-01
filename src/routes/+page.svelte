@@ -16,9 +16,7 @@
 
 <button
   class="preview"
-  title="Choose files to preview">
-  <div class="icon" />
-</button>
+  title="Choose files to preview" />
 
 <style lang="scss">
   .heading {
@@ -28,12 +26,14 @@
     @include heading;
   }
   button.preview {
-    @include mainButton(
+    @include imageButton(
       $image: url('/assets/icons/preview.svg'),
       $cursor: (
         url('/assets/icons/add-file.svg'),
         copy,
-      )
+      ),
+      $width: 4 * $BaseSize,
+      $height: 4 * $BaseSize,
     );
   }
 </style>

@@ -30,6 +30,7 @@
   }
   .content {
     position: relative;
+    padding: $BaseSize;
     display: flex;
     flex-direction: column;
     align-items: center;

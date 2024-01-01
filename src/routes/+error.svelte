@@ -32,9 +32,7 @@
 <button
   class="go-back"
   title="Go back"
-  on:click={() => history.back()}>
-  <div class="icon" />
-</button>
+  on:click={() => history.back()} />
 
 <style lang="scss">
   .heading {
@@ -44,12 +42,14 @@
     @include heading;
   }
   button.go-back {
-    @include mainButton(
+    @include imageButton(
       $image: url('/assets/icons/navigate-back.svg'),
       $cursor: (
         url('/assets/icons/paperplane.svg'),
         pointer,
-      )
+      ),
+      $width: 4 * $BaseSize,
+      $height: 4 * $BaseSize,
     );
   }
 </style>
