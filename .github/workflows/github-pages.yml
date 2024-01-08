@@ -41,7 +41,7 @@ jobs:
         env:
           BUILD_ENV_DIR: env/asherjingkongchen.github.io/xp-web
         run: |
-          bun run build:stable
+          bun run build-stable
 
       - id: upload-artifacts
         name: Upload Artifacts
