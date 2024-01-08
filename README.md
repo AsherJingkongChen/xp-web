@@ -80,12 +80,12 @@ The syntax to run scripts:
 | build-preview | Builds and previews                          |
 | build-stable  | Builds and Optimize the application          |
 | check         | Checks the source code with Svelte           |
+| dev           | Serves the application using Vite dev server |
 | format        | Formats the code using Prettier              |
 | optimize      | Optimizes the static assets                  |
 | prepack       | Runs before building for deployment          |
 | preview       | Previews the application using Vite          |
 | start         | Builds the stable version and previews       |
-| serve         | Serves the application using Vite dev server |
 | test-e2e      | Runs end-to-end tests using Cypress          |
 
 ### Be Aware of These Details
