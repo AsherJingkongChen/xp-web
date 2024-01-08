@@ -24,9 +24,10 @@
     <span class="block">7. Click the close button</span>
     <span class="block">8. Click the preview button</span>
     <span class="block">9. Repeat from step 2</span>
-    <span class="block"
-      >10. Select your files and it should be a
-      very_super_extraordinary_lengthy_text_without_breaks</span>
+    <span class="block">
+      10. Select your files and it should be a
+      very_super_extraordinary_lengthy_text_without_breaks
+    </span>
     <span class="block">11. Click the open button</span>
     <span class="block">12. Click the play button</span>
     <span class="block">13. Enjoy your files</span>

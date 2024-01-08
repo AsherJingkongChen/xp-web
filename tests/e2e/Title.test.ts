@@ -1,10 +1,12 @@
 describe('Title', () => {
-  it('contains "XP", case sensitive', () => {
+  it('contains "XP"', () => {
     const check = (
       url: string,
       options?: Partial<Cypress.VisitOptions>,
     ) => {
-      cy.visit(url, options).title().should('match', /XP/);
+      cy.visit(url, options)
+        .title()
+        .should('contain', 'XP');
     };
     check('/');
     check('/guide/');
@@ -12,7 +14,7 @@ describe('Title', () => {
     check('/error/404/', { failOnStatusCode: false });
   });
 
-  it('contains all parts of the URL', () => {
+  it('matches all parts of the URL', () => {
     const check = (url: string) => {
       const title = cy.visit(url).title();
       let parts = url.split('/').filter(Boolean);
@@ -26,7 +28,7 @@ describe('Title', () => {
     check('/info/');
   });
 
-  it('contains keywords', () => {
+  it('matches critical keywords', () => {
     const check = (
       url: string,
       options?: Partial<Cypress.VisitOptions>,
@@ -52,7 +54,7 @@ describe('Title', () => {
     ) => {
       cy.visit(url, options)
         .title()
-        .should('not.match', /(\||\[|\]|\{|\})/d);
+        .should('not.match', /(\||\[|\]|\{|\})/);
     };
     check('/');
     check('/guide/');
