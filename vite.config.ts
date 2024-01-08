@@ -117,10 +117,10 @@ export default defineConfig(({ mode }) => {
         ],
         handle_links: 'preferred',
         id: BUILD_BASE_URL.origin,
-        name: 'XP App',
+        name: 'XP',
         orientation: 'any',
         scope: BUILD_BASE_PATH_SLASHED,
-        short_name: 'XP App',
+        short_name: 'XP',
         start_url: BUILD_BASE_PATH_SLASHED,
         theme_color: 'hsl(0, 30%, 20%)',
         icons: [

@@ -2,9 +2,3 @@
   for = "/manifest.webmanifest"
   [headers.values]
     Content-Type = "application/manifest+json; charset=utf-8"
-
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Content-Disposition = "inline; filename=\"sitemap.xml\""
