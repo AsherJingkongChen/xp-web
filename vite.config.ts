@@ -71,6 +71,18 @@ export default defineConfig(({ mode }) => {
     };
   }
   function customSvelteKitPWA(): PluginOption {
+    function* gridIterator(...arrays: any[][]) {
+      const lengths = arrays.map((arr) => arr.length);
+      const product = lengths.reduce((a, b) => a * b);
+      for (let nth = 0; nth < product; nth++) {
+        let nthValue = nth;
+        yield lengths.map((length, ath) => {
+          let selection = nthValue % length;
+          nthValue = (nthValue - selection) / length;
+          return arrays[ath][selection];
+        });
+      }
+    }
     return SvelteKitPWA({
       devOptions: {
         enabled: mode === 'development',
@@ -84,6 +96,7 @@ export default defineConfig(({ mode }) => {
         cleanupOutdatedCaches: true,
         disableDevLogs: mode === 'development',
         globIgnores: [
+          'client/assets/screenshots/**/*.png',
           'server/**/*',
           '**/*.webmanifest', // deduplication
         ],
@@ -123,48 +136,32 @@ export default defineConfig(({ mode }) => {
         short_name: 'XP',
         start_url: BUILD_BASE_PATH_SLASHED,
         theme_color: 'hsl(0, 30%, 20%)',
-        icons: [
-          {
-            src: 'assets/logo/favicon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'any',
-          },
-          {
-            src: 'assets/logo/favicon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any',
-          },
-          {
-            src: 'assets/logo/favicon-maskable-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-            purpose: 'maskable',
-          },
-          {
-            src: 'assets/logo/favicon-maskable-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable',
-          },
-        ],
-        screenshots: [
-          {
-            label: 'Home Page',
-            src: 'assets/screenshots/landscape-2560x1600.png',
-            sizes: '2560x1600',
-            type: 'image/png',
-            form_factor: 'wide',
-          },
-          {
-            label: 'Home Page',
-            src: 'assets/screenshots/portrait-1442x3203.png',
-            sizes: '1442x3203',
-            type: 'image/png',
-            form_factor: 'narrow',
-          },
-        ],
+        icons: Array.from(
+          gridIterator(
+            ['any', 'maskable'],
+            ['192x192', '512x512'],
+          ),
+        ).map(([purpose, sizes]) => ({
+          purpose,
+          src: `assets/logo/favicon-${purpose}-${sizes}.png`,
+          sizes,
+          type: 'image/png',
+        })),
+        screenshots: Array.from(
+          gridIterator(
+            ['Home'],
+            [
+              ['1442x3203', 'narrow'],
+              ['2560x1600', 'wide'],
+            ],
+          ),
+        ).map(([label, [sizes, form_factor]]) => ({
+          form_factor,
+          label,
+          src: `assets/screenshots/${label}-${sizes}.avif`,
+          sizes,
+          type: 'image/avif',
+        })),
       },
     });
   }
